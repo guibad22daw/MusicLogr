@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
+import { Buscador } from '../Buscador/Buscador';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -19,8 +20,9 @@ export const Navbar = () => {
 
     return (
         <nav className="navbar">
+            <Buscador />
             <div className='logo-container'>
-                <img src='/assets/img/logo.png' className='logo' alt='Logo'/>
+                <img src='/assets/img/logo.png' className='logo' alt='Logo' />
             </div>
             <div className='perfil-usuari'>
                 <h5 className='nom-perfil'>{perfilInfo.display_name}</h5>

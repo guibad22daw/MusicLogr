@@ -1,11 +1,12 @@
 .navbar {
     background-color: #000000;
-    height: 90px;
+    height: 85px;
     padding: 0px 70px 0px 70px;
 }
 
 .logo {
-    width: 70px;
+    width: 60px;
+    margin-left: -100px;
 }
 
 .titulo {
@@ -22,8 +23,8 @@
 }
 
 .foto-perfil {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 2px solid rgb(250, 250, 250);
 }
@@ -31,5 +32,5 @@
 .nom-perfil {
     margin: 0;
     color: rgb(250, 250, 250);
-    font-size: 20px;
+    font-size: 17px;
 }

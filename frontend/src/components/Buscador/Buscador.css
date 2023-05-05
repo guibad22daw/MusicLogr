@@ -1,0 +1,30 @@
+.buscador {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(58, 58, 58);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.lupa {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.buscador-input {
+    min-width: 200px;
+    outline-style: none;
+    color: rgb(240, 240, 240);
+    background-color: transparent;
+    border: none;
+}
+
+.buscador:hover {
+    background-color: rgb(72, 72, 72);
+    transition: 0.3s;
+}
