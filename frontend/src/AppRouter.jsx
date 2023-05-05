@@ -8,11 +8,10 @@ import { Navbar } from './components/Navbar/Navbar';
 function AppRouter() {
     return (
       <Router>
-        <Navbar />
         <Routes>
           <Route exact path='/' element={<Login/>}/>
-          <Route exact path='/home' element={<Home/>}/>
           <Route exact path='/postLogin' element={<PostLogin/>}/>
+          <Route exact path='/home' element={<><Navbar /><Home/></>}/>
           <Route path='/'>
           </Route>
         </Routes>
