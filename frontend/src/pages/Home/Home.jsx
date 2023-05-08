@@ -23,9 +23,9 @@ export const Home = () => {
 
   return (
     loading ? <h1>Loading...</h1> : (
-      <div className='container'>
+      <div className='homeContainer'>
         <div className='top-songs'>
-          <h1 className='titol'>Top Songs</h1>
+          <h2 className='titol'>Cançons més escoltades últimament</h2>
           <div className='songs-container'>
             {
               topSongs.map((song, index) => {
