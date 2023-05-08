@@ -26,7 +26,7 @@ export const Navbar = () => {
             </div>
             <div className='perfil-usuari'>
                 <h5 className='nom-perfil'>{perfilInfo.display_name}</h5>
-                <img className='foto-perfil' src={perfilInfo.images ? perfilInfo.images[0].url : ''} alt='Foto de perfil' />
+                <img className='foto-perfil' src={perfilInfo.images != undefined ? perfilInfo.images[0].url : '/assets/img/logo.png'} alt='Foto de perfil' />
             </div>
         </nav>
     );
