@@ -7,6 +7,7 @@ export const Navbar = () => {
     const location = useLocation();
     const [accesToken, setAccesToken] = useState(localStorage.getItem('access_token'));
     const [perfilInfo, setPerfilInfo] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchProfile(accesToken) {
@@ -14,6 +15,7 @@ export const Navbar = () => {
                 method: "GET", headers: { Authorization: `Bearer ${accesToken}` }
             });
             setPerfilInfo(await result.json());
+            setLoading(false);
         }
         fetchProfile(accesToken);
     }, [accesToken]);
@@ -24,9 +26,16 @@ export const Navbar = () => {
             <div className='logo-container'>
                 <img src='/assets/img/logo.png' className='logo' alt='Logo' />
             </div>
+
             <div className='perfil-usuari'>
-                <h5 className='nom-perfil'>{perfilInfo.display_name}</h5>
-                <img className='foto-perfil' src={perfilInfo.images != undefined ? perfilInfo.images[0].url : '/assets/img/logo.png'} alt='Foto de perfil' />
+                {
+                    !loading ? (
+                        <>
+                            <h5 className='nom-perfil'>{perfilInfo.display_name}</h5>
+                            <img className='foto-perfil' src={perfilInfo.images[0] ? perfilInfo.images[0].url : '/assets/img/userAlt.png'} alt='Foto de perfil' />
+                        </>
+                    ) : ""
+                }
             </div>
         </nav>
     );
