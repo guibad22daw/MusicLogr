@@ -31,10 +31,12 @@ export const Home = () => {
               topSongs.map((song, index) => {
                 return (
                   <div className='song' key={index}>
-                    <img className='song-img' src={song.album.images[0].url} alt='Song' />
-                    <div className='song-info'>
-                      <h3 className='song-name'>{song.name}</h3>
-                      <h4 className='song-artist'>{song.artists[0].name}</h4>
+                    <div className='song-details'>
+                      <img className='song-img' src={song.album.images[0].url} alt='Song' />
+                      <div className='song-info'>
+                        <h3 className='song-name'>{song.name}</h3>
+                        <h4 className='song-artist'>{song.artists[0].name}</h4>
+                      </div>
                     </div>
                   </div>
                 )
