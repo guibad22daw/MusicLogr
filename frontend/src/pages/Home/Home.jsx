@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../services/useAuth';
 import './Home.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
+import { Separador } from '../../components/Separador';
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [perfilInfo, setPerfilInfo] = useState(localStorage.getItem('perfilInfo'));
   const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
   const [topUserSongs, setTopUserSongs] = useState([]);
   const [recommendedSongs, setRecommendedSongs] = useState([]);
@@ -35,7 +37,9 @@ export const Home = () => {
       {
         loading ? <h1>Loading...</h1> : (
           <>
+            <Separador/>
             <LlistaCancons dades={topUserSongs} titol="Cançons més escoltades" />
+            <Separador/>
             <LlistaCancons dades={recommendedSongs} titol="Cançons recomanades" />
           </>
         )

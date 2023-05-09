@@ -1,5 +1,5 @@
 h2{
-    text-align: center;
+    margin: 0;
 }
 
 .top-songs {
@@ -12,7 +12,7 @@ h2{
 }
 
 .titol {
-    padding-top: 33px;
+    margin-left: -665px;
 }
 
 .songs-container {

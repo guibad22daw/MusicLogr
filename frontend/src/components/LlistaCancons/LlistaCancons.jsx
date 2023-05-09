@@ -5,7 +5,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export const LlistaCancons = (props) => {
     return (
         <div className='top-songs'>
-            <h2 className='titol'>{props.titol}</h2>
+            <div className='top-songs-header'>
+                <h2 className='titol'>{props.titol}</h2>
+            </div>
             <div className='songs-container'>
                 {
                     props.dades.map((song, index) => {
