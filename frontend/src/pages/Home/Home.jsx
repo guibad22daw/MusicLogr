@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../services/useAuth';
 import './Home.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [perfilInfo, setPerfilInfo] = useState(localStorage.getItem('perfilInfo'));
+  const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
   const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
   const [topUserSongs, setTopUserSongs] = useState([]);
   const [recommendedSongs, setRecommendedSongs] = useState([]);
@@ -37,10 +36,15 @@ export const Home = () => {
       {
         loading ? <h1>Loading...</h1> : (
           <>
-            <Separador/>
+            <Separador />
+            <div className='titolHome'>
+              <h1>Benvingut, {perfilInfo.display_name}</h1>
+            </div>
+            <Separador />
             <LlistaCancons dades={topUserSongs} titol="Cançons més escoltades" />
-            <Separador/>
+            <Separador />
             <LlistaCancons dades={recommendedSongs} titol="Cançons recomanades" />
+            <Separador />
           </>
         )
       }

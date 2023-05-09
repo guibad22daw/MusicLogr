@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@uiball/loaders": "^1.2.6"
+    "@uiball/loaders": "^1.2.6",
+    "react-cookie": "^4.1.1"
   }
 }
