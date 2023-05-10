@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-const useAuth = code => {
+const useAuth = () => {
+    const code = new URLSearchParams(window.location.search).get('code');
     const [accessToken, setAccessToken] = useState();
     const [refreshToken, setRefreshToken] = useState();
     const [expiresIn, setExpiresIn] = useState();
