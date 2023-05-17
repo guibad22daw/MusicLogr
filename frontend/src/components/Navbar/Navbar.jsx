@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Buscador } from '../Buscador/Buscador';
 import './Navbar.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     return (
         <nav className="navbar">
             <Buscador />
             <div className='logo-container'>
-                <img src='/assets/img/logo.png' className='logo' alt='Logo' />
+                <img src='/assets/img/logo.png' className='logo' alt='Logo' onClick={() => navigate('/home')}/>
             </div>
 
             <div className='perfil-usuari'>

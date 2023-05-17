@@ -9,6 +9,10 @@
     margin-left: -100px;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .titulo {
     color: white;
     font-size: 70px;
