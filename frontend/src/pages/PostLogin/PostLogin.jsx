@@ -5,6 +5,8 @@ export const PostLogin = () => {
   const access_token = useAuth();
   const [perfilInfo, setPerfilInfo] = useState([]);
 
+
+
   useEffect(() => {
     async function fetchProfile(access_token) {
       const result = await fetch("https://api.spotify.com/v1/me", {
@@ -13,6 +15,19 @@ export const PostLogin = () => {
       const data = await result.json();
       setPerfilInfo(data);
       localStorage.setItem('perfil_info', JSON.stringify(data));
+
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/saveUser`, {
+        method: "POST",
+        body: JSON.stringify(data.email),
+        headers: { "Content-Type": "application/json" },
+      }).then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong");
+        }
+      })
+
       window.location.href = "/home";
     }
     if (access_token !== undefined) {

@@ -3,6 +3,7 @@ import cors from "cors"
 //import lyricsFinder from "lyrics-finder"
 import SpotifyWebApi from "spotify-web-api-node"
 import dotenv from "dotenv"
+import * as bd from "./bd.js";
 
 const app = express()
 dotenv.config()
@@ -51,6 +52,10 @@ app.post("/refresh", async (req, res) => {
     console.log(err)
     res.sendStatus(400)
   }
+})
+
+app.post("/saveUser", async (req, res) => {
+  bd.desaUsuariBD(req, res);
 })
 
 // app.get("/lyrics", async (req, res) => {

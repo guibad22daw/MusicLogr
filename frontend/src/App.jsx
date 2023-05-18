@@ -1,10 +1,8 @@
 import AppRouter from "./AppRouter";
 
-function App(){
+function App() {
   return (
-    <div>
-      <AppRouter/>
-    </div>
+    <AppRouter />
   );
 }
 
