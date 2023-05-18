@@ -17,8 +17,10 @@ const userSchema = new mongoose.Schema(
 const Usuari = mongoose.model("usuaris", userSchema);
 
 export const desaUsuariBD = async function (req, res) {
-    const email = await req.body.email;
-    const nouUsuari = new Usuari({email});
+    const data = await req.body;
+    const email = await data.email;
+    
+    const nouUsuari = new Usuari({ email });
 
     const existeix = await Usuari.exists({ email: email });
     if (existeix) {
@@ -33,7 +35,7 @@ export const desaUsuariBD = async function (req, res) {
             console.log(err);
             res.sendStatus(500);
         }
-    }s
+    }
 };
 
 // export const obtenirDadesBD = async function (req, res, next) {

@@ -18,11 +18,11 @@ export const PostLogin = () => {
 
       fetch(`${import.meta.env.VITE_BACKEND_URL}/saveUser`, {
         method: "POST",
-        body: JSON.stringify(data.email),
+        body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         if (response.ok) {
-          return response.json();
+          console.log("hola");
         } else {
           throw new Error("Something went wrong");
         }
