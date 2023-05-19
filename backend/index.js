@@ -58,6 +58,10 @@ app.post("/saveUser", async (req, res) => {
   bd.desaUsuariBD(req, res);
 })
 
+app.post("/savePendents", async (req, res) => {
+  bd.desaPendentsBD(req, res);
+})
+
 // app.get("/lyrics", async (req, res) => {
 //   const { artist, track } = req.query
 //   const lyrics = (await lyricsFinder(artist, track)) || "No Lyrics Found"

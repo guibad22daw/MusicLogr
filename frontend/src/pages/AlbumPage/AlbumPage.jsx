@@ -20,10 +20,24 @@ export const AlbumPage = () => {
         setLoading(false);
     };
 
+    const botoHandler = (e) => {
+        console.log(e.target.value);
+        fetch(`${import.meta.env.VITE_BACKEND_URL}${e.target.value}`, {
+            method: "POST",
+            body: JSON.stringify(album),
+            headers: { "Content-Type": "application/json" },
+        }).then((response) => {
+            if (response.ok) {
+                console.log("hola");
+            } else {
+                throw new Error("Something went wrong");
+            }
+        })
+    }
+
     useEffect(() => {
         fetchSong(albumId.id);
     }, [accessToken]);
-
 
     return (
         <div className='songPage'>
@@ -48,10 +62,10 @@ export const AlbumPage = () => {
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger">Favorits</button>
-                                    <button className="btn btn-primary">Escoltar després</button>
-                                    <button className="btn btn-primary">Escoltats</button>
-                                    <button className="btn btn-primary">En propietat</button>
+                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="/saveFavorits">Favorits</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/savePendents">Escoltar després</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/saveEscoltats">Escoltats</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/saveEnPropietat">En propietat</button>
                                 </div>
                                 <Separador />
                                 <div className="songPlayer">

@@ -5,8 +5,6 @@ export const PostLoginPage = () => {
   const access_token = useAuth();
   const [perfilInfo, setPerfilInfo] = useState([]);
 
-
-
   useEffect(() => {
     async function fetchProfile(access_token) {
       const result = await fetch("https://api.spotify.com/v1/me", {

@@ -38,6 +38,29 @@ export const desaUsuariBD = async function (req, res) {
     }
 };
 
+export const desaPendentsBD = async function (req, res) {
+    const data = await req.body;
+    console.log('data', data);
+    // const email = await data.email;
+    
+    // const nouUsuari = new Usuari({ email });
+
+    // const existeix = await Usuari.exists({ email: email });
+    // if (existeix) {
+    //     console.log("Usuari ja existeix.");
+    //     res.sendStatus(200);
+    // } else {
+    //     try {
+    //         await nouUsuari.save()
+    //         console.log(`Usuari afegit correctament`);
+    //         res.sendStatus(200);
+    //     } catch (err) {
+    //         console.log(err);
+    //         res.sendStatus(500);
+    //     }
+    // }
+};
+
 // export const obtenirDadesBD = async function (req, res, next) {
 //     const all = await Event.find({});
 //     if (all) {
