@@ -19,7 +19,7 @@ const Usuari = mongoose.model("usuaris", userSchema);
 export const desaUsuariBD = async function (req, res) {
     const data = await req.body;
     const email = await data.email;
-    
+
     const nouUsuari = new Usuari({ email });
 
     const existeix = await Usuari.exists({ email: email });
@@ -41,24 +41,24 @@ export const desaUsuariBD = async function (req, res) {
 export const desaPendentsBD = async function (req, res) {
     const data = await req.body;
     console.log('data', data);
-    // const email = await data.email;
-    
-    // const nouUsuari = new Usuari({ email });
 
-    // const existeix = await Usuari.exists({ email: email });
-    // if (existeix) {
-    //     console.log("Usuari ja existeix.");
-    //     res.sendStatus(200);
-    // } else {
-    //     try {
-    //         await nouUsuari.save()
-    //         console.log(`Usuari afegit correctament`);
-    //         res.sendStatus(200);
-    //     } catch (err) {
-    //         console.log(err);
-    //         res.sendStatus(500);
-    //     }
-    // }
+    const usuari = await Usuari.findOne({ email: data.email });
+    const existeixAlbum = usuari.pendents.findIndex((pendent) => pendent.albumId === data.albumId);
+    
+    if(existeixAlbum !== -1) {
+        console.log("Album ja existeix.");
+        res.sendStatus(200);
+        return;
+    }
+    
+    usuari.pendents.push({ albumId: data.albumId, albumName: data.albumName });
+    try {
+        await usuari.save()
+        res.sendStatus(200);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
 };
 
 // export const obtenirDadesBD = async function (req, res, next) {

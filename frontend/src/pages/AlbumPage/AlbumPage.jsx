@@ -7,6 +7,7 @@ export const AlbumPage = () => {
     const albumId = useParams();
     const [album, setAlbum] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
+    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading, setLoading] = useState(true);
 
     const fetchSong = async (albumId) => {
@@ -21,10 +22,15 @@ export const AlbumPage = () => {
     };
 
     const botoHandler = (e) => {
+        const info = {
+            email: perfilInfo.email,
+            albumId: album.id,
+            albumName: album.name,
+        }
         console.log(e.target.value);
         fetch(`${import.meta.env.VITE_BACKEND_URL}${e.target.value}`, {
             method: "POST",
-            body: JSON.stringify(album),
+            body: JSON.stringify(info),
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
             if (response.ok) {
