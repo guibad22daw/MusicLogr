@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Home.css';
+import './HomePage.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
 
-export const Home = () => {
+export const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
   const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));

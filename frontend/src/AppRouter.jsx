@@ -1,19 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import Login from './pages/Login/Login';
-import {PostLogin } from './pages/PostLogin/PostLogin';
-import { Home } from './pages/Home/Home';
 import { Navbar } from './components/Navbar/Navbar';
-import { Song } from './pages/Song/Song';
+import { PostLoginPage } from './pages/PostLoginPage/PostLoginPage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { AlbumPage } from './pages/AlbumPage/AlbumPage';
 
 function AppRouter() {
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Login/>}/>
-          <Route exact path='/postLogin' element={<PostLogin/>}/>
-          <Route exact path='/home' element={<><Navbar /><Home/></>}/>
-          <Route exact path='/song/:id' element={<><Navbar /><Song/></>}/>
+          <Route exact path='/' element={<PostLoginPage/>}/>
+          <Route exact path='/postLogin' element={<PostLoginPage/>}/>
+          <Route exact path='/home' element={<><Navbar /><HomePage/></>}/>
+          <Route exact path='/album/:id' element={<><Navbar /><AlbumPage/></>}/>
           <Route path='/'>
           </Route>
         </Routes>

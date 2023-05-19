@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useAuth from '../../services/useAuth';
 
-export const PostLogin = () => {
+export const PostLoginPage = () => {
   const access_token = useAuth();
   const [perfilInfo, setPerfilInfo] = useState([]);
 
