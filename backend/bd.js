@@ -38,20 +38,56 @@ export const desaUsuariBD = async function (req, res) {
     }
 };
 
-export const desaPendentsBD = async function (req, res) {
+export const desaAlbumDB = async function (req, res) {
     const data = await req.body;
     console.log('data', data);
-
+    let existeix;
     const usuari = await Usuari.findOne({ email: data.email });
-    const existeixAlbum = usuari.pendents.findIndex((pendent) => pendent.albumId === data.albumId);
-    
-    if(existeixAlbum !== -1) {
-        console.log("Album ja existeix.");
-        res.sendStatus(200);
-        return;
+    let array = [];
+
+    switch (data.tipus) {
+        case 'pendents':
+            existeix = existeixAlbum(usuari.pendents, data);
+            if (!existeix) {
+                array = usuari.pendents;
+            } else {
+                res.sendStatus(200);
+                return;
+            }
+            break;
+
+        case 'favorits':
+            existeix = existeixAlbum(usuari.favorits, data);
+            if (!existeix) {
+                array = usuari.favorits;
+            } else {
+                res.sendStatus(200);
+                return;
+            }
+            break;
+
+        case 'escoltats':
+            existeix = existeixAlbum(usuari.escoltats, data);
+            if (!existeix) {
+                array = usuari.escoltats;
+            } else {
+                res.sendStatus(200);
+                return;
+            }
+            break;
+
+        case 'enPropietat':
+            existeix = existeixAlbum(usuari.enPropietat, data);
+            if (!existeix) {
+                array = usuari.enPropietat;
+            } else {
+                res.sendStatus(200);
+                return;
+            }
+            break;
     }
-    
-    usuari.pendents.push({ albumId: data.albumId, albumName: data.albumName });
+
+    array.push({ albumId: data.albumId, albumName: data.albumName });
     try {
         await usuari.save()
         res.sendStatus(200);
@@ -61,38 +97,12 @@ export const desaPendentsBD = async function (req, res) {
     }
 };
 
-// export const obtenirDadesBD = async function (req, res, next) {
-//     const all = await Event.find({});
-//     if (all) {
-//         res.send(JSON.stringify(all));
-//     } else {
-//         console.log("Error");
-//     }
-// };
-
-// export const desaEsdevenimentBD = async function (req, res, next) {
-//     const event = await req.body;
-//     console.log(event);
-//     const nouEsdeveniment = new Event(event);
-
-//     try {
-//         await nouEsdeveniment.save()
-//         console.log(`Esdeveniment afegit correctament`);
-//         res.sendStatus(200);
-//     } catch (err) {
-//         console.log(err);
-//         res.sendStatus(500);
-//     }
-// };
-
-// export const esborraEsdevenimentBD = async function (req, res, next) {
-//     const event = await req.body;
-//     try {
-//         await Event.deleteOne({ _id: event._id });
-//         console.log(`Esdeveniment amb id ${event._id} eliminat.`);
-//         res.sendStatus(200);
-//     } catch (err) {
-//         console.log(err);
-//         res.sendStatus(500);
-//     }
-// };
+function existeixAlbum(array, data) {
+    const existeix = array.findIndex((pendent) => pendent.albumId === data.albumId);
+    if (existeix !== -1) {
+        console.log("Album ja existeix.");
+        return true;
+    } else {
+        return false;
+    }
+}

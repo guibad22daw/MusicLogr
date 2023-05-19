@@ -16,7 +16,6 @@ export const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
-        console.log('data', data)
         setAlbum(data);
         setLoading(false);
     };
@@ -26,15 +25,15 @@ export const AlbumPage = () => {
             email: perfilInfo.email,
             albumId: album.id,
             albumName: album.name,
+            tipus: e.target.value
         }
-        console.log(e.target.value);
-        fetch(`${import.meta.env.VITE_BACKEND_URL}${e.target.value}`, {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/saveAlbum`, {
             method: "POST",
             body: JSON.stringify(info),
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
             if (response.ok) {
-                console.log("hola");
+                console.log("Dades desades correctament");
             } else {
                 throw new Error("Something went wrong");
             }
@@ -68,10 +67,10 @@ export const AlbumPage = () => {
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="/saveFavorits">Favorits</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/savePendents">Escoltar després</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/saveEscoltats">Escoltats</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="/saveEnPropietat">En propietat</button>
+                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">Favorits</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">Escoltar després</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">Escoltats</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">En propietat</button>
                                 </div>
                                 <Separador />
                                 <div className="songPlayer">

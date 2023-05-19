@@ -58,8 +58,8 @@ app.post("/saveUser", async (req, res) => {
   bd.desaUsuariBD(req, res);
 })
 
-app.post("/savePendents", async (req, res) => {
-  bd.desaPendentsBD(req, res);
+app.post("/saveAlbum", async (req, res) => {
+  bd.desaAlbumDB(req, res);
 })
 
 // app.get("/lyrics", async (req, res) => {
