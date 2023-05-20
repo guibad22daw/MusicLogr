@@ -43,51 +43,50 @@ export const desaAlbumDB = async function (req, res) {
     console.log('data', data);
     let existeix;
     const usuari = await Usuari.findOne({ email: data.email });
-    let array = [];
 
     switch (data.tipus) {
         case 'pendents':
             existeix = existeixAlbum(usuari.pendents, data);
-            if (!existeix) {
-                array = usuari.pendents;
+            if (existeix !== -1) {
+                usuari.pendents.splice(existeix, 1);
             } else {
-                res.sendStatus(200);
-                return;
+                usuari.pendents.push({ albumId: data.albumId, albumName: data.albumName });
             }
             break;
 
         case 'favorits':
             existeix = existeixAlbum(usuari.favorits, data);
-            if (!existeix) {
-                array = usuari.favorits;
+            if (existeix !== -1) {
+                console.log('existeix', existeix);
+                usuari.favorits.splice(existeix, 1);
+                console.log('usuari.favorits', usuari.favorits);
             } else {
-                res.sendStatus(200);
-                return;
+                usuari.favorits.push({ albumId: data.albumId, albumName: data.albumName });
             }
             break;
 
         case 'escoltats':
             existeix = existeixAlbum(usuari.escoltats, data);
-            if (!existeix) {
-                array = usuari.escoltats;
+            if (existeix !== -1) {
+                usuari.escoltats.splice(existeix, 1);
             } else {
-                res.sendStatus(200);
-                return;
+                usuari.escoltats.push({ albumId: data.albumId, albumName: data.albumName });
             }
             break;
 
         case 'enPropietat':
             existeix = existeixAlbum(usuari.enPropietat, data);
-            if (!existeix) {
-                array = usuari.enPropietat;
+            if (existeix !== -1) {
+                usuari.enPropietat.splice(existeix, 1);
             } else {
-                res.sendStatus(200);
-                return;
+                usuari.enPropietat.push({ albumId: data.albumId, albumName: data.albumName });
             }
             break;
-    }
 
-    array.push({ albumId: data.albumId, albumName: data.albumName });
+        default:
+            break;
+    }
+ 
     try {
         await usuari.save()
         res.sendStatus(200);
@@ -98,11 +97,5 @@ export const desaAlbumDB = async function (req, res) {
 };
 
 function existeixAlbum(array, data) {
-    const existeix = array.findIndex((pendent) => pendent.albumId === data.albumId);
-    if (existeix !== -1) {
-        console.log("Album ja existeix.");
-        return true;
-    } else {
-        return false;
-    }
+    return array.findIndex((album) => album.albumId === data.albumId);
 }
