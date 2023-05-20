@@ -22,7 +22,7 @@ export const LlistaCancons = (props) => {
                                     <div className='song-details' onClick={() => navigate(`/album/${song.album.id}`)}>
                                         <LazyLoadImage src={song.album.images[0].url} className='song-img' alt="Song" effect="blur"/>
                                         <div className='song-info'>
-                                            <h3 className='song-name'>{song.album.name}</h3>
+                                            <h3 className='song-name'>{song.name}</h3>
                                             <h4 className='song-artist'>{song.artists[0].name}</h4>
                                         </div>
                                     </div>
