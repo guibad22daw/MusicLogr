@@ -6,21 +6,22 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { AlbumPage } from './pages/AlbumPage/AlbumPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import { BuscarPage } from './pages/BuscarPage/BuscarPage';
+import PrivateRoutes from './utils/PrivateRoutes';
 
 function AppRouter() {
-    return (
-      <Router>
-        <Routes>
-          <Route exact path='/' element={<LoginPage/>}/>
-          <Route exact path='/postLogin' element={<PostLoginPage/>}/>
-          <Route exact path='/home' element={<><Navbar /><HomePage/></>}/>
-          <Route exact path='/album/:id' element={<><Navbar /><AlbumPage/></>}/>
-          <Route exact path='/buscar/:album' element={<><Navbar /><BuscarPage/></>}/>
-          <Route path='/'>
-          </Route>
-        </Routes>
-      </Router>
-    );
-  }
-  
-  export default AppRouter;
+  return (
+    <Router>
+      <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
+          <Route exact path='/album/:id' element={<><Navbar /><AlbumPage /></>} />
+          <Route exact path='/buscar/:album' element={<><Navbar /><BuscarPage /></>} />
+        </Route>
+        <Route exact path='/' element={<LoginPage />} />
+        <Route exact path='/postLogin' element={<PostLoginPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default AppRouter;
