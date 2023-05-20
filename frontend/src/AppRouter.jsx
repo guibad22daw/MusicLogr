@@ -5,6 +5,7 @@ import { PostLoginPage } from './pages/PostLoginPage/PostLoginPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { AlbumPage } from './pages/AlbumPage/AlbumPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
+import { BuscarPage } from './pages/BuscarPage/BuscarPage';
 
 function AppRouter() {
     return (
@@ -14,6 +15,7 @@ function AppRouter() {
           <Route exact path='/postLogin' element={<PostLoginPage/>}/>
           <Route exact path='/home' element={<><Navbar /><HomePage/></>}/>
           <Route exact path='/album/:id' element={<><Navbar /><AlbumPage/></>}/>
+          <Route exact path='/buscar/:album' element={<><Navbar /><BuscarPage/></>}/>
           <Route path='/'>
           </Route>
         </Routes>

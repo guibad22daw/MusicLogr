@@ -1,12 +1,12 @@
-.buscador {
-    display: flex;
+.wrapper {
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 10px;
-    background-color: rgb(58, 58, 58);
-    border-radius: 20px;
+    background-color: rgb(45, 45, 45);
+    border-radius: 20px; */
     transition: 0.3s;
 }
 
@@ -24,7 +24,14 @@
     border: none;
 }
 
-.buscador:hover {
-    background-color: rgb(72, 72, 72);
-    transition: 0.3s;
-}
+ .clear-icon {
+    margin-top: -3px!important;
+ }
+
+ .clear-icon:hover svg {
+    fill: rgb(224, 224, 224)!important;
+ }
+
+ .wrapper:first-child svg{
+    display: block!important;
+ }

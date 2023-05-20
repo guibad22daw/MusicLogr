@@ -6,6 +6,7 @@ import { Separador } from '../../components/Separador';
 export const AlbumPage = () => {
     const albumId = useParams();
     const [album, setAlbum] = useState([]);
+    const [userAlbums, setUserAlbums] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading1, setLoading1] = useState(true);
@@ -31,6 +32,7 @@ export const AlbumPage = () => {
             headers: { 'x-email': perfilInfo.email }
         });
         const data = await result.json();
+        setUserAlbums(data);
         Object.entries(data).forEach(([propietat, valor]) => {
             valor.forEach(element => {
                 if (propietat === "favorits") {
@@ -74,7 +76,7 @@ export const AlbumPage = () => {
     useEffect(() => {
         fetchAlbum();
         fetchUserAlbums();
-    }, [accessToken, perfilInfo]);
+    }, [accessToken, albumId]);
 
     return (
         <div className='songPage'>
