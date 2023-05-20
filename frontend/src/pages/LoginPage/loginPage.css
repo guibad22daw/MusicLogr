@@ -1,0 +1,23 @@
+.login-page {
+    background-color: #303030;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: #1ed760;
+    border-radius: 57px;
+    text-align: center;
+    width: 328px;
+    height: 53px;
+}
+
+.login-link {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 33px;
+    text-decoration: none;
+}
