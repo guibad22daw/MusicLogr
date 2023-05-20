@@ -62,6 +62,10 @@ app.post("/saveAlbum", async (req, res) => {
   bd.desaAlbumDB(req, res);
 })
 
+app.get("/getUserAlbums", async (req, res) => {
+  bd.obtenirAlbumsBD(req, res);
+})
+
 // app.get("/lyrics", async (req, res) => {
 //   const { artist, track } = req.query
 //   const lyrics = (await lyricsFinder(artist, track)) || "No Lyrics Found"

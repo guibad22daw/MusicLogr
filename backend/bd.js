@@ -43,6 +43,11 @@ export const desaAlbumDB = async function (req, res) {
     console.log('data', data);
     let existeix;
     const usuari = await Usuari.findOne({ email: data.email });
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
 
     switch (data.tipus) {
         case 'pendents':
@@ -86,7 +91,7 @@ export const desaAlbumDB = async function (req, res) {
         default:
             break;
     }
- 
+
     try {
         await usuari.save()
         res.sendStatus(200);
@@ -94,6 +99,27 @@ export const desaAlbumDB = async function (req, res) {
         console.log(err);
         res.sendStatus(500);
     }
+};
+
+export const obtenirAlbumsBD = async function (req, res) {
+    const email = req.headers['x-email'];
+    console.log('email', email);
+
+    const usuari = await Usuari.findOne({ email: email });
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
+
+    const userAlbums = {
+        favorits: usuari.favorits,
+        pendents: usuari.pendents,
+        escoltats: usuari.escoltats,
+        enPropietat: usuari.enPropietat,
+    };
+
+    res.json(userAlbums);
 };
 
 function existeixAlbum(array, data) {

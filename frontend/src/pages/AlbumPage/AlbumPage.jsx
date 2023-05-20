@@ -8,16 +8,43 @@ export const AlbumPage = () => {
     const [album, setAlbum] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
-    const [loading, setLoading] = useState(true);
+    const [loading1, setLoading1] = useState(true);
+    const [loading2, setLoading2] = useState(true);
+    const [favorits, setFavorits] = useState(false);
+    const [pendents, setPendents] = useState(false);
+    const [escoltats, setEscoltats] = useState(false);
+    const [enPropietat, setEnPropietat] = useState(false);
 
-    const fetchSong = async (albumId) => {
-        const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
+    const fetchAlbum = async () => {
+        const result = await fetch(`https://api.spotify.com/v1/albums/${albumId.id}`, {
             method: "GET",
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
         setAlbum(data);
-        setLoading(false);
+        setLoading1(false);
+    };
+
+    const fetchUserAlbums = async () => {
+        const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getUserAlbums`, {
+            method: "GET",
+            headers: { 'x-email': perfilInfo.email }
+        });
+        const data = await result.json();
+        Object.entries(data).forEach(([propietat, valor]) => {
+            valor.forEach(element => {
+                if (propietat === "favorits") {
+                    if (element.albumId === albumId.id) setFavorits(true);
+                } else if (propietat === "pendents") {
+                    if (element.albumId === albumId.id) setPendents(true);
+                } else if (propietat === "escoltats") {
+                    if (element.albumId === albumId.id) setEscoltats(true);
+                } else if (propietat === "enPropietat") {
+                    if (element.albumId === albumId.id) setEnPropietat(true);
+                }
+            });
+        });
+        setLoading2(false);
     };
 
     const botoHandler = (e) => {
@@ -33,6 +60,10 @@ export const AlbumPage = () => {
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
             if (response.ok) {
+                if (e.target.value === "favorits") setFavorits(!favorits)
+                else if (e.target.value === "pendents") setPendents(!pendents)
+                else if (e.target.value === "escoltats") setEscoltats(!escoltats)
+                else if (e.target.value === "enPropietat") setEnPropietat(!enPropietat)
                 console.log("Dades desades correctament");
             } else {
                 throw new Error("Something went wrong");
@@ -41,14 +72,15 @@ export const AlbumPage = () => {
     }
 
     useEffect(() => {
-        fetchSong(albumId.id);
-    }, [accessToken]);
+        fetchAlbum();
+        fetchUserAlbums();
+    }, [accessToken, perfilInfo]);
 
     return (
         <div className='songPage'>
             <div className="container-xxl songContainer">
                 {
-                    loading ? <h1>Loading...</h1> : (
+                    loading1 || loading2 ? <h1>Loading...</h1> : (
                         <>
                             <div className='header'>
                                 <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")` }}></div>
@@ -67,10 +99,10 @@ export const AlbumPage = () => {
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">Favorits</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">Escoltar després</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">Escoltats</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">En propietat</button>
+                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">{favorits ? "Treure de favorits" : "Afegir a favorits"}</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">{escoltats ? "Treure d'escoltats" : "Afegir a escoltats"}</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">{enPropietat ? "Treure de en propietat" : "Afegir a en propietat"}</button>
                                 </div>
                                 <Separador />
                                 <div className="songPlayer">
