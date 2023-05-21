@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './PerfilPageHeader.css'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const PerfilPageHeader = (props) => {
     const { userAlbums } = props;
@@ -39,53 +39,20 @@ export const PerfilPageHeader = (props) => {
                     </div>
                 </div>
                 <div className='menu-links'>
-                    <div className="link" onClick={() => navigate('/perfil/escoltats')}>
+                    <NavLink to='/perfil/escoltats' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>Escoltats</h5>
-                    </div>
-                    <div className="link" onClick={() => navigate('/perfil/favorits')}>
+                    </NavLink>
+                    <NavLink to='/perfil/favorits' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>Favorits</h5>
-                    </div>
-                    <div className="link" onClick={() => navigate('/perfil/pendents')}>
+                    </NavLink>
+                    <NavLink to='/perfil/pendents' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>Pendents</h5>
-                    </div>
-                    <div className="link" onClick={() => navigate('/perfil/enpropietat')}>
+                    </NavLink>
+                    <NavLink to='/perfil/enpropietat' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>En propietat</h5>
-                    </div>
+                    </NavLink>
                 </div>
             </div>
         </div>
     )
-    /* {
-loading1 || loading2 ? <h1>Loading...</h1> : (
-    <>
-        <div className='header'>
-            <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")` }}></div>
-            <div className="bg-header-overlay"></div>
-        </div>
-        <div className="content">
-            <div className="songImageandInfo">
-                <div className="songImage">
-                    <img src={album.images[0].url} alt="Song image" />
-                </div>
-                <div className="songInfo">
-                    <h1>{album.name}</h1>
-                    <h2>{album.artists[0].name}</h2>
-                    <h4>{album.release_date}</h4>
-                </div>
-            </div>
-            <Separador />
-            <div className='botons-funcions'>
-                <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">{favorits ? "Treure de favorits" : "Afegir a favorits"}</button>
-                <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
-                <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">{escoltats ? "Treure d'escoltats" : "Afegir a escoltats"}</button>
-                <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">{enPropietat ? "Treure de en propietat" : "Afegir a en propietat"}</button>
-            </div>
-            <Separador />
-            <div className="songPlayer">
-                <iframe src={`https://open.spotify.com/embed/album/${albumId.id}`} width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </div>
-        </div>
-    </>
-)
-} */
 }
