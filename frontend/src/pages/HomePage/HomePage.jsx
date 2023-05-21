@@ -36,7 +36,7 @@ export const HomePage = () => {
       {
         loading ? <h1>Loading...</h1> : (
           <>
-            <Separador />
+            <Separador height="15px"/>
             <div className='titolHome'>
               <h1>Benvingut, {perfilInfo.display_name}</h1>
             </div>

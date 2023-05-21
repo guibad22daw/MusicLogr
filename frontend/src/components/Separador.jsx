@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Separador = () => {
+export const Separador = (props) => {
   return (
-    <div style={{height: "40px", width: "100%"}}>
+    <div style={{height: props.height || "40px", width: "100%"}}>
     </div>
   )
 }
