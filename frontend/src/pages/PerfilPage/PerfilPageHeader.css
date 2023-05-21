@@ -22,7 +22,7 @@ h5 {
     padding: 0;
 }
 
-.header {
+.header-perfil {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,18 +40,18 @@ h5 {
     padding-left: 30px;
 }
 
-.header .perfilImage-img {
+.header-perfil .perfilImage-img {
     width: 170px;
     border-radius: 50%;
 }
 
-.header .user-stats {
+.header-perfil .user-stats {
     display: flex;
     flex-direction: row;
     padding-right: 30px;
 }
 
-.header .user-stats div {
+.header-perfil .user-stats div {
     display: flex;
     flex-direction: column;
     align-items: center;

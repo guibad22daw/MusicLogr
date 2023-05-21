@@ -87,7 +87,7 @@ export const AlbumPage = () => {
                     loading1 || loading2 ? <h1>Loading...</h1> : (
                         <>
                             <div className='header'>
-                            <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")`, height: '240px' }}></div>
+                            <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")`}}></div>
                                 <div className="bg-header-overlay"></div>
                             </div>
                             <div className="content">

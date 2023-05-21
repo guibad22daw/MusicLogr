@@ -10,7 +10,7 @@ export const PerfilPageHeader = (props) => {
     return (
         <div className='perfilPage'>
             <div className="container-xxl perfilContainer">
-                <div className="header">
+                <div className="header-perfil">
                     <div className='perfil-imatge-nom'>
                         <div className="perfilImage">
                             <img src={perfilInfo.images[0].url} alt="Perfil image" className='perfilImage-img' />
