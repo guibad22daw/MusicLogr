@@ -22,6 +22,7 @@ export const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
+        console.log('data', data);
         setAlbum(data);
         setLoading1(false);
     };
@@ -49,14 +50,14 @@ export const AlbumPage = () => {
         setLoading2(false);
     };
 
-    const botoHandler = (e) => {
+    const botoHandler = (opcio) => {
         const info = {
             email: perfilInfo.email,
             albumId: album.id,
             albumName: album.name,
             albumImage: album.images[0].url,
             albumArtist: album.artists[0].name,
-            tipus: e.target.value
+            tipus: opcio
         }
         fetch(`${import.meta.env.VITE_BACKEND_URL}/saveAlbum`, {
             method: "POST",
@@ -64,10 +65,10 @@ export const AlbumPage = () => {
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
             if (response.ok) {
-                if (e.target.value === "favorits") setFavorits(!favorits)
-                else if (e.target.value === "pendents") setPendents(!pendents)
-                else if (e.target.value === "escoltats") setEscoltats(!escoltats)
-                else if (e.target.value === "enPropietat") setEnPropietat(!enPropietat)
+                if (opcio === "favorits") setFavorits(!favorits)
+                else if (opcio === "pendents") setPendents(!pendents)
+                else if (opcio === "escoltats") setEscoltats(!escoltats)
+                else if (opcio === "enPropietat") setEnPropietat(!enPropietat)
                 console.log("Dades desades correctament");
             } else {
                 throw new Error("Something went wrong");
@@ -87,7 +88,7 @@ export const AlbumPage = () => {
                     loading1 || loading2 ? <h1>Loading...</h1> : (
                         <>
                             <div className='header'>
-                            <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")`}}></div>
+                                <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")` }}></div>
                                 <div className="bg-header-overlay"></div>
                             </div>
                             <div className="content">
@@ -97,16 +98,61 @@ export const AlbumPage = () => {
                                     </div>
                                     <div className="songInfo">
                                         <h1>{album.name}</h1>
-                                        <h2>{album.artists[0].name}</h2>
-                                        <h4>{album.release_date}</h4>
+                                        <h2 className='albumArtist'>{album.artists[0].name}</h2>
+                                        <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0,4) : album.release_date}</h4>
                                     </div>
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">{favorits ? "Treure de favorits" : "Afegir a favorits"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">{escoltats ? "Treure d'escoltats" : "Afegir a escoltats"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">{enPropietat ? "Treure de en propietat" : "Afegir a en propietat"}</button>
+                                    <div className='opcio-container'>
+                                        <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")}>
+                                            {
+                                                favorits ? (
+                                                    <ion-icon name="heart-dislike-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
+                                                ) : (
+                                                    <ion-icon name="heart-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
+                                                )
+                                            }
+                                        </div>
+                                        <label>Favorit</label>
+                                    </div>
+                                    <div className='opcio-container'>
+                                        <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
+                                            {
+                                                escoltats ? (
+                                                    <img src={'/assets/img/icons/headset-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                ) : (
+                                                    <img src={'/assets/img/icons/headset-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                )
+                                            }
+
+                                        </div>
+                                        <label>Escoltat</label>
+                                    </div>
+                                    <div className='opcio-container'>
+                                        <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")}>
+                                            {
+                                                pendents ? (
+                                                    <img src={'/assets/img/icons/pending-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                ) : (
+                                                    <img src={'/assets/img/icons/pending-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                )
+                                            }
+                                        </div>
+                                        <label>Pendent</label>
+                                    </div>
+                                    <div className='opcio-container'>
+                                        <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
+                                            {
+                                                enPropietat ? (
+                                                    <img src={'/assets/img/icons/disc-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                ) : (
+                                                    <img src={'/assets/img/icons/disc-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                                                )
+                                            }
+                                        </div>
+                                        <label>En propietat</label>
+                                    </div>
                                 </div>
                                 <Separador />
                                 <div className="songPlayer">

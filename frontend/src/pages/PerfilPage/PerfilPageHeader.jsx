@@ -20,13 +20,13 @@ export const PerfilPageHeader = (props) => {
                         </div>
                     </div>
                     <div className='user-stats'>
-                        <div className="escoltats-counter">
-                            <h5>Escoltats</h5>
-                            <h3>{userAlbums.escoltats.length}</h3>
-                        </div>
                         <div className="favorits-counter">
                             <h5>Favorits</h5>
                             <h3>{userAlbums.favorits.length}</h3>
+                        </div>
+                        <div className="escoltats-counter">
+                            <h5>Escoltats</h5>
+                            <h3>{userAlbums.escoltats.length}</h3>
                         </div>
                         <div className="pendents-counter">
                             <h5>Pendents</h5>
@@ -39,11 +39,11 @@ export const PerfilPageHeader = (props) => {
                     </div>
                 </div>
                 <div className='menu-links'>
-                    <NavLink to='/perfil/escoltats' className={(link) => link.isActive ? "link_actiu" : "link"}>
-                        <h5>Escoltats</h5>
-                    </NavLink>
                     <NavLink to='/perfil/favorits' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>Favorits</h5>
+                    </NavLink>
+                    <NavLink to='/perfil/escoltats' className={(link) => link.isActive ? "link_actiu" : "link"}>
+                        <h5>Escoltats</h5>
                     </NavLink>
                     <NavLink to='/perfil/pendents' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>Pendents</h5>

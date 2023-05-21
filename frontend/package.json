@@ -14,7 +14,8 @@
     "react-dom": "^18.2.0",
     "react-lazy-load-image-component": "^1.5.6",
     "react-router-dom": "^6.11.0",
-    "react-search-autocomplete": "^8.5.2"
+    "react-search-autocomplete": "^8.5.2",
+    "react-simple-star-rating": "^5.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

@@ -50,9 +50,22 @@
     width: 100%;
 }
 
+.songInfo {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    width: 100%;
+}
+
+.songInfo .albumYear {
+    color: rgb(171, 171, 171);
+}
+
 .songImage img {
     width: 400px;
     border-radius: 15px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.7);
 }
 
 .songPlayer {
@@ -63,5 +76,41 @@
 .botons-funcions {
     display: flex;
     flex-direction: row;
-    column-gap: 10px;
+    column-gap: 20px;
+}
+
+.opcio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+    width: 100%;
+}
+
+.opcio-container label {
+    width: 100%;
+    text-align: center;
+}
+
+.botoOpcio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    transition: 0.15s;
+}
+
+.botoOpcio:hover {
+    background-color: rgb(219, 219, 219);
+    transition: 0.15s;
+}
+
+.ionicon {
+    fill: #090909!important;
 }
