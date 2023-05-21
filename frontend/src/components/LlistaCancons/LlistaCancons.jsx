@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const LlistaCancons = (props) => {
     const navigate = useNavigate();
-    console.log('props.dades', props.dades);
 
     return (
         <div className='top-songs'>
@@ -16,7 +15,6 @@ export const LlistaCancons = (props) => {
                 {
                     props.dades == undefined || props.length == 0 ? <h2>No hi ha cançons per recomanar</h2> : (
                         props.dades.map((song, index) => {
-                            console.log('song', song);
                             return (
                                 <div className='song' key={index}>
                                     <div className='song-details' onClick={() => navigate(`/album/${song.album.id}`)}>

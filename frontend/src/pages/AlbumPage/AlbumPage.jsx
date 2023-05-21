@@ -54,6 +54,8 @@ export const AlbumPage = () => {
             email: perfilInfo.email,
             albumId: album.id,
             albumName: album.name,
+            albumImage: album.images[0].url,
+            albumArtist: album.artists[0].name,
             tipus: e.target.value
         }
         fetch(`${import.meta.env.VITE_BACKEND_URL}/saveAlbum`, {

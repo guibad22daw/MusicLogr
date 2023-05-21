@@ -40,8 +40,8 @@ export const desaUsuariBD = async function (req, res) {
 
 export const desaAlbumDB = async function (req, res) {
     const data = await req.body;
-    console.log('data', data);
     let existeix;
+    
     const usuari = await Usuari.findOne({ email: data.email });
     if (!usuari) {
         console.log('Usuari no existeix');
@@ -55,7 +55,7 @@ export const desaAlbumDB = async function (req, res) {
             if (existeix !== -1) {
                 usuari.pendents.splice(existeix, 1);
             } else {
-                usuari.pendents.push({ albumId: data.albumId, albumName: data.albumName });
+                usuari.pendents.push({ albumId: data.albumId, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
             }
             break;
 
@@ -66,7 +66,7 @@ export const desaAlbumDB = async function (req, res) {
                 usuari.favorits.splice(existeix, 1);
                 console.log('usuari.favorits', usuari.favorits);
             } else {
-                usuari.favorits.push({ albumId: data.albumId, albumName: data.albumName });
+                usuari.favorits.push({ albumId: data.albumId, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
             }
             break;
 
@@ -75,7 +75,7 @@ export const desaAlbumDB = async function (req, res) {
             if (existeix !== -1) {
                 usuari.escoltats.splice(existeix, 1);
             } else {
-                usuari.escoltats.push({ albumId: data.albumId, albumName: data.albumName });
+                usuari.escoltats.push({ albumId: data.albumId, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
             }
             break;
 
@@ -84,7 +84,7 @@ export const desaAlbumDB = async function (req, res) {
             if (existeix !== -1) {
                 usuari.enPropietat.splice(existeix, 1);
             } else {
-                usuari.enPropietat.push({ albumId: data.albumId, albumName: data.albumName });
+                usuari.enPropietat.push({ albumId: data.albumId, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
             }
             break;
 
@@ -103,7 +103,6 @@ export const desaAlbumDB = async function (req, res) {
 
 export const obtenirAlbumsBD = async function (req, res) {
     const email = req.headers['x-email'];
-    console.log('email', email);
 
     const usuari = await Usuari.findOne({ email: email });
     if (!usuari) {

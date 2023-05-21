@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h5 {
+    margin: 0;
+}
+
+.perfilPage {
+    background-color: #090909;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.perfilContainer {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+    border-radius: 20px;
+    height: 200px;
+    background-color: rgb(22, 22, 22);
+}
+
+.perfil-imatge-nom {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.header .perfilImage-img {
+    width: 170px;
+    border-radius: 50%;
+}
+
+.header .user-stats {
+    display: flex;
+    flex-direction: row;
+    padding-right: 30px;
+}
+
+.header .user-stats div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 10px;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    margin: 15px;
+    border-radius: 20px;
+    height: 70px;
+    background-color: rgb(22, 22, 22);
+}
+
+.link {
+    background-color: rgb(55, 55, 55);
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.link h5{
+    font-size: 17px;
+}
+
+.link:hover {
+    background-color: rgb(70, 70, 70);
+    cursor: pointer;
+}
+
+.actiu {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
