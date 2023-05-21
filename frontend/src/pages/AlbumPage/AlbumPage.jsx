@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
+import { AiFillCustomerService, AiFillHeart, AiOutlineHeart, AiOutlineSmile, AiOutlineHistory } from 'react-icons/ai';
 import { Separador } from '../../components/Separador';
 
 export const AlbumPage = () => {
@@ -87,7 +88,7 @@ export const AlbumPage = () => {
                     loading1 || loading2 ? <h1>Loading...</h1> : (
                         <>
                             <div className='header'>
-                            <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")`}}></div>
+                                <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")` }}></div>
                                 <div className="bg-header-overlay"></div>
                             </div>
                             <div className="content">
@@ -103,10 +104,14 @@ export const AlbumPage = () => {
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">{favorits ? "Treure de favorits" : "Afegir a favorits"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents">{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">{escoltats ? "Treure d'escoltats" : "Afegir a escoltats"}</button>
-                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat">{enPropietat ? "Treure de en propietat" : "Afegir a en propietat"}</button>
+                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">
+                                        {favorits ? <AiOutlineHeart /> : <AiFillHeart />} {favorits ? "Treure de favorits" : "Afegir a favorits"}
+                                    </button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents"><AiOutlineHistory />{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">
+                                        <AiFillCustomerService /> {escoltats ? "Treure d'escoltats" : "Afegir a escoltats"}
+                                    </button>
+                                    <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="enPropietat"><AiOutlineSmile />{enPropietat ? "Treure de en propietat" : "Afegir a en propietat"}</button>
                                 </div>
                                 <Separador />
                                 <div className="songPlayer">
