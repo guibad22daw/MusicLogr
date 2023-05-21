@@ -62,7 +62,7 @@ export const Buscador = () => {
                     autoFocus
                     formatResult={formatResult}
                     styling={estilsBuscador}
-                    placeholder='Buscar'
+                    placeholder='Cercar àlbums...'
                     fuseOptions={{shouldSort:false, findAllMatches:true, distance: 1000, threshold: 100, keys: ["name"]}}
                 />
             </div>

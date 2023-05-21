@@ -24,6 +24,9 @@ export const PerfilPage = () => {
 
     useEffect(() => {
         fetchUserAlbums();
+    }, [accessToken, perfilInfo]);
+
+    useEffect(() => {
         if (opcioPerfil != undefined && userAlbums.length != 0) {
             console.log('userAlbums', userAlbums);
             if (opcioPerfil === 'escoltats') {
@@ -37,7 +40,8 @@ export const PerfilPage = () => {
             }
             setLoading2(false);
         }
-    }, [accessToken, perfilInfo, opcioPerfil]);
+    }, [opcioPerfil, userAlbums])
+
 
     return (
         <>
@@ -49,27 +53,31 @@ export const PerfilPage = () => {
             }
             <div className='perfilPage'>
                 {
-                    loading2 && opcioPerfil ? "" : (
+                    loading1 || loading2 || opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
                             <div className='perfil-albumsContainer'>
-                                <div className='userAlbums'>
-                                    {
-                                        arrayAlbums.map((album) => {
-                                            console.log('album', album);
-                                            return (
-                                                <div className="album" key={album.albumId}>
-                                                    <div className="albumImage">
-                                                        <img src={album.albumImage} alt="Album image" className='albumImage-img' />
+                                {
+                                    arrayAlbums.length === 0 ? <h2 className='noAlbums'>No tens cap àlbum en aquesta categoria.</h2> :
+                                    <div className='userAlbums'>
+                                        {
+
+                                            arrayAlbums.map((album) => {
+                                                console.log('album', album);
+                                                return (
+                                                    <div className="album" key={album.albumId}>
+                                                        <div className="albumImage">
+                                                            <img src={album.albumImage} alt="Album image" className='albumImage-img' onClick={() => window.location.href = `/album/${album.albumId}`} />
+                                                        </div>
+                                                        <div className="albumInfo">
+                                                            <h6 className='albumName'>{album.albumName}</h6>
+                                                            <h6 className='albumArtist'>{album.albumArtist}</h6>
+                                                        </div>
                                                     </div>
-                                                    <div className="albumInfo">
-                                                        <h6 className='albumName'>{album.albumName}</h6>
-                                                        <h7 className='albumArtist'>{album.albumArtist}</h7>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     )
