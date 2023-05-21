@@ -65,3 +65,35 @@
     flex-direction: row;
     column-gap: 10px;
 }
+
+.btn-spotify {
+    background-color: #1db954;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-spotify:hover {
+    background-color: #1ed760;
+}
+
+.btn-spotify:focus {
+    outline: none;
+}
+
+.btn-spotify svg {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.btn-remove {
+    background-color: #f25467;
+}
+
+.btn-spotify.btn-gray:hover {
+    background-color: #d42136;
+}

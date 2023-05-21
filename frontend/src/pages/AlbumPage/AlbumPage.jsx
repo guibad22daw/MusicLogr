@@ -104,8 +104,13 @@ export const AlbumPage = () => {
                                 </div>
                                 <Separador />
                                 <div className='botons-funcions'>
-                                    <button className="btn btn-danger" onClick={(e) => botoHandler(e)} value="favorits">
-                                        {favorits ? <AiOutlineHeart /> : <AiFillHeart />} {favorits ? "Treure de favorits" : "Afegir a favorits"}
+                                    <button
+                                        className={`btn btn-spotify ${favorits ? "btn-remove" : ""} ${favorits && "btn-gray"}`}
+                                        onClick={(e) => botoHandler(e)}
+                                        value="favorits"
+                                    >
+                                        {favorits ? <AiOutlineHeart /> : <AiFillHeart />}{" "}
+                                        {favorits ? "Treure de favorits" : "Afegir a favorits"}
                                     </button>
                                     <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="pendents"><AiOutlineHistory />{pendents ? "Treure de pendent d'escoltar" : "Afegir a pendent d'escoltar"}</button>
                                     <button className="btn btn-primary" onClick={(e) => botoHandler(e)} value="escoltats">
