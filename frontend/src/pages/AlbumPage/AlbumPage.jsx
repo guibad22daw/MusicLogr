@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
 import { Separador } from '../../components/Separador';
+import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
 
 export const AlbumPage = () => {
     const albumId = useParams();
@@ -50,32 +51,6 @@ export const AlbumPage = () => {
         setLoading2(false);
     };
 
-    const botoHandler = (opcio) => {
-        const info = {
-            email: perfilInfo.email,
-            albumId: album.id,
-            albumName: album.name,
-            albumImage: album.images[0].url,
-            albumArtist: album.artists[0].name,
-            tipus: opcio
-        }
-        fetch(`${import.meta.env.VITE_BACKEND_URL}/saveAlbum`, {
-            method: "POST",
-            body: JSON.stringify(info),
-            headers: { "Content-Type": "application/json" },
-        }).then((response) => {
-            if (response.ok) {
-                if (opcio === "favorits") setFavorits(!favorits)
-                else if (opcio === "pendents") setPendents(!pendents)
-                else if (opcio === "escoltats") setEscoltats(!escoltats)
-                else if (opcio === "enPropietat") setEnPropietat(!enPropietat)
-                console.log("Dades desades correctament");
-            } else {
-                throw new Error("Something went wrong");
-            }
-        })
-    }
-
     useEffect(() => {
         fetchAlbum();
         fetchUserAlbums();
@@ -99,61 +74,11 @@ export const AlbumPage = () => {
                                     <div className="songInfo">
                                         <h1>{album.name}</h1>
                                         <h2 className='albumArtist'>{album.artists[0].name}</h2>
-                                        <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0,4) : album.release_date}</h4>
+                                        <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
                                     </div>
                                 </div>
                                 <Separador />
-                                <div className='botons-funcions'>
-                                    <div className='opcio-container'>
-                                        <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")}>
-                                            {
-                                                favorits ? (
-                                                    <ion-icon name="heart-dislike-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
-                                                ) : (
-                                                    <ion-icon name="heart-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
-                                                )
-                                            }
-                                        </div>
-                                        <label>Favorit</label>
-                                    </div>
-                                    <div className='opcio-container'>
-                                        <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
-                                            {
-                                                escoltats ? (
-                                                    <img src={'/assets/img/icons/headset-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                ) : (
-                                                    <img src={'/assets/img/icons/headset-outline.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                )
-                                            }
-
-                                        </div>
-                                        <label>Escoltat</label>
-                                    </div>
-                                    <div className='opcio-container'>
-                                        <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")}>
-                                            {
-                                                pendents ? (
-                                                    <img src={'/assets/img/icons/pending-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                ) : (
-                                                    <img src={'/assets/img/icons/pending-outline.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                )
-                                            }
-                                        </div>
-                                        <label>Pendent</label>
-                                    </div>
-                                    <div className='opcio-container'>
-                                        <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
-                                            {
-                                                enPropietat ? (
-                                                    <img src={'/assets/img/icons/disc-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                ) : (
-                                                    <img src={'/assets/img/icons/disc-outline.png'} alt='auriculars' style={{ width: "30px" }} />
-                                                )
-                                            }
-                                        </div>
-                                        <label>En propietat</label>
-                                    </div>
-                                </div>
+                                <BotonsAlbum data={{favorits, setFavorits ,pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album}} />
                                 <Separador />
                                 <div className="songPlayer">
                                     <iframe src={`https://open.spotify.com/embed/album/${albumId.id}`} width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
