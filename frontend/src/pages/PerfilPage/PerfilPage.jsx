@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { PerfilPageHeader } from './PerfilPageHeader'
 import { useParams } from 'react-router-dom';
+import './PerfilPage.css'
 
 export const PerfilPage = () => {
     const { opcioPerfil } = useParams();
@@ -46,29 +47,34 @@ export const PerfilPage = () => {
                     <PerfilPageHeader userAlbums={userAlbums} />
                 )
             }
-            {
-                loading2? "" : (
-                    <div className="container-xxl perfilContainer">
-                        <div className='albumsContainer'>
-                            {
-                                arrayAlbums.map((album) => {
-                                    console.log('album', album);
-                                    return (
-                                        <div className="album" key={album.albumId}>
-                                            <div className="albumImage">
-                                                <img src={album.albumImage} alt="Album image" className='albumImage-img' />
-                                            </div>
-                                            <div className="albumName">
-                                                <h1>{album.albumName}</h1>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
+            <div className='perfilPage'>
+                {
+                    loading2 && opcioPerfil ? "" : (
+                        <div className="container-xxl perfilContainer">
+                            <div className='perfil-albumsContainer'>
+                                <div className='userAlbums'>
+                                    {
+                                        arrayAlbums.map((album) => {
+                                            console.log('album', album);
+                                            return (
+                                                <div className="album" key={album.albumId}>
+                                                    <div className="albumImage">
+                                                        <img src={album.albumImage} alt="Album image" className='albumImage-img' />
+                                                    </div>
+                                                    <div className="albumInfo">
+                                                        <h6 className='albumName'>{album.albumName}</h6>
+                                                        <h7 className='albumArtist'>{album.albumArtist}</h7>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                )
-            }
+                    )
+                }
+            </div>
         </>
     )
 }

@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.perfil-albumsContainer {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #090909;
+    border-radius: 20px;
+    background-color: rgb(22, 22, 22);
+    margin: 15px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 15px 15px 15px;
+    border-radius: 20px;
+    height: 1000px;
+    background-color: rgb(22, 22, 22);
+}
+
+.perfil-albumsContainer .userAlbums {
+    width: 100%;
+    display: grid;
+    text-align: left;
+    margin: 40px 0px auto auto;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    justify-items: center;
+    row-gap: 25px;
+}
+
+.userAlbums .album {
+    width: 220px;
+}
+
+.userAlbums .album img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.userAlbums .albumInfo {
+    margin-top: 7.5px;
+}
+
+.albumInfo .albumName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.albumInfo .albumArtist {
+    font-weight: 400;
+    color: rgb(169, 169, 169);
+}
