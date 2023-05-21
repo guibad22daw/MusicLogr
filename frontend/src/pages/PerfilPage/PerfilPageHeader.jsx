@@ -2,27 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './PerfilPageHeader.css'
 import { useNavigate } from 'react-router-dom';
 
-export const PerfilPageHeader = () => {
-    const [userAlbums, setUserAlbums] = useState([]);
-    const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
+export const PerfilPageHeader = (props) => {
+    const { userAlbums } = props;
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
-    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-
-    const fetchUserAlbums = async () => {
-        const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getUserAlbums`, {
-            method: "GET",
-            headers: { 'x-email': perfilInfo.email }
-        });
-        const data = await result.json();
-        setUserAlbums(data);
-        localStorage.setItem('albums_user', JSON.stringify(data));
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        fetchUserAlbums();
-    }, [accessToken, perfilInfo]);
 
     return (
         <div className='perfilPage'>
@@ -37,28 +20,22 @@ export const PerfilPageHeader = () => {
                         </div>
                     </div>
                     <div className='user-stats'>
-                        {loading ? "" :
-                            (
-                                <>
-                                    <div className="escoltats-counter">
-                                        <h5>Escoltats</h5>
-                                        <h3>{userAlbums.escoltats.length}</h3>
-                                    </div>
-                                    <div className="favorits-counter">
-                                        <h5>Favorits</h5>
-                                        <h3>{userAlbums.favorits.length}</h3>
-                                    </div>
-                                    <div className="pendents-counter">
-                                        <h5>Pendents</h5>
-                                        <h3>{userAlbums.pendents.length}</h3>
-                                    </div>
-                                    <div className="enPropietat-counter">
-                                        <h5>En propietat</h5>
-                                        <h3>{userAlbums.enPropietat.length}</h3>
-                                    </div>
-                                </>
-                            )
-                        }
+                        <div className="escoltats-counter">
+                            <h5>Escoltats</h5>
+                            <h3>{userAlbums.escoltats.length}</h3>
+                        </div>
+                        <div className="favorits-counter">
+                            <h5>Favorits</h5>
+                            <h3>{userAlbums.favorits.length}</h3>
+                        </div>
+                        <div className="pendents-counter">
+                            <h5>Pendents</h5>
+                            <h3>{userAlbums.pendents.length}</h3>
+                        </div>
+                        <div className="enPropietat-counter">
+                            <h5>En propietat</h5>
+                            <h3>{userAlbums.enPropietat.length}</h3>
+                        </div>
                     </div>
                 </div>
                 <div className='menu-links'>

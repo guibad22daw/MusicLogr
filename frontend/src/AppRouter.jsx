@@ -18,7 +18,7 @@ function AppRouter() {
           <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
           <Route exact path='/album/:id' element={<><Navbar /><AlbumPage /></>} />
           <Route exact path='/buscar/:album' element={<><Navbar /><BuscarPage /></>} />
-          <Route exact path='/perfil' element={<><Navbar /><PerfilPageHeader /></>} />
+          <Route exact path='/perfil' element={<><Navbar /><PerfilPage /></>} />
           <Route exact path='/perfil/:opcioPerfil' element={<><Navbar /><PerfilPage /></>} />
         </Route>
         <Route exact path='/' element={<LoginPage />} />
