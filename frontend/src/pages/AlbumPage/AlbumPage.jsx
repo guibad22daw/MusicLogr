@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
-import { AiFillCustomerService, AiFillHeart, AiOutlineHeart, AiOutlineSmile, AiOutlineHistory } from 'react-icons/ai';
 import { Separador } from '../../components/Separador';
 
 export const AlbumPage = () => {
