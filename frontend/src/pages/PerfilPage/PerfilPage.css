@@ -37,7 +37,7 @@
 }
 
 .userAlbums .albumInfo {
-    margin-top: 7.5px;
+    margin-top: 10px;
 }
 
 .albumInfo .albumName {
@@ -49,7 +49,8 @@
 .albumInfo .albumArtist {
     font-weight: 400;
     color: rgb(169, 169, 169);
-    font-size: 15px;
+    margin-top: 2px;
+    font-size: 14px;
 }
 
 .userAlbums .album img:hover {

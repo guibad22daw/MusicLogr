@@ -32,7 +32,7 @@ export const HomePage = () => {
   }, [accessToken]);
 
   return (
-    <div className='homeContainer'>
+    <div className='container-xxl homeContainer'>
       {
         loading ? <h1>Loading...</h1> : (
           <>
