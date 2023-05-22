@@ -55,6 +55,9 @@ export const ArtistPage = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className='artist-albumsContainer'>
+
+                        </div>
                     </div>
                 )
 

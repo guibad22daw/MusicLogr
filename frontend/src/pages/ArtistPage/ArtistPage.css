@@ -17,6 +17,10 @@
     z-index: 0;
 }
 
+.header {
+    margin-bottom: 200px;
+}
+
 .artistContainer .bg-header::after {
     content: "";
     position: absolute;
@@ -75,4 +79,15 @@
     font-size: 17px;
     font-weight: bold;
     color: grey;
+}
+
+.artist-albumsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    border-radius: 20px;
+    width: 1296px;
+    height: 1000px;
+    background-color: rgb(22, 22, 22);
 }
