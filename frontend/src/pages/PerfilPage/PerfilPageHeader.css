@@ -3,7 +3,9 @@
     box-sizing: border-box;
 }
 
-h1, h5, h6 {
+h1,
+h5,
+h6 {
     margin: 0;
     padding: 0;
 }
@@ -47,11 +49,16 @@ h1, h5, h6 {
     border-radius: 50%;
 }
 
+.header-perfil .perfilName {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
 .header-perfil .user-stats {
     display: flex;
     flex-direction: row;
     padding-right: 30px;
     color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 .header-perfil .user-stats div {
@@ -87,20 +94,30 @@ h1, h5, h6 {
     outline-style: none;
     text-decoration: none;
     color: white;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    transition: 0.15s;
 }
 
 .link_actiu h5,
-.link h5{
+.link h5 {
     font-size: 17px;
 }
 
 .link:hover {
     background-color: rgb(70, 70, 70);
     cursor: pointer;
+    transition: 0.15s;
 }
 
 .link_actiu {
     background-color: white;
     color: black;
+}
+
+.counter h5 {
+    color: #bebebe;
+}
+
+.counter h3 {
+    color: white;
 }

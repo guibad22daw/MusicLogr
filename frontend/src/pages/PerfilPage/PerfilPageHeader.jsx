@@ -19,19 +19,19 @@ export const PerfilPageHeader = (props) => {
                         </div>
                     </div>
                     <div className='user-stats'>
-                        <div className="favorits-counter">
+                        <div className="counter favorits-counter">
                             <h5>Favorits</h5>
                             <h3>{userAlbums.favorits.length}</h3>
                         </div>
-                        <div className="escoltats-counter">
+                        <div className="counter escoltats-counter">
                             <h5>Escoltats</h5>
                             <h3>{userAlbums.escoltats.length}</h3>
                         </div>
-                        <div className="pendents-counter">
+                        <div className="counter pendents-counter">
                             <h5>Pendents</h5>
                             <h3>{userAlbums.pendents.length}</h3>
                         </div>
-                        <div className="enPropietat-counter">
+                        <div className="counter enPropietat-counter">
                             <h5>En propietat</h5>
                             <h3>{userAlbums.enPropietat.length}</h3>
                         </div>
