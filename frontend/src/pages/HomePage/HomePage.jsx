@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
+import { Carregant } from '../../components/Carregant/Carregant';
 
 export const HomePage = () => {
   const [loading, setLoading] = useState(true);
@@ -33,21 +34,16 @@ export const HomePage = () => {
 
   return (
     <div className='container-xxl homeContainer'>
-      {
-        loading ? <h1>Loading...</h1> : (
-          <>
-            <Separador height="15px"/>
-            <div className='titolHome'>
-              <h1>Benvingut, {perfilInfo.display_name}</h1>
-            </div>
-            <Separador />
-            <LlistaCancons dades={topUserSongs} titol="Cançons més escoltades" />
-            <Separador />
-            <LlistaCancons dades={recommendedSongs} titol="Cançons recomanades" />
-            <Separador />
-          </>
-        )
-      }
+      <Separador height="15px" />
+      <div className='titolHome'>
+        <h1>Benvingut, {perfilInfo.display_name}</h1>
+      </div>
+      <Separador />
+      <LlistaCancons dades={topUserSongs} loading={loading} titol="Cançons més escoltades" />
+      <Separador />
+      <LlistaCancons dades={recommendedSongs} loading={loading} titol="Cançons recomanades" />
+      <Separador />
+      )
     </div>
   );
 };
