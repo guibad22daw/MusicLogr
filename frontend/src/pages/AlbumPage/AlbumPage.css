@@ -92,16 +92,30 @@
 .rating-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     row-gap: 5px;
 }
 
-.rating-column h4{
+.rating-column h5 {
     color: white;
 }
 
 .rating-column .react-simple-star-rating-tooltip {
-    width: 100px;
+    width: 50px;
     text-align: center;
+}
+
+.rating-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    column-gap: 10px;
+}
+
+.reload-icon:hover {
+    cursor: pointer;
+    color: white!important;
 }

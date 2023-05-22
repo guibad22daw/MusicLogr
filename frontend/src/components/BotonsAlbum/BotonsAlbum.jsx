@@ -34,7 +34,7 @@ export const BotonsAlbum = (props) => {
     return (
         <div className='botons-funcions'>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
+                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
                     {
                         favorits ? (
                             <ion-icon name="heart-dislike-outline" style={{ color: "#1db954", fontSize: "35px" }}></ion-icon>
@@ -46,7 +46,7 @@ export const BotonsAlbum = (props) => {
                 <label>Favorit</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
+                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
                     {
                         escoltats ? (
                             <img src={'/assets/img/icons/headset-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
@@ -59,7 +59,7 @@ export const BotonsAlbum = (props) => {
             </div>
 
             <div className='opcio-container'>
-                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
+                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
                     {
                         pendents ? (
                             <img src={'/assets/img/icons/pending-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
@@ -71,7 +71,7 @@ export const BotonsAlbum = (props) => {
                 <label>Pendent</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
+                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
                     {
                         enPropietat ? (
                             <img src={'/assets/img/icons/disc-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />

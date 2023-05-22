@@ -36,7 +36,7 @@ export const HomePage = () => {
     let greetingText = '';
     if (currentHour >= 6 && currentHour < 12) {
       greetingText = 'Bon dia';
-    } else if (currentHour >= 12 && currentHour < 19) {
+    } else if (currentHour >= 12 && currentHour < 21) {
       greetingText = 'Bona tarda';
     } else {
       greetingText = 'Bona nit';
@@ -47,19 +47,17 @@ export const HomePage = () => {
   return (
     <div className='container-xxl homeContainer'>
       {
-        loading ? <h1>Loading...</h1> : (
-          <>
-            <Separador height="15px" />
-            <div className='titolHome'>
-              <h1>{greeting}, {perfilInfo.display_name}</h1>
-            </div>
-            <Separador />
-            <LlistaCancons dades={topUserSongs} titol="Cançons més escoltades" />
-            <Separador />
-            <LlistaCancons dades={recommendedSongs} titol="Cançons recomanades" />
-            <Separador />
-          </>
-        )
+        <>
+          <Separador height="15px" />
+          <div className='titolHome'>
+            <h1>{greeting}, {perfilInfo.display_name}</h1>
+          </div>
+          <Separador />
+          <LlistaCancons dades={topUserSongs} loading={loading} titol="Cançons més escoltades" />
+          <Separador />
+          <LlistaCancons dades={recommendedSongs} loading={loading} titol="Cançons recomanades" />
+          <Separador />
+        </>
       }
     </div>
   );

@@ -5,6 +5,8 @@ import { Separador } from '../../components/Separador';
 import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
 import { Rating } from 'react-simple-star-rating'
 import { Carregant } from '../../components/Carregant/Carregant';
+import { TbReload } from 'react-icons/tb';
+
 
 export const AlbumPage = () => {
     const albumId = useParams();
@@ -27,6 +29,7 @@ export const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
+        console.log('album', data);
         setAlbum(data);
         setLoading1(false);
     };
@@ -112,6 +115,10 @@ export const AlbumPage = () => {
                                     </div>
                                     <div className='rating-container'>
                                         <div className='rating-column'>
+                                            <div className='rating-text'>
+                                                <h5>PUNTUACIÓ</h5>
+                                                <TbReload color='#929292' size="1.5em" className='reload-icon' onClick={handleReset} />
+                                            </div>
                                             <Rating
                                                 onClick={handleRating}
                                                 initialValue={rating}
@@ -121,9 +128,8 @@ export const AlbumPage = () => {
                                                 fillColor='#24d863'
                                                 size={50}
                                                 showTooltip={true}
+                                                tooltipDefaultText='0'
                                             />
-                                            <button onClick={handleReset}>reset</button>
-                                            <h4 className='rating-text'>Puntuació</h4>
                                         </div>
                                     </div>
                                 </div>
