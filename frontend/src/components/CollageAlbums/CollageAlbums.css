@@ -31,6 +31,14 @@
     transition: 0.15s;
 }
 
+.userAlbums .album img:hover {
+    width: 100%;
+    border: 2.5px solid #24d863;
+    cursor: pointer;
+    transition: 0.15s;
+    transform: scale(1.02);
+}
+
 .userAlbums .albumInfo {
     margin-top: 10px;
     color: white;
@@ -50,13 +58,6 @@
     font-size: 14px;
 }
 
-.userAlbums .album img:hover {
-    width: 100%;
-    border: 2.5px solid #24d863;
-    cursor: pointer;
-    transition: 0.15s;
-    transform: scale(1.02);
-}
 
 .noAlbums {
     display: flex;

@@ -67,12 +67,12 @@
     color: white;
 }
 
-.artist-info h4{
+.artist-info h5{
     color: grey;
 }
 
-.artist-info h4 label{
-    font-size: 17px;
+.artist-info h5 label{
+    font-size: 15px;
     font-weight: bold;
     color: grey;
 }
@@ -86,6 +86,57 @@
     margin-top: 30px;
     border-radius: 20px;
     width: 100%;
-    height: 1000px;
+    height: 100%;
     background-color: rgb(22, 22, 22);
 }
+
+.artist-albumsContainer .artistAlbums {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    text-align: left;
+    margin: 0px 0px 30px auto;
+    grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
+    justify-items: center;
+    row-gap: 25px;
+}
+
+.artistAlbums .album {
+    width: 220px;
+}
+
+.artistAlbums .album img {
+    width: 100%;
+    border-radius: 20px;
+    border: 2.5px solid transparent;
+    transition: 0.15s!important;
+}
+
+.artistAlbums .album img:hover {
+    width: 100%;
+    border: 2.5px solid #24d863;
+    cursor: pointer;
+    transition: 0.15s!important;
+    transform: scale(1.02);
+}
+
+.artistAlbums .albumInfo {
+    margin-top: 10px;
+    color: white;
+    margin-left: 2.5px;
+}
+
+.artistAlbums .albumInfo .albumName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artistAlbums .albumInfo .albumArtist {
+    font-weight: 400;
+    color: rgb(169, 169, 169);
+    margin-top: 2px;
+    font-size: 14px;
+}
+

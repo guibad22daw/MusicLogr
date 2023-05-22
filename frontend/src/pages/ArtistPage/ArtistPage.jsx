@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useParams } from 'react-router-dom';
 import './ArtistPage.css'
 import { Carregant } from '../../components/Carregant/Carregant';
+import { Separador } from '../../components/Separador';
 
 export const ArtistPage = () => {
     const { artistId } = useParams();
@@ -17,19 +19,29 @@ export const ArtistPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
-        console.log('artist', data);
         setArtist(data);
         setLoading1(false);
     };
 
     const fetchArtistAlbums = async () => {
-        const result = await fetch(`https://api.spotify.com/v1/artists/${artistId}/albums`, {
-            method: "GET",
-            headers: { Authorization: `Bearer ${accessToken}` }
-        });
-        const data = await result.json();
-        console.log('album', data);
-        setArtistAlbums(data)
+        let offset = 0;
+        const limit = 50;
+        let allData = [];
+
+        while (true) {
+            const result = await fetch(`https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album&limit=50&offset=${offset}`, {
+                method: "GET",
+                headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            const { items } = await result.json();
+            allData = allData.concat(items);
+
+            if (items.length < limit) {
+                break;
+            }
+            offset += limit;
+        }
+        setArtistAlbums(allData)
         setLoading2(false);
     };
 
@@ -43,7 +55,7 @@ export const ArtistPage = () => {
             {
                 loading1 || loading2 ? <Carregant /> : (
                     <div className="container-xxl artistContainer">
-                        <div className='artistHeader'>
+                        <div className='artistHeader shadow-sm'>
                             <div className="bg-ArtistHeader" style={{ backgroundImage: `url("${artist.images[0].url}")` }}></div>
                             <div className="artistInfo-container">
                                 <div className='artistImage'>
@@ -51,17 +63,46 @@ export const ArtistPage = () => {
                                 </div>
                                 <div className='artist-info'>
                                     <h1>{artist.name}</h1>
-                                    <h4>{artist.followers.total} <label style={{ fontSize: "17px" }}>SEGUIDORS</label></h4>
+                                    <h5>{artist.followers.total} <label>SEGUIDORS</label></h5>
                                 </div>
                             </div>
                         </div>
-                        <div className='artist-albumsContainer'>
+                        <div className='artist-albumsContainer shadow-sm'>
+                            {
+                                artistAlbums.length === 0 ? (<h2 className='noAlbums'>No tens cap àlbum en aquesta categoria.</h2>) : (
 
+                                    <div className='artistAlbums'>
+                                        {
+
+                                            artistAlbums.map((album) => {
+                                                return (
+                                                    <div className="album" key={album.id}>
+                                                        <div className="albumImage">
+                                                            <LazyLoadImage
+                                                                src={album.images[1].url} 
+                                                                alt={`album ${album.name} image`}
+                                                                effect="blur"
+                                                                className='albumImage-img'
+                                                                onClick={() => window.location.href = `/album/${album.id}`}
+                                                            />
+                                                        </div>
+                                                        <div className="albumInfo">
+                                                            <h6 className='albumName'>{album.name}</h6>
+                                                            <h6 className='albumYear' style={{ fontSize: "14px" }}>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h6>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 )
 
             }
+            <Separador />
         </div>
     )
 }

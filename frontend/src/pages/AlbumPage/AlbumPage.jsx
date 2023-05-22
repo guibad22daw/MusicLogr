@@ -148,6 +148,7 @@ export const AlbumPage = () => {
                     </div>
                 )
             }
+            <Separador />
         </div>
     )
 }

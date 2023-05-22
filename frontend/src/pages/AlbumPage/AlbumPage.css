@@ -18,6 +18,8 @@
     height: 100%;
     background-color: rgb(22, 22, 22);
     padding: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .bg-header {
