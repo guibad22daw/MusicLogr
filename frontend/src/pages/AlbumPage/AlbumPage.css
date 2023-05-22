@@ -63,7 +63,7 @@
 }
 
 .songImage img {
-    width: 400px;
+    width: 350px;
     border-radius: 15px;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.7);
 }
@@ -101,7 +101,7 @@
     color: white;
 }
 
-.react-simple-star-rating-tooltip {
+.rating-column .react-simple-star-rating-tooltip {
     width: 100px;
     text-align: center;
 }

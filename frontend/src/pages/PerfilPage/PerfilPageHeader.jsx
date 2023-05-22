@@ -5,12 +5,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 export const PerfilPageHeader = (props) => {
     const { userAlbums } = props;
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
-    const navigate = useNavigate();
 
     return (
         <div className='perfilPage'>
             <div className="container-xxl perfilContainer">
-                <div className="header-perfil">
+                <div className="header-perfil shadow-sm">
                     <div className='perfil-imatge-nom'>
                         <div className="perfilImage">
                             <img src={perfilInfo.images[0].url} alt="Perfil image" className='perfilImage-img' />
@@ -38,8 +37,8 @@ export const PerfilPageHeader = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='menu-links'>
-                    <NavLink to='/perfil/favorits' className={(link) => link.isActive ? "link_actiu" : "link"}>
+                <div className='menu-links shadow-sm'>
+                    <NavLink to='/perfil/favorits' className={(link) => link.isActive ? "link_actiu" : "link "}>
                         <h5>Favorits</h5>
                     </NavLink>
                     <NavLink to='/perfil/escoltats' className={(link) => link.isActive ? "link_actiu" : "link"}>

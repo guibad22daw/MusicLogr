@@ -138,7 +138,7 @@ export const desaRatingBD = async function (req, res) {
         usuari.ratings.splice(index, 1);
     }
     if (data.rating !== 0) {
-        usuari.ratings.push({ albumId: data.albumId, rating: data.rating, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
+        usuari.ratings.push({ albumId: data.albumId, rating: data.rating, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist, albumYear: data.albumYear });
     }
 
     try {
@@ -183,7 +183,7 @@ export const obtenirRatingsBD = async function (req, res) {
         return
     }
 
-    return res.json(usuari.ratings);
+    return res.json(usuari.ratings || []);
 };
 
 function existeixAlbum(array, data) {

@@ -3,6 +3,7 @@ import { PerfilPageHeader } from './PerfilPageHeader'
 import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
 import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
+import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 
 export const PerfilPage = () => {
     const { opcioPerfil } = useParams();
@@ -56,7 +57,13 @@ export const PerfilPage = () => {
                 {
                     loading1 || loading2 || opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
-                            <CollageAlbums arrayAlbums={arrayAlbums} />
+                            {
+                                opcioPerfil === "puntuacions" ? (
+                                    <LlistaPuntuacions />
+                                ) : (
+                                    <CollageAlbums arrayAlbums={arrayAlbums} />
+                                )
+                            }
                         </div>
                     )
                 }

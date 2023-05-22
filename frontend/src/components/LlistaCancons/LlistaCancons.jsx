@@ -16,7 +16,7 @@ export const LlistaCancons = (props) => {
                     props.dades == undefined || props.length == 0 ? <h2>No hi ha cançons per recomanar</h2> : (
                         props.dades.map((song, index) => {
                             return (
-                                <div className='song' key={index}>
+                                <div className='song shadow-sm' key={index}>
                                     <div className='song-details' onClick={() => navigate(`/album/${song.album.id}`)}>
                                         <LazyLoadImage src={song.album.images[0].url} width={200} className='song-img' alt="Song" effect="blur"/>
                                         <div className='song-info'>
