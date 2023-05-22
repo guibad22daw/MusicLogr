@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
+import { Carregant } from '../../components/Carregant/Carregant';
 
 export const HomePage = () => {
   const [loading, setLoading] = useState(true);

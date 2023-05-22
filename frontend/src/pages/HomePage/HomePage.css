@@ -23,3 +23,8 @@ h1,h2 {
     justify-content: center;
     align-items: flex-start;
  }
+
+ .homeContainer .carrregant {
+    margin-top: -200px!important;
+
+ }
