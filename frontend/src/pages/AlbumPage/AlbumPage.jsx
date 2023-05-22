@@ -111,9 +111,9 @@ export const AlbumPage = () => {
                                 <div className="songImage">
                                     <img src={album.images[0].url} alt="Song image" />
                                 </div>
-                                <div className='songInfo-rating-container'>
-                                    <div className="songInfo">
-                                        <h1>{album.name}</h1>
+                                <div className='albumInfo-rating-container'>
+                                    <div className="albumInfo">
+                                        <h1 className='albumName'>{album.name}</h1>
                                         <h2 className='albumArtist' onClick={artistClickHandler}>{album.artists[0].name}</h2>
                                         <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
                                     </div>

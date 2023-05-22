@@ -43,8 +43,8 @@ export const ArtistPage = () => {
             {
                 loading1 || loading2 ? <Carregant /> : (
                     <div className="container-xxl artistContainer">
-                        <div className='header'>
-                            <div className="bg-header" style={{ backgroundImage: `url("${artist.images[0].url}")` }}></div>
+                        <div className='artistHeader'>
+                            <div className="bg-ArtistHeader" style={{ backgroundImage: `url("${artist.images[0].url}")` }}></div>
                             <div className="artistInfo-container">
                                 <div className='artistImage'>
                                     <img src={artist.images[0].url} alt="" />

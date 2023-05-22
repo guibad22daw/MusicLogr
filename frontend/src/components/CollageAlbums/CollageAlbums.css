@@ -37,13 +37,13 @@
     margin-left: 2.5px;
 }
 
-.albumInfo .albumName {
+.userAlbums .albumInfo .albumName {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.albumInfo .albumArtist {
+.userAlbums .albumInfo .albumArtist {
     font-weight: 400;
     color: rgb(169, 169, 169);
     margin-top: 2px;
