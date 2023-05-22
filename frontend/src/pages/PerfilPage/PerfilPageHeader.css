@@ -51,6 +51,7 @@ h6 {
 
 .header-perfil .perfilName {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    color: white;
 }
 
 .header-perfil .user-stats {

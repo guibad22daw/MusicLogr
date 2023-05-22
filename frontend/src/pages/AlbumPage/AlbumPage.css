@@ -141,6 +141,12 @@
     justify-content: center;
     flex-wrap: nowrap;
     column-gap: 10px;
+    margin-bottom: 2px;
+}
+
+.rating-text h5 {
+    margin: 0;
+    color: white;
 }
 
 .reload-icon:hover {

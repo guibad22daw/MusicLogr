@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
 .artistPage {
     background-color: #090909;
     display: flex;
@@ -125,12 +130,20 @@
     margin-top: 10px;
     color: white;
     margin-left: 2.5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
 }
 
 .artistAlbums .albumInfo .albumName {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white;
+}
+
+.artistAlbums .albumInfo .albumYear {
+    color: grey;
 }
 
 .artistAlbums .albumInfo .albumArtist {
