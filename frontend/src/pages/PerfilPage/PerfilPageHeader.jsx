@@ -51,6 +51,9 @@ export const PerfilPageHeader = (props) => {
                     <NavLink to='/perfil/enpropietat' className={(link) => link.isActive ? "link_actiu" : "link"}>
                         <h5>En propietat</h5>
                     </NavLink>
+                    <NavLink to='/perfil/puntuacions' className={(link) => link.isActive ? "link_actiu" : "link"}>
+                        <h5>Puntuacions</h5>
+                    </NavLink>
                 </div>
             </div>
         </div>

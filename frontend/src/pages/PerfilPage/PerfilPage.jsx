@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { PerfilPageHeader } from './PerfilPageHeader'
 import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
+import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
 
 export const PerfilPage = () => {
     const { opcioPerfil } = useParams();
@@ -55,30 +56,7 @@ export const PerfilPage = () => {
                 {
                     loading1 || loading2 || opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
-                            <div className='perfil-albumsContainer'>
-                                {
-                                    arrayAlbums.length === 0 ? <h2 className='noAlbums'>No tens cap àlbum en aquesta categoria.</h2> :
-                                    <div className='userAlbums'>
-                                        {
-
-                                            arrayAlbums.map((album) => {
-                                                console.log('album', album);
-                                                return (
-                                                    <div className="album" key={album.albumId}>
-                                                        <div className="albumImage">
-                                                            <img src={album.albumImage} alt="Album image" className='albumImage-img' onClick={() => window.location.href = `/album/${album.albumId}`} />
-                                                        </div>
-                                                        <div className="albumInfo">
-                                                            <h6 className='albumName'>{album.albumName}</h6>
-                                                            <h6 className='albumArtist'>{album.albumArtist}</h6>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                }
-                            </div>
+                            <CollageAlbums arrayAlbums={arrayAlbums} />
                         </div>
                     )
                 }

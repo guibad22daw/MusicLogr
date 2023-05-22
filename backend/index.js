@@ -66,6 +66,19 @@ app.get("/getUserAlbums", async (req, res) => {
   bd.obtenirAlbumsBD(req, res);
 })
 
+app.post("/addRating", async (req, res) => {
+  bd.desaRatingBD(req, res);
+})
+
+app.get("/getRatings", async (req, res) => {
+  bd.obtenirRatingsBD(req, res);
+})
+
+app.get("/getRating", async (req, res) => {
+  bd.obtenirRatingBD(req, res);
+})
+
+
 // app.get("/lyrics", async (req, res) => {
 //   const { artist, track } = req.query
 //   const lyrics = (await lyricsFinder(artist, track)) || "No Lyrics Found"

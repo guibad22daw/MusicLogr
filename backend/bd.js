@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
         pendents: { type: Array, required: false },
         escoltats: { type: Array, required: false },
         enPropietat: { type: Array, required: false },
+        ratings: { type: Array, required: false },
     },
     { versionKey: false }
 );
@@ -41,7 +42,7 @@ export const desaUsuariBD = async function (req, res) {
 export const desaAlbumDB = async function (req, res) {
     const data = await req.body;
     let existeix;
-    
+
     const usuari = await Usuari.findOne({ email: data.email });
     if (!usuari) {
         console.log('Usuari no existeix');
@@ -119,6 +120,70 @@ export const obtenirAlbumsBD = async function (req, res) {
     };
 
     res.json(userAlbums);
+};
+
+export const desaRatingBD = async function (req, res) {
+    const email = req.headers['x-email'];
+    const data = await req.body;
+
+    const usuari = await Usuari.findOne({ email: email });
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
+
+    const index = usuari.ratings.findIndex((rating) => rating.albumId === data.albumId);
+    if (index !== -1) {
+        usuari.ratings.splice(index, 1);
+    }
+    if (data.rating !== 0) {
+        usuari.ratings.push({ albumId: data.albumId, rating: data.rating, albumName: data.albumName, albumImage: data.albumImage, albumArtist: data.albumArtist });
+    }
+
+    try {
+        await usuari.save()
+        console.log(`Rating afegit correctament`);
+        res.sendStatus(200);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+};
+
+export const obtenirRatingBD = async function (req, res) {
+    const email = req.headers['x-email'];
+    const albumId = req.headers['x-albumid'];
+
+    const usuari = await Usuari.findOne({ email: email });
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
+
+    let objecteARetornar;
+
+    usuari.ratings.forEach((rating) => {
+        if (rating.albumId === albumId) {
+            objecteARetornar = rating;
+        }
+    });
+
+    res.json(objecteARetornar || { rating: 0 });
+};
+
+export const obtenirRatingsBD = async function (req, res) {
+    const email = req.headers['x-email'];
+
+    const usuari = await Usuari.findOne({ email: email });
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
+
+    return res.json(usuari.ratings);
 };
 
 function existeixAlbum(array, data) {
