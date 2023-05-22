@@ -62,6 +62,7 @@
 
 .albumInfo .albumName {
     font-weight: bold;
+    color: white;
 }
 
 .albumInfo .albumArtist {

@@ -4,7 +4,7 @@ import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
 import { Carregant } from '../../components/Carregant/Carregant';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
   const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
@@ -62,3 +62,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

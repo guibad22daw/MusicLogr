@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar/Navbar';
 import { PostLoginPage } from './pages/PostLoginPage/PostLoginPage';
-import { HomePage } from './pages/HomePage/HomePage';
-import { AlbumPage } from './pages/AlbumPage/AlbumPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
 import PrivateRoutes from './utils/PrivateRoutes';
-import { PerfilPage } from './pages/PerfilPage/PerfilPage';
-import { ArtistPage } from './pages/ArtistPage/ArtistPage';
+import loadable from '@loadable/component';
+
+const HomePage = loadable(()=> import('./pages/HomePage/HomePage'));
+const AlbumPage = loadable(() => import('./pages/AlbumPage/AlbumPage'));
+const ArtistPage = loadable(() => import('./pages/ArtistPage/ArtistPage'));
+const PerfilPage = loadable(() => import('./pages/PerfilPage/PerfilPage'));
 
 function AppRouter() {
   return (

@@ -6,7 +6,7 @@ import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 import { Carregant } from '../../components/Carregant/Carregant';
 
-export const PerfilPage = () => {
+const PerfilPage = () => {
     const { opcioPerfil } = useParams();
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
@@ -77,3 +77,5 @@ export const PerfilPage = () => {
         </>
     )
 }
+
+export default PerfilPage;

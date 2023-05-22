@@ -8,7 +8,7 @@ import { Carregant } from '../../components/Carregant/Carregant';
 import { TbReload } from 'react-icons/tb';
 
 
-export const AlbumPage = () => {
+const AlbumPage = () => {
     const albumId = useParams();
     const [album, setAlbum] = useState([]);
     const [userAlbums, setUserAlbums] = useState([]);
@@ -152,3 +152,5 @@ export const AlbumPage = () => {
         </div>
     )
 }
+
+export default AlbumPage;

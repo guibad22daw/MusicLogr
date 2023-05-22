@@ -5,7 +5,7 @@ import './ArtistPage.css'
 import { Carregant } from '../../components/Carregant/Carregant';
 import { Separador } from '../../components/Separador';
 
-export const ArtistPage = () => {
+const ArtistPage = () => {
     const { artistId } = useParams();
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
     const [loading1, setLoading1] = useState(true);
@@ -106,3 +106,5 @@ export const ArtistPage = () => {
         </div>
     )
 }
+
+export default ArtistPage;
