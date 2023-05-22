@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
 import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
+import { Carregant } from '../../components/Carregant/Carregant';
 
 export const PerfilPage = () => {
     const { opcioPerfil } = useParams();
@@ -55,16 +56,21 @@ export const PerfilPage = () => {
             }
             <div className='perfilPage'>
                 {
-                    loading1 || loading2 || opcioPerfil == undefined ? "" : (
+                    opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
                             {
-                                opcioPerfil === "puntuacions" ? (
-                                    <LlistaPuntuacions />
+                                loading1 || loading2 ? (
+                                    <Carregant />
                                 ) : (
-                                    <CollageAlbums arrayAlbums={arrayAlbums} />
+                                    opcioPerfil === "puntuacions" ? (
+                                        <LlistaPuntuacions />
+                                    ) : (
+                                        <CollageAlbums arrayAlbums={arrayAlbums} />
+                                    )
                                 )
                             }
                         </div>
+
                     )
                 }
             </div>

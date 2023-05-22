@@ -33,7 +33,7 @@ export const Navbar = () => {
             <div className='logo-container'>
                 <img src='/assets/img/logo.png' className='logo' alt='Logo' onClick={() => {
                     navigate('/home');
-                    setShowDropdown(!showDropdown);
+                    setShowDropdown(false);
                 }} />
             </div>
 

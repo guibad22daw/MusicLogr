@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 export const PerfilPageHeader = (props) => {
     const { userAlbums } = props;
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+    const navigate = useNavigate();
 
     return (
         <div className='perfilPage'>
@@ -21,19 +22,19 @@ export const PerfilPageHeader = (props) => {
                     <div className='user-stats'>
                         <div className="counter favorits-counter">
                             <h5>Favorits</h5>
-                            <h3>{userAlbums.favorits.length}</h3>
+                            <h3 onClick={() => navigate('/perfil/favorits')}>{userAlbums.favorits.length}</h3>
                         </div>
                         <div className="counter escoltats-counter">
                             <h5>Escoltats</h5>
-                            <h3>{userAlbums.escoltats.length}</h3>
+                            <h3 onClick={() => navigate('/perfil/escoltats')}>{userAlbums.escoltats.length}</h3>
                         </div>
                         <div className="counter pendents-counter">
                             <h5>Pendents</h5>
-                            <h3>{userAlbums.pendents.length}</h3>
+                            <h3 onClick={() => navigate('/perfil/pendents')}>{userAlbums.pendents.length}</h3>
                         </div>
                         <div className="counter enPropietat-counter">
                             <h5>En propietat</h5>
-                            <h3>{userAlbums.enPropietat.length}</h3>
+                            <h3 onClick={() => navigate('/perfil/enpropietat')}>{userAlbums.enPropietat.length}</h3>
                         </div>
                     </div>
                 </div>

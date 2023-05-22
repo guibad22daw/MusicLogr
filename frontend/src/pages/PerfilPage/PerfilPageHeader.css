@@ -45,7 +45,7 @@ h6 {
 }
 
 .header-perfil .perfilImage-img {
-    width: 170px;
+    width: 160px;
     border-radius: 50%;
 }
 
@@ -120,4 +120,11 @@ h6 {
 
 .counter h3 {
     color: white;
+    transition: 0.15s;
+}
+
+.counter h3:hover {
+    color: #c7c7c7;
+    cursor: pointer;
+    transition: 0.15s;
 }
