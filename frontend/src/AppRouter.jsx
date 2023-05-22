@@ -5,10 +5,9 @@ import { PostLoginPage } from './pages/PostLoginPage/PostLoginPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { AlbumPage } from './pages/AlbumPage/AlbumPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
-import { BuscarPage } from './pages/BuscarPage/BuscarPage';
 import PrivateRoutes from './utils/PrivateRoutes';
-import { PerfilPageHeader } from './pages/PerfilPage/PerfilPageHeader';
 import { PerfilPage } from './pages/PerfilPage/PerfilPage';
+import { ArtistPage } from './pages/ArtistPage/ArtistPage';
 
 function AppRouter() {
   return (
@@ -17,7 +16,7 @@ function AppRouter() {
         <Route element={<PrivateRoutes />}>
           <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
           <Route exact path='/album/:id' element={<><Navbar /><AlbumPage /></>} />
-          <Route exact path='/buscar/:album' element={<><Navbar /><BuscarPage /></>} />
+          <Route exact path='/artist/:artistId' element={<><Navbar /><ArtistPage /></>} />
           <Route exact path='/perfil' element={<><Navbar /><PerfilPage /></>} />
           <Route exact path='/perfil/:opcioPerfil' element={<><Navbar /><PerfilPage /></>} />
         </Route>

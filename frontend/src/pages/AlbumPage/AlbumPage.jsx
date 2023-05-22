@@ -89,6 +89,10 @@ export const AlbumPage = () => {
         });
     }
 
+    const artistClickHandler = () => {
+        window.location.href = `/artist/${album.artists[0].id}`;
+    }
+
     const handleReset = () => {
         handleRating(0);
     }
@@ -110,7 +114,7 @@ export const AlbumPage = () => {
                                 <div className='songInfo-rating-container'>
                                     <div className="songInfo">
                                         <h1>{album.name}</h1>
-                                        <h2 className='albumArtist'>{album.artists[0].name}</h2>
+                                        <h2 className='albumArtist' onClick={artistClickHandler}>{album.artists[0].name}</h2>
                                         <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
                                     </div>
                                     <div className='rating-container'>

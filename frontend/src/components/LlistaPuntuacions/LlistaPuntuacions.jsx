@@ -7,7 +7,6 @@ export const LlistaPuntuacions = () => {
     const [loading, setLoading] = useState(true)
     const [userRatings, setUserRatings] = useState([])
 
-
     useEffect(() => {
         const fetchUserRatings = async () => {
             const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getRatings`, {
@@ -28,7 +27,7 @@ export const LlistaPuntuacions = () => {
                 loading ? "" : (
                     userRatings.map((rating) => {
                         return (
-                            <div className='puntuacio-container shadow-sm'>
+                            <div className='puntuacio-container shadow-sm' key={rating.albumId}>
                                 <div className='puntuacioImg-Info'>
                                     <div className='puntuacioImg'>
                                         <img src={rating.albumImage} alt="Album image" className='puntuacioImg-img' onClick={() => window.location.href = `/album/${rating.albumId}`} />

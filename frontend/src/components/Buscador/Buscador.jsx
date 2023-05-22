@@ -20,23 +20,13 @@ export const Buscador = () => {
         const data = await result.json();
         let sugestionsFetch = [];
         data.albums.items.forEach((item, index) => {
-            console.log('item', item);
             sugestionsFetch.push({ id: index, name: item.name, artist: item.artists[0].name, albumId: item.id})
         })
         setSugestions(sugestionsFetch);
     }
 
-    const handleOnHover = (result) => {
-        // the item hovered
-        console.log(result)
-    }
-
     const handleOnSelect = (item) => {
         window.location.href = `/album/${item.albumId}`;
-    }
-
-    const handleOnFocus = () => {
-
     }
 
     const formatResult = (item) => {
@@ -56,14 +46,14 @@ export const Buscador = () => {
                 <ReactSearchAutocomplete
                     items={sugestions}
                     onSearch={handleOnSearch}
-                    onHover={handleOnHover}
                     onSelect={handleOnSelect}
-                    onFocus={handleOnFocus}
                     autoFocus
                     formatResult={formatResult}
                     styling={estilsBuscador}
                     placeholder='Cercar àlbums...'
                     fuseOptions={{shouldSort:false, findAllMatches:true, distance: 1000, threshold: 100, keys: ["name"]}}
+                    showNoResultsText="Sense resultats"
+                    onSubmit={() => navigate('/')}
                 />
             </div>
         </div>
