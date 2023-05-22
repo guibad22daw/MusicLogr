@@ -9,6 +9,7 @@ export const HomePage = () => {
   const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
   const [topUserSongs, setTopUserSongs] = useState([]);
   const [recommendedSongs, setRecommendedSongs] = useState([]);
+  const [greeting, setGreeting] = useState('');
 
   const fetchTopUserSongs = async (accessToken) => {
     const result = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=5", {
@@ -29,6 +30,17 @@ export const HomePage = () => {
 
   useEffect(() => {
     fetchTopUserSongs(accessToken);
+
+    const currentHour = new Date().getHours();
+    let greetingText = '';
+    if (currentHour >= 6 && currentHour < 12) {
+      greetingText = 'Bon dia';
+    } else if (currentHour >= 12 && currentHour < 19) {
+      greetingText = 'Bona tarda';
+    } else {
+      greetingText = 'Bona nit';
+    }
+    setGreeting(greetingText);
   }, [accessToken]);
 
   return (
@@ -36,9 +48,9 @@ export const HomePage = () => {
       {
         loading ? <h1>Loading...</h1> : (
           <>
-            <Separador height="15px"/>
+            <Separador height="15px" />
             <div className='titolHome'>
-              <h1>Benvingut, {perfilInfo.display_name}</h1>
+              <h1>{greeting}, {perfilInfo.display_name}</h1>
             </div>
             <Separador />
             <LlistaCancons dades={topUserSongs} titol="Cançons més escoltades" />

@@ -3,7 +3,7 @@ import './BotonsAlbum.css';
 
 export const BotonsAlbum = (props) => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
-    const { favorits, setFavorits ,pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;
+    const { favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;
 
     const botoHandler = (opcio) => {
         const info = {
@@ -34,19 +34,19 @@ export const BotonsAlbum = (props) => {
     return (
         <div className='botons-funcions'>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")}>
+                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
                     {
                         favorits ? (
-                            <ion-icon name="heart-dislike-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
+                            <ion-icon name="heart-dislike-outline" style={{ color: "#1db954", fontSize: "35px" }}></ion-icon>
                         ) : (
-                            <ion-icon name="heart-outline" style={{ color: "black", fontSize: "35px" }}></ion-icon>
+                            <ion-icon name="heart" style={{ color: "#1db954", fontSize: "35px" }}></ion-icon>
                         )
                     }
                 </div>
                 <label>Favorit</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
+                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
                     {
                         escoltats ? (
                             <img src={'/assets/img/icons/headset-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
@@ -54,12 +54,12 @@ export const BotonsAlbum = (props) => {
                             <img src={'/assets/img/icons/headset-outline.png'} alt='auriculars' style={{ width: "30px" }} />
                         )
                     }
-
                 </div>
                 <label>Escoltat</label>
             </div>
+
             <div className='opcio-container'>
-                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")}>
+                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
                     {
                         pendents ? (
                             <img src={'/assets/img/icons/pending-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
@@ -71,7 +71,7 @@ export const BotonsAlbum = (props) => {
                 <label>Pendent</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
+                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")} style={{ backgroundColor: 'rgb(193, 193, 193)' }}>
                     {
                         enPropietat ? (
                             <img src={'/assets/img/icons/disc-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
