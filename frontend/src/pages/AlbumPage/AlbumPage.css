@@ -91,6 +91,7 @@
 .opcio-container label {
     width: 100%;
     text-align: center;
+    color: white;
 }
 
 .botoOpcio {
@@ -114,3 +115,33 @@
 .ionicon {
     fill: #090909!important;
 }
+
+
+.songInfo-rating-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.rating-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+.rating-column h4{
+    color: white;
+}
+

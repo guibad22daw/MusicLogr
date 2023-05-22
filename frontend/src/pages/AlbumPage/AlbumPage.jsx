@@ -3,6 +3,7 @@ import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
 import { Separador } from '../../components/Separador';
 import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
+import { Rating } from 'react-simple-star-rating'
 
 export const AlbumPage = () => {
     const albumId = useParams();
@@ -16,6 +17,7 @@ export const AlbumPage = () => {
     const [pendents, setPendents] = useState(false);
     const [escoltats, setEscoltats] = useState(false);
     const [enPropietat, setEnPropietat] = useState(false);
+    const [rating, setRating] = useState(0)
 
     const fetchAlbum = async () => {
         const result = await fetch(`https://api.spotify.com/v1/albums/${albumId.id}`, {
@@ -56,6 +58,10 @@ export const AlbumPage = () => {
         fetchUserAlbums();
     }, [accessToken, albumId]);
 
+    const handleRating = (rate) => {
+        setRating(rate)
+    }
+
     return (
         <div className='songPage'>
             <div className="container-xxl songContainer">
@@ -71,14 +77,28 @@ export const AlbumPage = () => {
                                     <div className="songImage">
                                         <img src={album.images[0].url} alt="Song image" />
                                     </div>
-                                    <div className="songInfo">
-                                        <h1>{album.name}</h1>
-                                        <h2 className='albumArtist'>{album.artists[0].name}</h2>
-                                        <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
+                                    <div className='songInfo-rating-container'>
+                                        <div className="songInfo">
+                                            <h1>{album.name}</h1>
+                                            <h2 className='albumArtist'>{album.artists[0].name}</h2>
+                                            <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
+                                        </div>
+                                        <div className='rating-container'>
+                                            <div className='rating-column'>
+                                                <Rating
+                                                    onClick={handleRating}
+                                                    transition={true}
+                                                    allowFraction={true}
+                                                    fillColor='#24d863'
+                                                    size={50}
+                                                />
+                                                <h4 className='rating-text'>Puntuació</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <Separador />
-                                <BotonsAlbum data={{favorits, setFavorits ,pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album}} />
+                                <BotonsAlbum data={{ favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album }} />
                                 <Separador />
                                 <div className="songPlayer">
                                     <iframe src={`https://open.spotify.com/embed/album/${albumId.id}`} width="100%" height="600" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>

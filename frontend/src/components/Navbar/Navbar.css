@@ -57,7 +57,7 @@
     opacity: 0;
     transition: all .15s;
     top: 0;
-    transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0);
 }
 
 .user-nav ul {
@@ -72,6 +72,8 @@
     top: 37px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, .3) 0px 2px 4px;
+    color: white;
+
 }
 
 .user-nav ul:after {
