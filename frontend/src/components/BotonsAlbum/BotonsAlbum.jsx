@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import './BotonsAlbum.css';
 
 export const BotonsAlbum = (props) => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const { favorits, setFavorits ,pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;
-    console.log('props', props);
 
     const botoHandler = (opcio) => {
         const info = {

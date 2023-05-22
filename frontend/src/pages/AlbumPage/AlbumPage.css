@@ -73,50 +73,6 @@
     height: 100%;
 }
 
-.botons-funcions {
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-}
-
-.opcio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 5px;
-    width: 100%;
-}
-
-.opcio-container label {
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-
-.botoOpcio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
-    transition: 0.15s;
-}
-
-.botoOpcio:hover {
-    background-color: rgb(219, 219, 219);
-    transition: 0.15s;
-}
-
-.ionicon {
-    fill: #090909!important;
-}
-
-
 .songInfo-rating-container {
     width: 100%;
     display: flex;
@@ -145,3 +101,7 @@
     color: white;
 }
 
+.react-simple-star-rating-tooltip {
+    width: 100px;
+    text-align: center;
+}

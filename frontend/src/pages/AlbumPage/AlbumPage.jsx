@@ -13,6 +13,7 @@ export const AlbumPage = () => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading1, setLoading1] = useState(true);
     const [loading2, setLoading2] = useState(true);
+    const [loading3, setLoading3] = useState(true);
     const [favorits, setFavorits] = useState(false);
     const [pendents, setPendents] = useState(false);
     const [escoltats, setEscoltats] = useState(false);
@@ -25,7 +26,6 @@ export const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
-        console.log('data', data);
         setAlbum(data);
         setLoading1(false);
     };
@@ -53,20 +53,47 @@ export const AlbumPage = () => {
         setLoading2(false);
     };
 
+    const fetchRatings = async () => {
+        const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getRating`, {
+            method: "GET",
+            headers: { 'x-email': perfilInfo.email, 'x-albumid': albumId.id }
+        });
+        const data = await result.json();
+        console.log('data', data);
+        setRating(data.rating);
+        setLoading3(false);
+    };
+
     useEffect(() => {
         fetchAlbum();
         fetchUserAlbums();
+        fetchRatings();
     }, [accessToken, albumId]);
 
     const handleRating = (rate) => {
         setRating(rate)
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/addRating`, {
+            method: "POST",
+            headers: { 'x-email': perfilInfo.email, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ albumId: albumId.id, rating: rate, albumName: album.name, albumArtist: album.artists[0].name, albumYear: album.release_date, albumImage: album.images[0].url })
+        }).then((response) => {
+            if (response.status === 200) {
+                console.log('Rating afegit');
+            } else {
+                console.log('Error afegint rating');
+            }
+        });
+    }
+
+    const handleReset = () => {
+        handleRating(0);
     }
 
     return (
         <div className='songPage'>
             <div className="container-xxl songContainer">
                 {
-                    loading1 || loading2 ? <h1>Loading...</h1> : (
+                    loading1 || loading2 ||loading3 ? <h1>Loading...</h1> : (
                         <>
                             <div className='header'>
                                 <div className="bg-header" style={{ backgroundImage: `url("${album.images[0].url}")` }}></div>
@@ -87,11 +114,15 @@ export const AlbumPage = () => {
                                             <div className='rating-column'>
                                                 <Rating
                                                     onClick={handleRating}
-                                                    transition={true}
+                                                    initialValue={rating}
                                                     allowFraction={true}
+                                                    titleSeparator='sobre'
+                                                    transition={true}
                                                     fillColor='#24d863'
                                                     size={50}
+                                                    showTooltip={true}
                                                 />
+                                                <button onClick={handleReset}>reset</button>
                                                 <h4 className='rating-text'>Puntuació</h4>
                                             </div>
                                         </div>
