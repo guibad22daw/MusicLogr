@@ -39,7 +39,10 @@ export const LlistaPuntuacions = () => {
                                         <h5 className='puntuacioYear'>{rating.albumYear.length > 4 ? rating.albumYear.substring(0, 4) : rating.albumYear}</h5>
                                     </div>
                                 </div>
-                                <Rating initialValue={rating.rating} size={35} fillColor='#24d863' titleSeparator='sobre' showTooltip readonly allowFraction/>
+                                <div className='AlbumRating-container'>
+                                    <p>PUNTUACIÓ</p>
+                                    <Rating initialValue={rating.rating} size={35} fillColor='#24d863' titleSeparator='sobre' showTooltip readonly allowFraction />
+                                </div>
                             </div>
                         )
                     })

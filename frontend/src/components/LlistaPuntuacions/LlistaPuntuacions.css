@@ -71,6 +71,21 @@
 }
 
 .puntuacio-container .react-simple-star-rating-tooltip {
+    margin-left: 13px!important;
     width: 50px;
     text-align: center;
+}
+
+.AlbumRating-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    margin-top: 5px;
+}
+
+.AlbumRating-container p {
+    margin: 0 0 0 1px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
 }
