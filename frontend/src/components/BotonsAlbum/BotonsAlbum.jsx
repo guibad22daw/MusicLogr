@@ -3,14 +3,15 @@ import './BotonsAlbum.css';
 import { TbHeadphones, TbHeadphonesOff, TbDisc, TbDiscOff, TbHeartFilled, TbHeartOff } from 'react-icons/tb';
 import {MdOutlineTimer, MdOutlineTimerOff } from 'react-icons/md';
 
+// Component de botons d'àlbum
 export const BotonsAlbum = (props) => {
-    // S'estableix l'estat inicial a partir de les dades guardades a localStorage
+    // Estat local per emmagatzemar la informació del perfil (obtinguda del local storage)
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     
-    // Es desestructuren les propietats passades al component
+    // Desestructuració de les propietats passades com a paràmetre
     const { favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;
 
-    // Funció que gestiona les interaccions amb els botons
+    // Gestiona el clic en un botó d'opció
     const botoHandler = (opcio) => {
         const info = {
             email: perfilInfo.email,
@@ -21,13 +22,13 @@ export const BotonsAlbum = (props) => {
             tipus: opcio
         }
 
-        // Es fa una crida POST a l'API del backend per desar les dades
+        // Envia una sol·licitud POST al backend per desar l'àlbum amb la informació seleccionada
         fetch(`${import.meta.env.VITE_BACKEND_URL}/saveAlbum`, {
             method: "POST",
             body: JSON.stringify(info),
             headers: { "Content-Type": "application/json" },
         }).then((response) => {
-            // S'actualitza l'estat local en funció de l'opció seleccionada
+            // Actualitza l'estat de les propietats corresponents en base a l'opció seleccionada
             if (response.ok) {
                 if (opcio === "favorits") setFavorits(!favorits)
                 else if (opcio === "pendents") setPendents(!pendents)
@@ -40,6 +41,7 @@ export const BotonsAlbum = (props) => {
         })
     }
 
+    // Botons per les diferents accions sobre els albums
     return (
         <div className='botons-funcions'>
             <div className='opcio-container'>

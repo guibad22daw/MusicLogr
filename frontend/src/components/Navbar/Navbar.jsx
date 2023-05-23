@@ -4,12 +4,15 @@ import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { RiArrowDropDownLine, RiArrowDropLeftLine } from 'react-icons/ri';
 
+// Component Navbar
 export const Navbar = () => {
+    // Defineix variables d'estat
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading, setLoading] = useState(true);
     const [showDropdown, setShowDropdown] = useState(false)
     const navigate = useNavigate();
 
+    // Funció per gestionar el clic de logout
     const logoutClickHandler = () => {
         setShowDropdown(false);
         localStorage.removeItem('access_token');
@@ -17,16 +20,18 @@ export const Navbar = () => {
         window.location.href = '/';
     }
 
+    // Funció per gestionar el clic del perfil d'usuari
     const perfilUsuariClickHandler = () => {
         setShowDropdown(false);
         navigate('/perfil');
     }
 
+    // Funció per mostrar o amagar el desplegable del perfil d'usuari
     const showDropdownHandler = () => {
         setShowDropdown(!showDropdown);
     }
 
-
+    // Renderitza el component
     return (
         <nav className="navbar">
             <Buscador />
@@ -39,6 +44,7 @@ export const Navbar = () => {
 
             <div className='perfil-usuari'>
                 {
+                    // Comprova l'estat de càrrega i la informació del perfil
                     loading && perfilInfo.length == 0 ? "" : (
                         <>
                             <h5 className='nom-perfil'>{perfilInfo.display_name}</h5>
