@@ -4,6 +4,7 @@ import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
 import { Carregant } from '../../components/Carregant/Carregant';
 
+// Pàgina d'inici
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
@@ -12,6 +13,7 @@ const HomePage = () => {
   const [recommendedSongs, setRecommendedSongs] = useState([]);
   const [greeting, setGreeting] = useState('');
 
+  // Recupera les cançons més escoltades de l'usuari
   const fetchTopUserSongs = async (accessToken) => {
     const result = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=5", {
       method: "GET",
@@ -29,6 +31,7 @@ const HomePage = () => {
     setLoading(false);
   };
 
+  // Funció perque segons el moment del dia, es mostri un missatge de benvinguda o un altre
   useEffect(() => {
     fetchTopUserSongs(accessToken);
 

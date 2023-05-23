@@ -8,9 +8,12 @@ import { Carregant } from '../../components/Carregant/Carregant';
 import { TbReload } from 'react-icons/tb';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
-
+// Mostrar informació de cada àlbum
 const AlbumPage = () => {
+    // Obtenir l'id de l'àlbum des de la URL
     const albumId = useParams();
+
+    // Estats per gestionar la informació de l'àlbum, els àlbums de l'usuari, l'access token, la informació del perfil, l'estat de càrrega i altres
     const [album, setAlbum] = useState([]);
     const [userAlbums, setUserAlbums] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
@@ -24,6 +27,7 @@ const AlbumPage = () => {
     const [enPropietat, setEnPropietat] = useState(false);
     const [rating, setRating] = useState(0)
 
+    // Funció per obtenir les dades de l'àlbum mitjançant una crida a l'API de Spotify
     const fetchAlbum = async () => {
         const result = await fetch(`https://api.spotify.com/v1/albums/${albumId.id}`, {
             method: "GET",
@@ -35,6 +39,7 @@ const AlbumPage = () => {
         setLoading1(false);
     };
 
+    // Funció per obtenir els àlbums de l'usuari mitjançant una crida a l'API del backend
     const fetchUserAlbums = async () => {
         const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getUserAlbums`, {
             method: "GET",
@@ -58,6 +63,7 @@ const AlbumPage = () => {
         setLoading2(false);
     };
 
+    // Funció per obtenir les puntuacions de l'àlbum
     const fetchRatings = async () => {
         const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getRating`, {
             method: "GET",
@@ -69,12 +75,14 @@ const AlbumPage = () => {
         setLoading3(false);
     };
 
+    // S'executa al carregar el component o quan canvia l'access token o l'id de l'àlbum
     useEffect(() => {
         fetchAlbum();
         fetchUserAlbums();
         fetchRatings();
     }, [accessToken, albumId]);
 
+    // Funció per gestionar la puntuació de l'àlbum
     const handleRating = (rate) => {
         setRating(rate)
         fetch(`${import.meta.env.VITE_BACKEND_URL}/addRating`, {
@@ -90,6 +98,7 @@ const AlbumPage = () => {
         });
     }
 
+    // Renderització d'AlbumPage
     return (
         <div className='songPage'>
             {

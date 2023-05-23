@@ -17,6 +17,7 @@ const ArtistPage = () => {
     const [artistAlbumsSort, setArtistAlbumsSort] = useState("desc");
     const [showDropdown, setShowDropdown] = useState(false)
 
+    // Recupera l'informació de l'artista
     const fetchArtist = async () => {
         const result = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, {
             method: "GET",
@@ -27,6 +28,7 @@ const ArtistPage = () => {
         setLoading1(false);
     };
 
+    // Recupera els àlbums de l'artista
     const fetchArtistAlbums = async () => {
         let offset = 0;
         const limit = 50;
@@ -54,6 +56,7 @@ const ArtistPage = () => {
         fetchArtistAlbums();
     }, [artistId])
 
+    // Funció per ordenar els àlbums de l'artista
     const ordenarHandler = (string) => {
 
         setShowDropdown(false);
