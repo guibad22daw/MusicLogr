@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './BotonsAlbum.css';
-import { AiFillHeart } from 'react-icons/ai';
-import { IoHeartDislikeOutline } from 'react-icons/io5';
+import { TbHeadphones, TbHeadphonesOff, TbDisc, TbDiscOff, TbHeartFilled, TbHeartOff } from 'react-icons/tb';
+import {MdOutlineTimer, MdOutlineTimerOff } from 'react-icons/md';
 
 export const BotonsAlbum = (props) => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
@@ -36,24 +36,24 @@ export const BotonsAlbum = (props) => {
     return (
         <div className='botons-funcions'>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
+                <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")}>
                     {
                         favorits ? (
-                            <ion-icon name="heart-dislike-outline" style={{ color: "#1db954", fontSize: "35px" }}></ion-icon>
+                            <TbHeartOff color='#1db954' size="2em" />
                         ) : (
-                            <ion-icon name="heart" style={{ color: "#1db954", fontSize: "35px" }}></ion-icon>
+                            <TbHeartFilled color='#1db954' size="2em" />
                         )
                     }
                 </div>
                 <label>Favorit</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
+                <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
                     {
                         escoltats ? (
-                            <img src={'/assets/img/icons/headset-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <TbHeadphonesOff color='black' size="2em" />
                         ) : (
-                            <img src={'/assets/img/icons/headset-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <TbHeadphones color='black' size="2em" />
                         )
                     }
                 </div>
@@ -61,24 +61,24 @@ export const BotonsAlbum = (props) => {
             </div>
 
             <div className='opcio-container'>
-                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
+                <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")}>
                     {
                         pendents ? (
-                            <img src={'/assets/img/icons/pending-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <MdOutlineTimerOff color='black' size="2em" />
                         ) : (
-                            <img src={'/assets/img/icons/pending-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <MdOutlineTimer color='black' size="2em" />
                         )
                     }
                 </div>
                 <label>Pendent</label>
             </div>
             <div className='opcio-container'>
-                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")} style={{ backgroundColor: 'rgb(237 237 237)' }}>
+                <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
                     {
                         enPropietat ? (
-                            <img src={'/assets/img/icons/disc-outline-slash.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <TbDiscOff color='black' size="2em" />
                         ) : (
-                            <img src={'/assets/img/icons/disc-outline.png'} alt='auriculars' style={{ width: "30px" }} />
+                            <TbDisc color='black' size="2em" />
                         )
                     }
                 </div>
