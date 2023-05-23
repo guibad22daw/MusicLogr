@@ -106,14 +106,13 @@ const ArtistPage = () => {
 
                                             artistAlbums.map((album) => {
                                                 return (
-                                                    <div className="album" key={album.id}>
+                                                    <div className="album shadow-sm" key={album.id} onClick={() => window.location.href = `/album/${album.id}`}>
                                                         <div className="albumImage">
                                                             <LazyLoadImage
                                                                 src={album.images[1].url}
                                                                 alt={`album ${album.name} image`}
                                                                 effect="blur"
                                                                 className='albumImage-img'
-                                                                onClick={() => window.location.href = `/album/${album.id}`}
                                                             />
                                                         </div>
                                                         <div className="albumInfo">

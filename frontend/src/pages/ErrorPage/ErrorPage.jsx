@@ -1,26 +1,24 @@
 import React from 'react';
+import './ErrorPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const ErrorPage = () => {
-  return (
-    <html lang="ca" xmlns:th="http://www.thymeleaf.org">
-      <head>
-        <meta charset="UTF-8" />
-        <title>Pàgina no trobada</title>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-          crossorigin="anonymous"
-        />
-      </head>
-      <body>
-        <h1>Pàgina no trobada!</h1>
-        <p>
-          tornar a <a href="/">home page</a>.
-        </p>
-      </body>
-    </html>
-  );
-};
+    const navigate = useNavigate();
+
+    return (
+        <div class="errorPage">
+            <div>
+                <img alt="Logo" src="/assets/img/logo.png" />
+            </div>
+            <div class="errorContainer">
+                <h1>Página no trobada</h1>
+                <p>No hem trobat la pàgina que estàs buscant.</p>
+                <div className='boto shadow'>
+                    <button onClick={() => navigate('/')}>Tornar enrere</button>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export default ErrorPage;

@@ -192,21 +192,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .artistAlbums .album {
     width: 220px;
-}
-
-.artistAlbums .album img {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #282828;
     border-radius: 20px;
-    border: 2.5px solid transparent;
+    height: 280px;
+    align-items: center;
     transition: 0.15s!important;
-    height: 200px;
 }
 
-.artistAlbums .album img:hover {
-    border: 2.5px solid #24d863;
+.artistAlbums .album:hover {
+    background-color: rgb(45, 45, 45);
     cursor: pointer;
     transition: 0.15s!important;
     transform: scale(1.02);
+}
+
+.artistAlbums .album img {
+    width: 190px;
+    border-radius: 10px;
+    border: 2.5px solid transparent;
+    box-shadow: #000000;
+    transition: 0.15s!important;
+    height: 190px;
 }
 
 .artistAlbums .albumInfo {
@@ -223,6 +232,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     text-overflow: ellipsis;
     color: white;
+    width: 190px;
 }
 
 .artistAlbums .albumInfo .albumYear {

@@ -10,11 +10,14 @@ const HomePage = loadable(()=> import('./pages/HomePage/HomePage'));
 const AlbumPage = loadable(() => import('./pages/AlbumPage/AlbumPage'));
 const ArtistPage = loadable(() => import('./pages/ArtistPage/ArtistPage'));
 const PerfilPage = loadable(() => import('./pages/PerfilPage/PerfilPage'));
+const ErrorPage = loadable(() => import('./pages/ErrorPage/ErrorPage'));
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
+        <Route exact path='/' element={<LoginPage />} />
+        <Route exact path='/postLogin' element={<PostLoginPage />} />
         <Route element={<PrivateRoutes />}>
           <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
           <Route exact path='/album/:id' element={<><Navbar /><AlbumPage /></>} />
@@ -22,8 +25,7 @@ function AppRouter() {
           <Route exact path='/perfil' element={<><Navbar /><PerfilPage /></>} />
           <Route exact path='/perfil/:opcioPerfil' element={<><Navbar /><PerfilPage /></>} />
         </Route>
-        <Route exact path='/' element={<LoginPage />} />
-        <Route exact path='/postLogin' element={<PostLoginPage />} />
+        <Route path='*' element={<ErrorPage/>} />
       </Routes>
     </Router>
   );
