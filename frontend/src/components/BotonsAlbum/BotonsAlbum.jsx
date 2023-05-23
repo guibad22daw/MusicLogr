@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './BotonsAlbum.css';
+import { AiFillHeart } from 'react-icons/ai';
+import { IoHeartDislikeOutline } from 'react-icons/io5';
 
 export const BotonsAlbum = (props) => {
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
