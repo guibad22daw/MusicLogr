@@ -22,7 +22,6 @@ export const PostLoginPage = () => {
         if (response.ok) {
           window.location.href = "/home";
         } else {
-          console.log('error fent login');
           window.location.href = "/";
         }
       })

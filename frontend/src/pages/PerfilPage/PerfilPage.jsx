@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { PerfilPageHeader } from './PerfilPageHeader'
 import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
 import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 import { Carregant } from '../../components/Carregant/Carregant';
+import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHeader';
 
 const PerfilPage = () => {
     const { opcioPerfil } = useParams();
