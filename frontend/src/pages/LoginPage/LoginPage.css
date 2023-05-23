@@ -1,0 +1,104 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.login-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-contingut {
+    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-page::before {
+    content: "";
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 600%;
+    bottom: 0;
+    background: linear-gradient(-60deg, rgb(150, 76, 54), rgb(126, 33, 68), rgb(22, 99, 127), rgb(21, 122, 98));
+    opacity: 65%;
+    animation: gradient 19s linear infinite alternate;
+}
+
+@keyframes gradient {
+    100% {
+        transform: translateX(-83.33%);
+    }
+}
+
+.title-container .titol {
+    margin-top: 20px;
+    color: white;
+}
+
+.title-container .subtitol {
+    margin-top: 5px;
+    color: white;
+}
+
+.title-container img {
+    width: 200px;
+}
+
+.spotify-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    width: 100%;
+    min-width: 184px;
+    max-width: 300px;
+    height: 70px;
+    background-color: #1fd664;
+    border-radius: 25px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    transition: all 400ms ease 0s;
+    align-items: center;
+    column-gap: 10px;
+    flex-direction: row;
+}
+
+.spotify-btn .spotify-icon-svg {
+    margin-top: -3px;
+    width: 37px;
+    height: 37px;
+    user-select: none
+}
+
+.spotify-btn .btn-text {
+    float: right;
+    color: #f7fff8;
+    font-size: 17px;
+    letter-spacing: .2px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+    margin: 0;
+}
+
+.spotify-btn:hover {
+    user-select: none;
+    background-color: #1fb152;
+    cursor: pointer;
+}
+
+.spotify-btn:active {
+    background: #18883f;
+    color: #fff;
+    user-select: none
+}
