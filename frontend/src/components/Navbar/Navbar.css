@@ -79,19 +79,6 @@
 
 }
 
-/* .user-nav ul:after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    border-bottom: 14px solid rgb(33, 33, 33);
-    top: -14px;
-    right: 45px;
-    position: absolute;
-} */
-
 .user-nav ul li {
     display: block;
     padding: 15px;

@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import './ArtistPage.css'
 import { Carregant } from '../../components/Carregant/Carregant';
 import { Separador } from '../../components/Separador';
+import { BiFilter } from 'react-icons/bi';
+import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 
 const ArtistPage = () => {
     const { artistId } = useParams();
@@ -12,6 +14,8 @@ const ArtistPage = () => {
     const [loading2, setLoading2] = useState(true);
     const [artist, setArtist] = useState([]);
     const [artistAlbums, setArtistAlbums] = useState([]);
+    const [artistAlbumsSort, setArtistAlbumsSort] = useState("desc");
+    const [showDropdown, setShowDropdown] = useState(false)
 
     const fetchArtist = async () => {
         const result = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, {
@@ -50,6 +54,22 @@ const ArtistPage = () => {
         fetchArtistAlbums();
     }, [artistId])
 
+    const ordenarHandler = (string) => {
+
+        setShowDropdown(false);
+        if (string === 'asc') {
+            if (artistAlbumsSort === 'desc') {
+                setArtistAlbumsSort('asc');
+                setArtistAlbums(artistAlbums.reverse())
+            }
+        } else if (string === 'desc') {
+            if (artistAlbumsSort === 'asc') {
+                setArtistAlbumsSort('desc');
+                setArtistAlbums(artistAlbums.reverse())
+            }
+        }
+    }
+
     return (
         <div className='artistPage'>
             {
@@ -67,6 +87,16 @@ const ArtistPage = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className='artist-filtrarContainer' onClick={() => setShowDropdown(!showDropdown)}>
+                            <BiFilter color='white' size="1.5em" />
+                            <h5 className='artist-albumsTitle'>Filtrar</h5>
+                            <div className="filtrar-div" style={showDropdown ? { visibility: "visible", opacity: 1, top: "2px" } : {}} >
+                                <ul>
+                                    <li onClick={() => ordenarHandler("asc")}><HiSortAscending color='white' size="1.3em" />Ordenar ascendentment</li>
+                                    <li onClick={() => ordenarHandler("desc")}><HiSortDescending color='white' size="1.3em" />Ordenar descendentment</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div className='artist-albumsContainer shadow-sm'>
                             {
                                 artistAlbums.length === 0 ? (<h2 className='noAlbums'>No tens cap àlbum en aquesta categoria.</h2>) : (
@@ -79,7 +109,7 @@ const ArtistPage = () => {
                                                     <div className="album" key={album.id}>
                                                         <div className="albumImage">
                                                             <LazyLoadImage
-                                                                src={album.images[1].url} 
+                                                                src={album.images[1].url}
                                                                 alt={`album ${album.name} image`}
                                                                 effect="blur"
                                                                 className='albumImage-img'
