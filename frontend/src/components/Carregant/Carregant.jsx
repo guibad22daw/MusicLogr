@@ -2,6 +2,7 @@ import React from 'react'
 import { Ring } from '@uiball/loaders'
 import './Carregant.css'
 
+// Component que mostra un cercle mentre es carreguen les dades
 export const Carregant = (props) => {
     return (
         <div className="carregant" style={{height: props.height || "150px"}}>
