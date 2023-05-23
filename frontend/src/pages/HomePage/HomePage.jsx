@@ -4,6 +4,7 @@ import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
 import { Carregant } from '../../components/Carregant/Carregant';
 
+// Pàgina d'inici
 const HomePage = () => {
   const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
   const [greeting, setGreeting] = useState('');

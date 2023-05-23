@@ -3,37 +3,45 @@ import './Buscador.css';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { useNavigate } from 'react-router-dom';
 
+// Component Buscador
 export const Buscador = () => {
-    // Es recupera el token emmagatzemat a LocalStorage
+    // Obté l'access token emmagatzemat al local storage
     const accessToken = localStorage.getItem('access_token');
+
+    // Estat local per emmagatzemar les suggerències de cerca
     const [sugestions, setSugestions] = useState([]);
+
+    // Utilitza el hook useNavigate per a la navegació a la pàgina de l'àlbum
     const navigate = useNavigate();
 
+    // Estils personalitzats per al component de cerca
     const estilsBuscador = {
         backgroundColor: "rgb(45, 45, 45)", lineColor: "grey", color: "white", border: "none", hoverBackgroundColor: "rgb(60, 60, 60)"
     }
 
+    // Funció que s'executa en realitzar una cerca
     const handleOnSearch = async (string, results) => {
-        // Funció que s'executa al realitzar una cerca en el component d'autocompletat
+        // Realitza una crida a l'API de Spotify per obtenir els àlbums corresponents a la cerca
         const result = await fetch(`https://api.spotify.com/v1/search?q=${string}&type=album&limit=10`, {
             method: "GET",
-            // S'inclou el token d'accés en la sol·licitud a l'API d'Spotify
             headers: { Authorization: `Bearer ${accessToken}` }
         });
+        
+        // Processa les dades rebudes i actualitza les suggerències de cerca
         const data = await result.json();
         let sugestionsFetch = [];
         data.albums.items.forEach((item, index) => {
-            // Obté informació rellevant sobre cada álbum
             sugestionsFetch.push({ id: index, name: item.name, artist: item.artists[0].name, albumId: item.id})
         })
         setSugestions(sugestionsFetch);
     }
 
+    // Funció que s'executa en seleccionar una suggerència de cerca
     const handleOnSelect = (item) => {
-        // Funció que s'executa al seleccionar el resultat de l'autocompletat
-        window.location.href = `/album/${item.albumId}`; // Redirigeix a l'usuari a la pàgina de l'àlbum seleccionat
+        window.location.href = `/album/${item.albumId}`; 
     }
 
+    // Funció per a formatar el resultat de les suggerències de cerca
     const formatResult = (item) => {
         let albumName = item.name.length > 25 ? item.name.substring(0, 25) + "..." : item.name;
 

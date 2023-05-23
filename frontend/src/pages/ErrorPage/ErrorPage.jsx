@@ -2,6 +2,7 @@ import React from 'react';
 import './ErrorPage.css';
 import { useNavigate } from 'react-router-dom';
 
+// Pàgina d'error per quan algo ha sortit malament
 const ErrorPage = () => {
     const navigate = useNavigate();
 

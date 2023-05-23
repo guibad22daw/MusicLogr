@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './LlistaPuntuacions.css'
 import { Rating } from 'react-simple-star-rating';
 
+// Component Llistat de puntuacions
 export const LlistaPuntuacions = () => {
+    // Defineix variables d'estat
     const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading, setLoading] = useState(true)
     const [userRatings, setUserRatings] = useState([])
 
+    // useEffect per obtenir les puntuacions de l'usuari quan perfilInfo canvia
     useEffect(() => {
         const fetchUserRatings = async () => {
             const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getRatings`, {
@@ -21,6 +24,7 @@ export const LlistaPuntuacions = () => {
         fetchUserRatings();
     }, [perfilInfo])
 
+    // Renderitza el component
     return (
         <div className='perfil-puntuacionsContainer'>
             {
