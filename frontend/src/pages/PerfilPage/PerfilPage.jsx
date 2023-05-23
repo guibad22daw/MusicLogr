@@ -31,7 +31,6 @@ const PerfilPage = () => {
 
     useEffect(() => {
         if (opcioPerfil != undefined && userAlbums.length != 0) {
-            console.log('userAlbums', userAlbums);
             if (opcioPerfil === 'escoltats') {
                 setArrayAlbums(userAlbums.escoltats);
             } else if (opcioPerfil === 'favorits') {

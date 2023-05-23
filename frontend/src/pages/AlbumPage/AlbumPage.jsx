@@ -34,7 +34,6 @@ const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
-        console.log('album', data);
         setAlbum(data);
         setLoading1(false);
     };
@@ -70,7 +69,6 @@ const AlbumPage = () => {
             headers: { 'x-email': perfilInfo.email, 'x-albumid': albumId.id }
         });
         const data = await result.json();
-        console.log('data', data);
         setRating(data.rating);
         setLoading3(false);
     };
@@ -137,7 +135,7 @@ const AlbumPage = () => {
                                                 showTooltip={true}
                                                 tooltipDefaultText='0'
                                                 fillIcon={<AiFillStar size={50}/>}
-                                                emptyIcon={<AiOutlineStar size={50} stroke='0'/>}
+                                                emptyIcon={<AiOutlineStar size={50}/>}
                                             />
                                         </div>
                                     </div>

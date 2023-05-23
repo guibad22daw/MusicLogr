@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
 import { Separador } from '../../components/Separador';
-import { Carregant } from '../../components/Carregant/Carregant';
 
 // Pàgina d'inici
 const HomePage = () => {
   const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
   const [greeting, setGreeting] = useState('');
 
+  // Funció perque segons el moment del dia, es mostri un missatge de benvinguda o un altre
   useEffect(() => {
     const currentHour = new Date().getHours();
     let greetingText = '';
@@ -24,16 +24,16 @@ const HomePage = () => {
 
   return (
     <div className='container-xxl homeContainer'>
-      <Separador height="15px" />
+      <Separador height="10px" />
       <div className='titolHome'>
         <h1>{greeting}, {perfilInfo.display_name}</h1>
       </div>
-      <Separador />
+      <Separador height="35px" />
       <LlistaCancons titol="Cançons més escoltades" llista="songsEscoltades" />
       <Separador />
       <LlistaCancons titol="Cançons recomanades" llista="songsRecomenades" />
       <Separador />
-      <LlistaCancons titol="Artistes recomanats" llista="newReleases" />
+      <LlistaCancons titol="Nous llançaments" llista="newReleases" />
       <Separador />
     </div>
   );

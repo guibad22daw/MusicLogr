@@ -20,13 +20,13 @@ export const PostLoginPage = () => {
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         if (response.ok) {
-          console.log("hola");
+          window.location.href = "/home";
         } else {
-          throw new Error("Something went wrong");
+          console.log('error fent login');
+          window.location.href = "/";
         }
       })
 
-      window.location.href = "/home";
     }
     if (access_token !== undefined) {
       fetchProfile(access_token);

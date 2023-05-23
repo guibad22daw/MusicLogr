@@ -15,7 +15,6 @@ export const CollageAlbums = (props) => {
                         {
                             // Mapeja l'array d'àlbums i mostra cada àlbum
                             arrayAlbums.map((album) => {
-                                console.log('album', album);
                                 return (
                                     <div className="album" key={album.albumId}>
                                         <div className="albumImage">

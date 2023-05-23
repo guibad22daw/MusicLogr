@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './LlistaPuntuacions.css'
 import { Rating } from 'react-simple-star-rating';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 // Component Llistat de puntuacions
 export const LlistaPuntuacions = () => {
@@ -17,7 +18,6 @@ export const LlistaPuntuacions = () => {
                 headers: { 'x-email': perfilInfo.email }
             });
             const data = await result.json();
-            console.log('data', data);
             setUserRatings(data);
             setLoading(false);
         };
@@ -34,7 +34,7 @@ export const LlistaPuntuacions = () => {
                             <div className='puntuacio-container shadow-sm' key={rating.albumId} onClick={() => window.location.href = `/album/${rating.albumId}`}>
                                 <div className='puntuacioImg-Info'>
                                     <div className='puntuacioImg'>
-                                        <img src={rating.albumImage} alt="Album image" className='puntuacioImg-img'/>
+                                        <img src={rating.albumImage} alt="Album image" className='puntuacioImg-img' />
                                     </div>
                                     <div className='puntuacioInfo'>
                                         <h5 className='puntuacioName'>{rating.albumName}</h5>
@@ -44,7 +44,9 @@ export const LlistaPuntuacions = () => {
                                 </div>
                                 <div className='AlbumRating-container'>
                                     <p>PUNTUACIÓ</p>
-                                    <Rating initialValue={rating.rating} size={35} fillColor='#24d863' titleSeparator='sobre' showTooltip readonly allowFraction />
+                                    <Rating initialValue={rating.rating} size={35} fillColor='#24d863' emptyColor='#6E6E6E' titleSeparator='sobre' showTooltip readonly allowFraction
+                                        fillIcon={<AiFillStar size={35} />}
+                                        emptyIcon={<AiOutlineStar size={35} />} />
                                 </div>
                             </div>
                         )
