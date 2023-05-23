@@ -199,6 +199,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     height: 280px;
     align-items: center;
+    transition: 0.15s!important;
 }
 
 .artistAlbums .album:hover {
