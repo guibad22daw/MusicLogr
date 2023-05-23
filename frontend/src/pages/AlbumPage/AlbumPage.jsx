@@ -6,6 +6,7 @@ import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
 import { Rating } from 'react-simple-star-rating'
 import { Carregant } from '../../components/Carregant/Carregant';
 import { TbReload } from 'react-icons/tb';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 
 const AlbumPage = () => {
@@ -131,8 +132,11 @@ const AlbumPage = () => {
                                                 transition={true}
                                                 fillColor='#24d863'
                                                 size={50}
+                                                emptyColor='#6E6E6E'
                                                 showTooltip={true}
                                                 tooltipDefaultText='0'
+                                                fillIcon={<AiFillStar size={50}/>}
+                                                emptyIcon={<AiOutlineStar size={50} stroke='0'/>}
                                             />
                                         </div>
                                     </div>
