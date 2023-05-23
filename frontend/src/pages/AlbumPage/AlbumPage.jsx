@@ -90,14 +90,6 @@ const AlbumPage = () => {
         });
     }
 
-    const artistClickHandler = () => {
-        window.location.href = `/artist/${album.artists[0].id}`;
-    }
-
-    const handleReset = () => {
-        handleRating(0);
-    }
-
     return (
         <div className='songPage'>
             {
@@ -115,14 +107,14 @@ const AlbumPage = () => {
                                 <div className='albumInfo-rating-container'>
                                     <div className="albumInfo">
                                         <h1 className='albumName'>{album.name}</h1>
-                                        <h2 className='albumArtist' onClick={artistClickHandler}>{album.artists[0].name}</h2>
+                                        <h2 className='albumArtist' onClick={() => window.location.href = `/artist/${album.artists[0].id}`}>{album.artists[0].name}</h2>
                                         <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
                                     </div>
                                     <div className='rating-container'>
                                         <div className='rating-column'>
                                             <div className='rating-text'>
                                                 <h5>PUNTUACIÓ</h5>
-                                                <TbReload color='#929292' size="1.5em" className='reload-icon' onClick={handleReset} />
+                                                <TbReload color='#929292' size="1.5em" className='reload-icon' onClick={() => handleRating(0)} />
                                             </div>
                                             <Rating
                                                 onClick={handleRating}
