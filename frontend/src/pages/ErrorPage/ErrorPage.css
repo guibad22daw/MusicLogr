@@ -1,0 +1,52 @@
+.errorPage {
+    background-color: #090909;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 100px;
+    row-gap: 20px;
+    color: white;
+}
+
+.errorContainer h1 {
+    font-weight: bold;
+}
+
+.errorPage img {
+    width: 200px;
+    height: 200px;
+}
+
+.errorContainer .boto {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.errorContainer button {
+    margin-top: 10px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 170px;
+    height: 50px;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+}
+
+.errorContainer button:hover {
+    background-color: #1db954;
+    color: white;
+    transition: 0.3s;
+}
+
+.errorContainer button:active {
+    background-color: #12642f;
+    color: white;
+}

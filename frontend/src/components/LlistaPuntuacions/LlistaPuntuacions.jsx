@@ -27,10 +27,10 @@ export const LlistaPuntuacions = () => {
                 loading ? "" : (
                     userRatings.map((rating) => {
                         return (
-                            <div className='puntuacio-container shadow-sm' key={rating.albumId}>
+                            <div className='puntuacio-container shadow-sm' key={rating.albumId} onClick={() => window.location.href = `/album/${rating.albumId}`}>
                                 <div className='puntuacioImg-Info'>
                                     <div className='puntuacioImg'>
-                                        <img src={rating.albumImage} alt="Album image" className='puntuacioImg-img' onClick={() => window.location.href = `/album/${rating.albumId}`} />
+                                        <img src={rating.albumImage} alt="Album image" className='puntuacioImg-img'/>
                                     </div>
                                     <div className='puntuacioInfo'>
                                         <h5 className='puntuacioName'>{rating.albumName}</h5>

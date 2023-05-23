@@ -26,6 +26,7 @@
     background-color: rgb(30, 30, 30);
     transition: 0.15s;
     transform: scale(1.01);
+    cursor: pointer;
 }
 
 .puntuacioImg {
