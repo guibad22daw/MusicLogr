@@ -6,7 +6,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 // Component Llistat de puntuacions
 export const LlistaPuntuacions = () => {
     // Defineix variables d'estat
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [loading, setLoading] = useState(true)
     const [userRatings, setUserRatings] = useState([])
 

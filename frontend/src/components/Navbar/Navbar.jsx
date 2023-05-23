@@ -7,7 +7,7 @@ import { RiArrowDropDownLine, RiArrowDropLeftLine } from 'react-icons/ri';
 // Component Navbar
 export const Navbar = () => {
     // Defineix variables d'estat
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [loading, setLoading] = useState(true);
     const [showDropdown, setShowDropdown] = useState(false)
     const navigate = useNavigate();

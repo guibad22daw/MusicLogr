@@ -50,7 +50,6 @@ export const LlistaCancons = (props) => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const recommendedData = await recommendedResult.json();
-        console.log('recommended :>> ', recommendedData.albums.items);
         setAlbumMap(recommendedData.albums.items);
         setLoading(false);
     };
@@ -72,7 +71,6 @@ export const LlistaCancons = (props) => {
                         {
                             albumMap.length == 0 ? <h2>{noResultsText}</h2> : (
                                 albumMap.map((song, index) => {
-                                    console.log('song :>> ', song);
                                     return (
                                         <div className='song shadow-sm' key={index}>
                                             <div className='song-details' onClick={() => navigate(`/album/${song.album == undefined ? song.id : song.album.id}`)}>

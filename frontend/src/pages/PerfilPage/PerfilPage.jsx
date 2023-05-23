@@ -8,8 +8,8 @@ import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHe
 
 const PerfilPage = () => {
     const { opcioPerfil } = useParams();
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading1, setLoading1] = useState(true)
     const [loading2, setLoading2] = useState(true)
     const [arrayAlbums, setArrayAlbums] = useState([])

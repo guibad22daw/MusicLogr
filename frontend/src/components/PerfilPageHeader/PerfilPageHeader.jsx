@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 export const PerfilPageHeader = (props) => {
     const { userAlbums } = props;
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const navigate = useNavigate();
 
     return (

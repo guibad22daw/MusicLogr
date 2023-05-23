@@ -5,8 +5,8 @@ import {MdOutlineTimer, MdOutlineTimerOff } from 'react-icons/md';
 
 // Component de botons d'àlbum
 export const BotonsAlbum = (props) => {
-    // Estat local per emmagatzemar la informació del perfil (obtinguda del local storage)
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+    // Constant local per emmagatzemar la informació del perfil (obtinguda del local storage)
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     
     // Desestructuració de les propietats passades com a paràmetre
     const { favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;

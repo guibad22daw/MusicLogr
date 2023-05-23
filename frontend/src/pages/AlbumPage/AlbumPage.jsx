@@ -10,14 +10,14 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 
 // Mostrar informació de cada àlbum
 const AlbumPage = () => {
-    // Obtenir l'id de l'àlbum des de la URL
+    // Obtenir l'id de l'àlbum des de la URL i la informació de l'usuari des del localStorage
     const albumId = useParams();
+    const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
 
-    // Estats per gestionar la informació de l'àlbum, els àlbums de l'usuari, l'access token, la informació del perfil, l'estat de càrrega i altres
+    // Estats per gestionar la informació de l'àlbum, els àlbums de l'usuari, l'access token, l'estat de càrrega i altres
     const [album, setAlbum] = useState([]);
     const [userAlbums, setUserAlbums] = useState([]);
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
-    const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
     const [loading1, setLoading1] = useState(true);
     const [loading2, setLoading2] = useState(true);
     const [loading3, setLoading3] = useState(true);

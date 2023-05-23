@@ -5,7 +5,7 @@ import { Separador } from '../../components/Separador';
 
 // Pàgina d'inici
 const HomePage = () => {
-  const [perfilInfo, setPerfilInfo] = useState(JSON.parse(localStorage.getItem('perfil_info')));
+  const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
   const [greeting, setGreeting] = useState('');
 
   // Funció perque segons el moment del dia, es mostri un missatge de benvinguda o un altre
