@@ -26,24 +26,27 @@ export const desaUsuariBD = async function (req, res) {
     const email = await data.email;
 
     // Creació d'una instància d'Usuari utilitzant l'email rebut
-    const nouUsuari = new Usuari({ email });
+    if (email !== null) {
+        const nouUsuari = new Usuari({ email });
+        console.log('nouUsuari', nouUsuari);
 
-    // Comprovació si l'usuari ja existeix a la base de dades
-    const existeix = await Usuari.exists({ email: email });
-    if (existeix) {
-        // L'usuari ja existeix, es mostra un missatge de console i es retorna un estat 200 OK
-        console.log("Usuari ja existeix.");
-        res.sendStatus(200);
-    } else {
-        try {
-            // L'usuari no existeix, es guarda a la base de dades
-            await nouUsuari.save()
-            console.log(`Usuari afegit correctament`);
+        // Comprovació si l'usuari ja existeix a la base de dades
+        const existeix = await Usuari.exists({ email: email });
+        if (existeix) {
+            // L'usuari ja existeix, es mostra un missatge de console i es retorna un estat 200 OK
+            console.log("Usuari ja existeix.");
             res.sendStatus(200);
-        } catch (err) {
-            // S'ha produït un error en desar l'usuari, es mostra un missatge de console i es retorna un estat 500 Internal Server Error
-            console.log(err);
-            res.sendStatus(500);
+        } else {
+            try {
+                // L'usuari no existeix, es guarda a la base de dades
+                await nouUsuari.save()
+                console.log(`Usuari afegit correctament`);
+                res.sendStatus(200);
+            } catch (err) {
+                // S'ha produït un error en desar l'usuari, es mostra un missatge de console i es retorna un estat 500 Internal Server Error
+                console.log(err);
+                res.sendStatus(500);
+            }
         }
     }
 };
@@ -132,7 +135,7 @@ export const desaAlbumDB = async function (req, res) {
 
 // Funció per obtenir els àlbums d'un usuari des de la base de dades
 export const obtenirAlbumsBD = async function (req, res) {
-     // Obtenció de l'email de les capçaleres de la petició
+    // Obtenció de l'email de les capçaleres de la petició
     const email = req.headers['x-email'];
 
     // Cerca de l'usuari corresponent a l'email rebut
@@ -173,7 +176,7 @@ export const desaRatingBD = async function (req, res) {
     // Cerca de la valoració corresponent a l'àlbum rebut en els ratings de l'usuari
     const index = usuari.ratings.findIndex((rating) => rating.albumId === data.albumId);
     if (index !== -1) {
-         // Si la valoració ja existeix, s'elimina de la llista utilitzant el mètode `splice()`
+        // Si la valoració ja existeix, s'elimina de la llista utilitzant el mètode `splice()`
         usuari.ratings.splice(index, 1);
     }
     if (data.rating !== 0) {
