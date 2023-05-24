@@ -134,9 +134,6 @@ h6 {
 @media (max-width: 767px) {
     .menu-links {
         column-gap: 10px!important;
-        overflow: auto;
-        padding-left: 90px;
-        padding-right: 10px;
     }
 
     .link_actiu,
@@ -189,5 +186,13 @@ h6 {
     .counter h5 {
         color: #bebebe;
         font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .menu-links {
+        overflow: auto;
+        padding-left: 90px;
+        padding-right: 10px;
     }
 }

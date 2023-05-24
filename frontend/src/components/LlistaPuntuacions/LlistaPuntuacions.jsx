@@ -72,9 +72,9 @@ export const LlistaPuntuacions = () => {
                                         </div>
                                         <div className='AlbumRating-container'>
                                             <p>PUNTUACIÓ</p>
-                                            <Rating initialValue={rating.rating} size={35} fillColor='#24d863' emptyColor='#6E6E6E' titleSeparator='sobre' showTooltip readonly allowFraction
-                                                fillIcon={<AiFillStar size={35} />}
-                                                emptyIcon={<AiOutlineStar size={35} />} />
+                                            <Rating initialValue={rating.rating} fillColor='#24d863' emptyColor='#6E6E6E' titleSeparator='sobre' showTooltip readonly allowFraction
+                                                fillIcon={<AiFillStar className='icon-rating-user'/>}
+                                                emptyIcon={<AiOutlineStar className='icon-rating-user' />} />
                                         </div>
                                     </div>
                                 )

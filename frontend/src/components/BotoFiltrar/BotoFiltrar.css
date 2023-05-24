@@ -54,6 +54,7 @@
 .filtrar-div ul li {
     display: block;
     padding: 15px;
+    background: rgb(48, 48, 48);
     list-style-type: none;
     position: relative;
     display: flex;
@@ -79,4 +80,32 @@
     color: #fff;
     transition: all .15s;
     cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .filtrar-div ul li {
+        display: block;
+        padding: 15px;
+        list-style-type: none;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 10px;
+        width: 100%;
+    }
+    .artist-filtrarContainer {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .artist-filtrarContainer h5 {
+        font-size: 15px;
+    }
+
+    .filtrar-div ul {
+        width: 200px;
+        left: calc(50% - 70px);
+    }
 }

@@ -59,6 +59,7 @@
     flex-direction: row;
     align-items: flex-start;
     column-gap: 20px;
+    width: 100%;
 }
 
 .puntuacioArtist {
@@ -75,6 +76,10 @@
     margin-left: 13px!important;
     width: 50px;
     text-align: center;
+}
+
+.icon-rating-user {
+    font-size: 25px!important;
 }
 
 .AlbumRating-container {
@@ -132,7 +137,54 @@
     cursor: default;
 }
 
-/* Media query per fer la pàgina responsive a dispositius mobils */
 @media (max-width: 767px) {
     
+    .puntuacioInfo {
+        width: 100%;
+    }
+
+    .puntuacio-container {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .AlbumRating-container {
+        width: 100%;
+        margin: 5px;
+    }
+    
+    .AlbumRating-container .react-simple-star-rating-tooltip {
+        display: none;
+    }
+
+    .icon-rating-user {
+        font-size: 20px!important;
+    }
+
+    .AlbumRating-container p {
+        display: none;
+    }
+
+    .rating-text {
+        margin-bottom: 0px!important;
+    }
+    .puntuacioImg-Info {
+        margin-top: 5px;
+    }
+
+    .puntuacioInfo .puntuacioName {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 17px;
+    }
+
+    .puntuacioInfo .puntuacioArtist, .puntuacioInfo .puntuacioYear {
+        font-size: 15px;
+    }
+
+    .puntuacioImg img {
+        width: 80px;
+    }
 }
