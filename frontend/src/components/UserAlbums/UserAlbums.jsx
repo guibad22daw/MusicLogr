@@ -1,7 +1,7 @@
 import React from 'react'
 import './UserAlbums.css'
 
-// Component Collage d'albums
+// Component User Albums
 export const UserAlbums = (props) => {
     // Obté l'array d'àlbums passat com a propietat
     const { arrayAlbums } = props;

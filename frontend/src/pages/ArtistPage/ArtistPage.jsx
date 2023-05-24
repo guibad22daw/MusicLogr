@@ -16,7 +16,6 @@ const ArtistPage = () => {
 
     // Funció per ordenar els àlbums de l'artista
     const ordenarHandler = (string) => {
-
         setShowDropdown(false);
         if (string === 'asc') {
             if (artistAlbumsSort === 'desc') {

@@ -5,14 +5,17 @@ import { UserAlbums } from '../../components/UserAlbums/UserAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 import { Carregant } from '../../components/Carregant/Carregant';
 import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHeader';
+import { BotoFiltrar } from '../../components/BotoFiltrar/BotoFiltrar';
 
 const PerfilPage = () => {
     const { opcioPerfil } = useParams();
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
     const [loading, setLoading] = useState(true)
+    const [artistAlbumsSort, setArtistAlbumsSort] = useState("desc");
     const [arrayAlbums, setArrayAlbums] = useState([])
     const [userAlbums, setUserAlbums] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const fetchUserAlbums = async () => {
         const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getUserAlbums`, {
@@ -37,12 +40,26 @@ const PerfilPage = () => {
         fetchUserAlbums();
     }, [accessToken, opcioPerfil]);
 
+    const ordenarHandler = (string) => {
+        setShowDropdown(false);
+        if (string === 'asc') {
+            if (artistAlbumsSort === 'desc') {
+                setArtistAlbumsSort('asc');
+                setArrayAlbums(arrayAlbums.reverse())
+            }
+        } else if (string === 'desc') {
+            if (artistAlbumsSort === 'asc') {
+                setArtistAlbumsSort('desc');
+                setArrayAlbums(arrayAlbums.reverse())
+            }
+        }
+    }
+
 
     return (
         <>
             {
                 loading ? "" : (
-
                     <PerfilPageHeader userAlbums={userAlbums} />
                 )
             }
@@ -57,7 +74,12 @@ const PerfilPage = () => {
                                     opcioPerfil === "puntuacions" ? (
                                         <LlistaPuntuacions />
                                     ) : (
-                                        <UserAlbums arrayAlbums={arrayAlbums} />
+                                        <div className='userAlbums-filtrar'>
+                                            <div className='botoFiltrarComponent'>
+                                                <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} />
+                                            </div>
+                                            <UserAlbums arrayAlbums={arrayAlbums} />
+                                        </div>
                                     )
                                 )
                             }

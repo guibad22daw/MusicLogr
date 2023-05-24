@@ -2,3 +2,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.userAlbums-filtrar {
+    display: flex;
+    flex-direction: column;
+}
+
+.userAlbums-filtrar .botoFiltrarComponent {
+    margin: -15px 15px 0px 15px!important;
+}
