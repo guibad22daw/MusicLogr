@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
-import { CollageAlbums } from '../../components/CollageAlbums/CollageAlbums';
+import { UserAlbums } from '../../components/UserAlbums/UserAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 import { Carregant } from '../../components/Carregant/Carregant';
 import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHeader';
@@ -57,7 +57,7 @@ const PerfilPage = () => {
                                     opcioPerfil === "puntuacions" ? (
                                         <LlistaPuntuacions />
                                     ) : (
-                                        <CollageAlbums arrayAlbums={arrayAlbums} />
+                                        <UserAlbums arrayAlbums={arrayAlbums} />
                                     )
                                 )
                             }

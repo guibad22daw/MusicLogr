@@ -1,8 +1,8 @@
 import React from 'react'
-import './CollageAlbums.css'
+import './UserAlbums.css'
 
 // Component Collage d'albums
-export const CollageAlbums = (props) => {
+export const UserAlbums = (props) => {
     // Obté l'array d'àlbums passat com a propietat
     const { arrayAlbums } = props;
 
