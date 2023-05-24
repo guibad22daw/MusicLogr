@@ -129,3 +129,65 @@ h6 {
     cursor: pointer;
     transition: 0.15s;
 }
+
+/* Media query per fer la pàgina responsive a dispositius mobils */
+@media (max-width: 767px) {
+    .menu-links {
+        column-gap: 10px!important;
+        overflow: auto;
+        padding-left: 90px;
+        padding-right: 10px;
+    }
+
+    .link_actiu,
+    .link {
+        width: calc(100px + 100px);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link_actiu h5,
+    .link h5 {
+        font-size: 12px;
+    }
+
+    .header-perfil {
+        flex-direction: column;
+        row-gap: 10px;
+        height: auto;
+    }
+
+    .perfil-imatge-nom {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .perfil-imatge-nom .perfilImage-img {
+        width: 80px;
+        border-radius: 50%;
+    }
+
+    .header-perfil .user-stats {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-right: 0px!important;
+    }
+
+    .counter {
+        row-gap: 3px;
+    }
+
+    .counter h5 {
+        color: #bebebe;
+        font-size: 13px;
+    }
+
+    .counter h5 {
+        color: #bebebe;
+        font-size: 14px;
+    }
+}
