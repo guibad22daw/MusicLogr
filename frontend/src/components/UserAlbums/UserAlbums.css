@@ -68,3 +68,19 @@
     margin-bottom: 35px;
     color: white;
 }
+
+/* Media query per fer la pàgina responsive a dispositius mobils */
+@media (max-width: 767px) {
+    .perfil-albumsContainer .userAlbums {
+        grid-template-columns: repeat(auto-fill, 150px);
+        column-gap: 15px;
+    }
+
+    .userAlbums .album {
+        width: 140px;
+    }
+
+    .noAlbums {
+       font-size: 16px;
+    }
+}
