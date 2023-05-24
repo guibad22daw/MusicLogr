@@ -89,6 +89,10 @@ h2{
     margin: 4px 0 0 0;
     font-size: 14px;
     color: gray;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Media query per fer la pàgina responsive a dispositius mobils */
@@ -123,9 +127,10 @@ h2{
         width: 120px;
         margin: 0;
         font-size: 18px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    }
+
+    .song-artist {
+        width: 120px;
     }
 
     .song-info .song-name {
