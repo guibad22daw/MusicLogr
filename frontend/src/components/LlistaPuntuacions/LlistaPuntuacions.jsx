@@ -18,6 +18,7 @@ export const LlistaPuntuacions = () => {
                 headers: { 'x-email': perfilInfo.email }
             });
             const data = await result.json();
+
             setUserRatings(data);
             setLoading(false);
         };
