@@ -24,6 +24,12 @@ const ArtistPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
         const data = await result.json();
+
+        if(result.status == 401) {
+            window.location.href = `/login?message=${encodeURIComponent("error")}`;
+            return;
+        }
+        
         setArtist(data);
         setLoading1(false);
     };

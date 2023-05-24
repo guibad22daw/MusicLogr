@@ -26,6 +26,11 @@ export const Buscador = () => {
             method: "GET",
             headers: { Authorization: `Bearer ${accessToken}` }
         });
+
+        if(result.status == 401) {
+            window.location.href = `/login?message=${encodeURIComponent("error")}`;
+            return;
+        }
         
         // Processa les dades rebudes i actualitza les suggerències de cerca
         const data = await result.json();
@@ -60,7 +65,6 @@ export const Buscador = () => {
                     items={sugestions}
                     onSearch={handleOnSearch}
                     onSelect={handleOnSelect}
-                    autoFocus
                     formatResult={formatResult}
                     styling={estilsBuscador}
                     placeholder='Cercar àlbums...'

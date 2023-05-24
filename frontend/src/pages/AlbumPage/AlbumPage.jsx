@@ -33,6 +33,12 @@ const AlbumPage = () => {
             method: "GET",
             headers: { Authorization: `Bearer ${accessToken}` }
         });
+
+        if(result.status == 401) {
+            window.location.href = `/login?message=${encodeURIComponent("error")}`;
+            return;
+        }
+    
         const data = await result.json();
         setAlbum(data);
         setLoading1(false);

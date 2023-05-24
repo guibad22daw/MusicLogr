@@ -36,7 +36,7 @@ export const BotonsAlbum = (props) => {
                 else if (opcio === "enPropietat") setEnPropietat(!enPropietat)
                 console.log("Dades desades correctament");
             } else {
-                throw new Error("Something went wrong");
+                throw new Error("Error desant les dades.");
             }
         })
     }

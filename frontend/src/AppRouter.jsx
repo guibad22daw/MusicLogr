@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar/Navbar';
 import { PostLoginPage } from './pages/PostLoginPage/PostLoginPage';
-import { LoginPage } from './pages/LoginPage/LoginPage';
 import PrivateRoutes from './utils/PrivateRoutes';
 import loadable from '@loadable/component';
 
@@ -11,12 +10,14 @@ const AlbumPage = loadable(() => import('./pages/AlbumPage/AlbumPage'));
 const ArtistPage = loadable(() => import('./pages/ArtistPage/ArtistPage'));
 const PerfilPage = loadable(() => import('./pages/PerfilPage/PerfilPage'));
 const ErrorPage = loadable(() => import('./pages/ErrorPage/ErrorPage'));
+const LoginPage = loadable(() => import('./pages/LoginPage/LoginPage'));
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/' element={<LoginPage />} />
+        <Route exact path='/' element={<Navigate to="/login" />} />
+        <Route exact path='/login' element={<LoginPage />} />
         <Route exact path='/postLogin' element={<PostLoginPage />} />
         <Route element={<PrivateRoutes />}>
           <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
