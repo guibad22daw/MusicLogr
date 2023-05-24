@@ -21,6 +21,9 @@ export const PostLoginPage = () => {
       }).then((response) => {
         if (response.ok) {
           window.location.href = "/home";
+        } else {
+          console.log("Error");
+          window.location.href = "/";
         }
       })
 

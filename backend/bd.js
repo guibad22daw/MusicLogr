@@ -28,7 +28,6 @@ export const desaUsuariBD = async function (req, res) {
     // Creació d'una instància d'Usuari utilitzant l'email rebut
     if (email !== null) {
         const nouUsuari = new Usuari({ email });
-        console.log('nouUsuari', nouUsuari);
 
         // Comprovació si l'usuari ja existeix a la base de dades
         const existeix = await Usuari.exists({ email: email });
