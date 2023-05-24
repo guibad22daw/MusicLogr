@@ -66,3 +66,29 @@
     margin-top: 2px;
     font-size: 14px;
 }
+
+@media (max-width: 767px) { 
+    .artist-albumsContainer .artistAlbums {
+        grid-template-columns: repeat(auto-fill, 155px);
+        column-gap: 15px;
+    }
+    
+    .artistAlbums .album {
+        width: 150px;
+        height: 220px;
+    }
+    
+    .artistAlbums .album img {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .artistAlbums .albumInfo .albumName {
+        width: 125px;
+        font-size: 14px;
+    }
+    
+    .artistAlbums .albumInfo .albumYear {
+        font-size: 10px;
+    }
+}
