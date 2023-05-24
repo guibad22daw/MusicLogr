@@ -127,3 +127,18 @@
 .dropdown-arrow:hover {
     cursor: pointer;
 }
+
+/* Media query per fer la pàgina responsive a dispositius mobils */
+@media (max-width: 767px) {
+    .logo-container {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .perfil-usuari .nom-perfil {
+        display: none;
+    }
+}

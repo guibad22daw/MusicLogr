@@ -60,7 +60,7 @@ export const Buscador = () => {
 
     return (
         <div className='buscador-container'>
-            <div style={{ width: 280 }}>
+            <div className='buscador-input'>
                 <ReactSearchAutocomplete
                     items={sugestions}
                     onSearch={handleOnSearch}
