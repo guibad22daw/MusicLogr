@@ -76,6 +76,7 @@
     margin-left: 13px!important;
     width: 50px;
     text-align: center;
+    display: none;
 }
 
 .icon-rating-user {
