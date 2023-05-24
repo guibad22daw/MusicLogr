@@ -47,12 +47,11 @@ export const AlbumInfo = (props) => {
                             titleSeparator='sobre'
                             transition={true}
                             fillColor='#24d863'
-                            size={50}
                             emptyColor='#6E6E6E'
                             showTooltip={true}
                             tooltipDefaultText='0'
-                            fillIcon={<AiFillStar size={50} />}
-                            emptyIcon={<AiOutlineStar size={50} />}
+                            fillIcon={<AiFillStar className='rating-icon' />}
+                            emptyIcon={<AiOutlineStar className='rating-icon' />}
                         />
                     </div>
                 </div>

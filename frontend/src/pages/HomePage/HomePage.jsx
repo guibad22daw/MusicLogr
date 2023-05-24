@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import { LlistaCancons } from '../../components/LlistaCancons/LlistaCancons';
-import { Separador } from '../../components/Separador';
+import { Separador } from '../../components/Separador/Separador';
 
 // Pàgina d'inici
 const HomePage = () => {

@@ -40,4 +40,8 @@
         background-color: transparent;
         border: none;
     }
+
+    .buscador-input .wrapper input{
+        font-size: 14px;
+    }
 }

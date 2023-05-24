@@ -28,3 +28,18 @@ h1,h2 {
     margin-top: -200px!important;
 
  }
+
+ /* Media query per fer la pàgina responsive a dispositius mobils */
+@media (max-width: 767px) {
+    .titolHome {
+        margin-bottom: -20px;
+    }
+
+    .homeContainer .separador:first-child {
+        margin-top: 0px!important;
+    }
+
+    .homeContainer .separador:nth-child(2) {
+        margin-top: 30px!important;
+    }
+}

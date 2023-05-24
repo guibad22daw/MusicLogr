@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Carregant } from '../../components/Carregant/Carregant';
-import { Separador } from '../../components/Separador';
+import { Separador } from '../../components/Separador/Separador';
 import { useFetchArtist } from '../../services/useFetchArtist';
 import { ArtistAlbums } from '../../components/ArtistAlbums/ArtistAlbums';
 import './ArtistPage.css'

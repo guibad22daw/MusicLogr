@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
-import { Separador } from '../../components/Separador';
+import { Separador } from '../../components/Separador/Separador';
 import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
 import { Carregant } from '../../components/Carregant/Carregant';
 import { AlbumInfo } from '../../components/AlbumInfo/AlbumInfo';

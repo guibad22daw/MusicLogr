@@ -131,3 +131,8 @@
     transform: scale(1.00);
     cursor: default;
 }
+
+/* Media query per fer la pàgina responsive a dispositius mobils */
+@media (max-width: 767px) {
+    
+}

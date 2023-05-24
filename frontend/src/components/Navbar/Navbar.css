@@ -135,10 +135,20 @@
     }
 
     .navbar {
-        padding: 0px 10px 0px 10px;
+        height: 70px;
+        padding: 0px 15px 0px 12px;
     }
 
     .perfil-usuari .nom-perfil {
         display: none;
     }
+
+    .user-nav {
+        display: none;
+    }
+
+    .dropdown-arrow {
+        display: none;
+    }
+
 }
