@@ -129,12 +129,16 @@
     }
 
     .opcio-container label {
-        font-size: 13px;
-        margin-top: 2px;
+        font-size: 12px;
+        margin-top: 3px;
     }
 
     .content .botons-funcions {
         margin-top: -40px;
+    }
+
+    .reload-icon {
+        font-size: 14px;
     }
 
 }

@@ -48,9 +48,9 @@ export const BotonsAlbum = (props) => {
                 <div className='botoOpcio boto-favorits' onClick={() => botoHandler("favorits")}>
                     {
                         favorits ? (
-                            <TbHeartOff color='#1db954' size="2em" />
+                            <TbHeartOff color='#1db954' className='boto-icon' />
                         ) : (
-                            <TbHeartFilled color='#1db954' size="2em" />
+                            <TbHeartFilled color='#1db954' className='boto-icon' />
                         )
                     }
                 </div>
@@ -60,9 +60,9 @@ export const BotonsAlbum = (props) => {
                 <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
                     {
                         escoltats ? (
-                            <TbHeadphonesOff color='black' size="2em" />
+                            <TbHeadphonesOff color='black' className='boto-icon' />
                         ) : (
-                            <TbHeadphones color='black' size="2em" />
+                            <TbHeadphones color='black' className='boto-icon' />
                         )
                     }
                 </div>
@@ -73,9 +73,9 @@ export const BotonsAlbum = (props) => {
                 <div className='botoOpcio boto-pendent' onClick={() => botoHandler("pendents")}>
                     {
                         pendents ? (
-                            <MdOutlineTimerOff color='black' size="2em" />
+                            <MdOutlineTimerOff color='black' className='boto-icon' />
                         ) : (
-                            <MdOutlineTimer color='black' size="2em" />
+                            <MdOutlineTimer color='black' className='boto-icon' />
                         )
                     }
                 </div>
@@ -85,9 +85,9 @@ export const BotonsAlbum = (props) => {
                 <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
                     {
                         enPropietat ? (
-                            <TbDiscOff color='black' size="2em" />
+                            <TbDiscOff color='black' className='boto-icon' />
                         ) : (
-                            <TbDisc color='black' size="2em" />
+                            <TbDisc color='black' className='boto-icon' />
                         )
                     }
                 </div>

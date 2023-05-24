@@ -37,3 +37,22 @@
     transition: 0.15s;
 }
 
+.botoOpcio .boto-icon {
+    font-size: 2em;
+}
+
+@media (max-width: 767px) {
+    .botoOpcio {
+        width: 60px;
+        height: 60px;
+    }
+
+    .botoOpcio .boto-icon {
+        font-size: 1.7em;
+    }
+
+    .opcio-container {
+        margin-bottom: -10px;
+    }
+}
+
