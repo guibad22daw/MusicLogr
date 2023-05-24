@@ -29,7 +29,7 @@ const ArtistPage = () => {
             window.location.href = `/login?message=${encodeURIComponent("error")}`;
             return;
         }
-        
+
         setArtist(data);
         setLoading1(false);
     };
@@ -112,7 +112,6 @@ const ArtistPage = () => {
 
                                     <div className='artistAlbums'>
                                         {
-
                                             artistAlbums.map((album) => {
                                                 return (
                                                     <div className="album shadow-sm" key={album.id} onClick={() => window.location.href = `/album/${album.id}`}>

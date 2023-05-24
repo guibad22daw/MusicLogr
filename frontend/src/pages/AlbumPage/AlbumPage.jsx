@@ -3,10 +3,8 @@ import './AlbumPage.css';
 import { useParams } from 'react-router-dom';
 import { Separador } from '../../components/Separador';
 import { BotonsAlbum } from '../../components/BotonsAlbum/BotonsAlbum';
-import { Rating } from 'react-simple-star-rating'
 import { Carregant } from '../../components/Carregant/Carregant';
-import { TbReload } from 'react-icons/tb';
-import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { AlbumInfo } from '../../components/AlbumInfo/AlbumInfo';
 
 // Mostrar informació de cada àlbum
 const AlbumPage = () => {
@@ -34,11 +32,11 @@ const AlbumPage = () => {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
 
-        if(result.status == 401) {
+        if (result.status == 401) {
             window.location.href = `/login?message=${encodeURIComponent("error")}`;
             return;
         }
-    
+
         const data = await result.json();
         setAlbum(data);
         setLoading1(false);
@@ -86,22 +84,6 @@ const AlbumPage = () => {
         fetchRatings();
     }, [accessToken, albumId]);
 
-    // Funció per gestionar la puntuació de l'àlbum
-    const handleRating = (rate) => {
-        setRating(rate)
-        fetch(`${import.meta.env.VITE_BACKEND_URL}/addRating`, {
-            method: "POST",
-            headers: { 'x-email': perfilInfo.email, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ albumId: albumId.id, rating: rate, albumName: album.name, albumArtist: album.artists[0].name, albumYear: album.release_date, albumImage: album.images[0].url })
-        }).then((response) => {
-            if (response.status === 200) {
-                console.log('Rating afegit');
-            } else {
-                console.log('Error afegint rating');
-            }
-        });
-    }
-
     // Renderització d'AlbumPage
     return (
         <div className='songPage'>
@@ -113,40 +95,7 @@ const AlbumPage = () => {
                             <div className="bg-header-overlay"></div>
                         </div>
                         <div className="content">
-                            <div className="songImageandInfo">
-                                <div className="songImage">
-                                    <img src={album.images[0].url} alt="Song image" />
-                                </div>
-                                <div className='albumInfo-rating-container'>
-                                    <div className="albumInfo">
-                                        <h1 className='albumName'>{album.name}</h1>
-                                        <h2 className='albumArtist' onClick={() => window.location.href = `/artist/${album.artists[0].id}`}>{album.artists[0].name}</h2>
-                                        <h4 className='albumYear'>{album.release_date.length > 4 ? album.release_date.substring(0, 4) : album.release_date}</h4>
-                                    </div>
-                                    <div className='rating-container'>
-                                        <div className='rating-column'>
-                                            <div className='rating-text'>
-                                                <h5>PUNTUACIÓ</h5>
-                                                <TbReload color='#929292' size="1.5em" className='reload-icon' onClick={() => handleRating(0)} />
-                                            </div>
-                                            <Rating
-                                                onClick={handleRating}
-                                                initialValue={rating}
-                                                allowFraction={true}
-                                                titleSeparator='sobre'
-                                                transition={true}
-                                                fillColor='#24d863'
-                                                size={50}
-                                                emptyColor='#6E6E6E'
-                                                showTooltip={true}
-                                                tooltipDefaultText='0'
-                                                fillIcon={<AiFillStar size={50}/>}
-                                                emptyIcon={<AiOutlineStar size={50}/>}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <AlbumInfo data={{ album, rating, setRating, perfilInfo }} />
                             <Separador />
                             <BotonsAlbum data={{ favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album }} />
                             <Separador />

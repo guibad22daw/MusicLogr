@@ -1,0 +1,107 @@
+.songImageandInfo {
+    display: flex;
+    column-gap: 30px;
+    width: 100%;
+}
+
+.albumInfo {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    width: 100%;
+}
+
+.albumInfo .albumName {
+    font-weight: bold;
+    color: white;
+}
+
+.albumInfo .albumArtist {
+    color: white;
+    transition: 0.15s;
+}
+
+
+.albumInfo .albumArtist:hover {
+    cursor: pointer;
+    color: rgb(202, 202, 202);
+    transition: 0.15s;
+}
+
+.albumInfo .albumYear {
+    color: rgb(171, 171, 171);
+}
+
+.songImage img {
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.7);
+}
+
+.songPlayer {
+    width: 100%;
+    height: 100%;
+}
+
+.albumInfo-rating-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.rating-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+.rating-column h5 {
+    color: white;
+    font-weight: bold;
+}
+
+.rating-column .react-simple-star-rating-tooltip {
+    width: 50px;
+    text-align: center;
+    width: 50px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.rating-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    column-gap: 10px;
+    margin-bottom: 2px;
+}
+
+.rating-text h5 {
+    margin: 0;
+    color: white;
+}
+
+.reload-icon:hover {
+    cursor: pointer;
+    color: white !important;
+}
