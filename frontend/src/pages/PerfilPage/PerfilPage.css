@@ -11,16 +11,3 @@
 .userAlbums-filtrar .botoFiltrarComponent {
     margin: -15px 15px 0px 15px !important;
 }
-
-/* Media query per fer la pàgina responsive a dispositius mobils */
-@media (max-width: 767px) {
-    .link_actiu,
-    .link {
-        width: 100px;
-    }
-
-    .link_actiu h5,
-    .link h5 {
-        font-size: 13px;
-    }
-}
