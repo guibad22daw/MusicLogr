@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Carregant } from '../../components/Carregant/Carregant';
 import { Separador } from '../../components/Separador';
-import { BiFilter } from 'react-icons/bi';
-import { HiSortAscending, HiSortDescending } from 'react-icons/hi';
 import { useFetchArtist } from '../../services/useFetchArtist';
 import { ArtistAlbums } from '../../components/ArtistAlbums/ArtistAlbums';
 import './ArtistPage.css'
+import { BotoFiltrar } from '../../components/BotoFiltrar/BotoFiltrar';
 
 const ArtistPage = () => {
     const { artistId } = useParams();
@@ -49,16 +48,7 @@ const ArtistPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='artist-filtrarContainer' onClick={() => setShowDropdown(!showDropdown)} style={showDropdown ? { backgroundColor: "white", color: "black" } : {}}>
-                            <BiFilter style={{ color: showDropdown ? "black" : "white" }} size="1.5em" />
-                            <h5 className='artist-albumsTitle'>Filtrar</h5>
-                            <div className="filtrar-div" style={showDropdown ? { visibility: "visible", opacity: 1, top: "2px" } : {}} >
-                                <ul>
-                                    <li onClick={() => ordenarHandler("asc")}><HiSortAscending color='white' size="1.3em" />Ordenar ascendentment</li>
-                                    <li onClick={() => ordenarHandler("desc")}><HiSortDescending color='white' size="1.3em" />Ordenar descendentment</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} />
                         <ArtistAlbums artistAlbums={artistAlbums} />
                     </div>
                 )
