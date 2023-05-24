@@ -10,8 +10,7 @@ const PerfilPage = () => {
     const { opcioPerfil } = useParams();
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
-    const [loading1, setLoading1] = useState(true)
-    const [loading2, setLoading2] = useState(true)
+    const [loading, setLoading] = useState(true)
     const [arrayAlbums, setArrayAlbums] = useState([])
     const [userAlbums, setUserAlbums] = useState([]);
 
@@ -22,33 +21,27 @@ const PerfilPage = () => {
         });
         const data = await result.json();
         setUserAlbums(data);
-        setLoading1(false);
+        if (opcioPerfil === 'escoltats') {
+            setArrayAlbums(data.escoltats);
+        } else if (opcioPerfil === 'favorits') {
+            setArrayAlbums(data.favorits);
+        } else if (opcioPerfil === 'pendents') {
+            setArrayAlbums(data.pendents);
+        } else if (opcioPerfil === 'enpropietat') {
+            setArrayAlbums(data.enPropietat);
+        }
+        setLoading(false);
     };
 
     useEffect(() => {
         fetchUserAlbums();
-    }, [accessToken, perfilInfo]);
-
-    useEffect(() => {
-        if (opcioPerfil != undefined && userAlbums.length != 0) {
-            if (opcioPerfil === 'escoltats') {
-                setArrayAlbums(userAlbums.escoltats);
-            } else if (opcioPerfil === 'favorits') {
-                setArrayAlbums(userAlbums.favorits);
-            } else if (opcioPerfil === 'pendents') {
-                setArrayAlbums(userAlbums.pendents);
-            } else if (opcioPerfil === 'enpropietat') {
-                setArrayAlbums(userAlbums.enPropietat);
-            }
-            setLoading2(false);
-        }
-    }, [opcioPerfil, userAlbums])
+    }, [accessToken, opcioPerfil]);
 
 
     return (
         <>
             {
-                loading1 ? "" : (
+                loading ? "" : (
 
                     <PerfilPageHeader userAlbums={userAlbums} />
                 )
@@ -58,7 +51,7 @@ const PerfilPage = () => {
                     opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
                             {
-                                loading1 || loading2 ? (
+                                loading ? (
                                     <Carregant />
                                 ) : (
                                     opcioPerfil === "puntuacions" ? (

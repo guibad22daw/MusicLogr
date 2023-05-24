@@ -23,7 +23,7 @@ export const LlistaPuntuacions = () => {
             setLoading(false);
         };
         fetchUserRatings();
-    }, [perfilInfo])
+    }, [])
 
     // Renderitza el component
     return (
