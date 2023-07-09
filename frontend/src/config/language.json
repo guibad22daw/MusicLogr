@@ -9,6 +9,7 @@
         "Navbar": {
             "buscador": "Buscar àlbumes...",
             "perfil": "Mi perfil",
+            "configuracio": "Configuración",
             "tancarSessio": "Cerrar sesión"
         },
         "HomePage": {
@@ -60,6 +61,7 @@
         "Navbar": {
             "buscador": "Cercar àlbums...",
             "perfil": "El meu perfil",
+            "configuracio": "Configuració",
             "tancarSessio": "Tancar sesió"
         },
         "HomePage": {
@@ -110,6 +112,7 @@
         "Navbarr": {
             "buscador": "Search albums...",
             "perfil": "My profile",
+            "configuracio": "Settings",
             "tancarSessio": "Log out"
         },
         "HomePage": {
