@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import './PerfilPage.css'
+import './UserPage.css'
 import { UserAlbums } from '../../components/UserAlbums/UserAlbums';
 import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPuntuacions';
 import { Carregant } from '../../components/Carregant/Carregant';
-import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHeader';
+import { UserPageHeader } from '../../components/UserPageHeader/UserPageHeader';
 import { BotoFiltrar } from '../../components/BotoFiltrar/BotoFiltrar';
 import idiomas from '../../config/language.json';
 import { IdiomaContext } from '../../context/IdiomaContext';
 
-const PerfilPage = () => {
+const UserPage = () => {
     const { opcioPerfil } = useParams();
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [accessToken, setAccessToken] = useState(localStorage.getItem('access_token'));
@@ -63,10 +63,10 @@ const PerfilPage = () => {
         <>
             {
                 loading ? "" : (
-                    <PerfilPageHeader userAlbums={userAlbums} idioma={idiomas[idioma].PerfilPage}/>
+                    <UserPageHeader userAlbums={userAlbums} idioma={idiomas[idioma].UserPage}/>
                 )
             }
-            <div className='perfilPage'>
+            <div className='UserPage'>
                 {
                     opcioPerfil == undefined ? "" : (
                         <div className="container-xxl perfilContainer">
@@ -81,7 +81,7 @@ const PerfilPage = () => {
                                             <div className='botoFiltrarComponent'>
                                                 <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} idioma={idiomas[idioma].BotoFiltrar}/>
                                             </div>
-                                            <UserAlbums arrayAlbums={arrayAlbums} idioma={idiomas[idioma].PerfilPage}/>
+                                            <UserAlbums arrayAlbums={arrayAlbums} idioma={idiomas[idioma].UserPage}/>
                                         </div>
                                     )
                                 )
@@ -95,4 +95,4 @@ const PerfilPage = () => {
     )
 }
 
-export default PerfilPage;
+export default UserPage;

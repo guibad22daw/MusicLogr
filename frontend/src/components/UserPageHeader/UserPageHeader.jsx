@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import './PerfilPageHeader.css'
+import './UserPageHeader.css'
 import { NavLink, useNavigate } from 'react-router-dom';
 
-export const PerfilPageHeader = (props) => {
+export const UserPageHeader = (props) => {
     const { userAlbums, idioma } = props;
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const navigate = useNavigate();
 
     return (
-        <div className='perfilPage'>
+        <div className='UserPage'>
             <div className="container-xxl perfilContainer">
                 <div className="header-perfil shadow-sm">
                     <div className='perfil-imatge-nom'>

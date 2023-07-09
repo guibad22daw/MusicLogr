@@ -55,7 +55,7 @@ export const LlistaPuntuacions = (props) => {
                     loading ? "" : (
                         userRatings.length === 0 ? (
                             <div className='puntuacio-container woAlbums shadow-sm'>
-                                <h2 className='noAlbums'>{idioma.PerfilPage.noPuntuacio}</h2>
+                                <h2 className='noAlbums'>{idioma.UserPage.noPuntuacio}</h2>
                             </div>
                         ) : (
                             userRatings.map((rating) => {

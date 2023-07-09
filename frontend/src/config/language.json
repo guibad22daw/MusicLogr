@@ -28,14 +28,14 @@
         },
         "BotoFiltrar": {
             "text": "Filtrar",
-            "asc": "Filtrar ascendentmente",
-            "desc": "Filtrar descendentmente"
+            "asc": "Ascendentemente",
+            "desc": "Descendentemente"
         },
         "ArtistPage": {
             "seguidors": "SEGUIDORES"
 
         },
-        "PerfilPage": {
+        "UserPage": {
             "favorits": "Favoritos",
             "escoltats": "Escuchados",
             "pendents": "Pendientes",
@@ -85,7 +85,7 @@
         "ArtistPage": {
             "seguidors": "SEGUIDORS"
         },
-        "PerfilPage": {
+        "UserPage": {
             "favorits": "Favorits",
             "escoltats": "EScoltats",
             "pendents": "Pendents",
@@ -136,7 +136,7 @@
             "seguidors": "FOLLOWERS"
 
         },
-        "PerfilPage": {
+        "UserPage": {
             "favorits": "Favorites",
             "escoltats": "Listened",
             "pendents": "Pending",

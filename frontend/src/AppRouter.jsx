@@ -8,7 +8,7 @@ import loadable from '@loadable/component';
 const HomePage = loadable(()=> import('./pages/HomePage/HomePage'));
 const AlbumPage = loadable(() => import('./pages/AlbumPage/AlbumPage'));
 const ArtistPage = loadable(() => import('./pages/ArtistPage/ArtistPage'));
-const PerfilPage = loadable(() => import('./pages/PerfilPage/PerfilPage'));
+const UserPage = loadable(() => import('./pages/UserPage/UserPage'));
 const ErrorPage = loadable(() => import('./pages/ErrorPage/ErrorPage'));
 const LoginPage = loadable(() => import('./pages/LoginPage/LoginPage'));
 
@@ -23,8 +23,8 @@ function AppRouter() {
           <Route exact path='/home' element={<><Navbar /><HomePage /></>} />
           <Route exact path='/album/:id' element={<><Navbar /><AlbumPage /></>} />
           <Route exact path='/artist/:artistId' element={<><Navbar /><ArtistPage /></>} />
-          <Route exact path='/perfil' element={<><Navbar /><PerfilPage /></>} />
-          <Route exact path='/perfil/:opcioPerfil' element={<><Navbar /><PerfilPage /></>} />
+          <Route exact path='/perfil' element={<><Navbar /><UserPage /></>} />
+          <Route exact path='/perfil/:opcioPerfil' element={<><Navbar /><UserPage /></>} />
         </Route>
         <Route path='*' element={<ErrorPage/>} />
       </Routes>
