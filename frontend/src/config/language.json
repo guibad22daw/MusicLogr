@@ -55,7 +55,8 @@
             "opcio1": "Idioma",
             "opcio2": "Eliminar cuenta",
             "tancarSessio": "Cerrar sesión",
-            "errorEsborrant": "Error eliminando cuenta"
+            "errorEsborrant": "Error eliminando cuenta",
+            "compteEsborrat": "La cuenta se ha eliminado correctamente."
         }
     },
     "ca": {
@@ -114,7 +115,8 @@
             "opcio1": "Idioma",
             "opcio2": "Esborrar compte",
             "tancarSessio": "Tancar la sessió",
-            "errorEsborrant": "Error esborrant compte"
+            "errorEsborrant": "Error esborrant compte",
+            "compteEsborrat": "El compte s'ha esborrat correctament."
         }
     },
     "en": {
@@ -173,7 +175,8 @@
             "opcio1": "Language",
             "opcio2": "Delete account",
             "tancarSessio": "Log out",
-            "errorEsborrant": "Error deleting account"
+            "errorEsborrant": "Error deleting account",
+            "compteEsborrat": "The account has been successfully deleted."
         }
     }
 }

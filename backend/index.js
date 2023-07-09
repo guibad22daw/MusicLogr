@@ -97,6 +97,10 @@ app.get("/getRating", async (req, res) => {
   bd.obtenirRatingBD(req, res);
 })
 
+app.delete("/deleteUser", async (req, res) => {
+  bd.esborrarCompteBD(req, res);
+})
+
 // Escolta les sol·licituds en el port especificat
 app.listen(PORT, err => {
   if (err) console.log(err)

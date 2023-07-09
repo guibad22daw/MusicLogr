@@ -15,24 +15,23 @@ const SettingsPage = () => {
     setIdioma(lang);
   }
 
-  const deleteAccountHandler = () => {
-    fetch('http://localhost:8888/deleteAccount', {
+  const deleteAccountHandler = async () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/deleteUser`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        headers: { 'x-email': perfilInfo.email }
-      }
+      headers: { 'x-email': perfilInfo.email }
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data.status === 200) {
-          logOutHandler();
+      .then(res => {
+        if (res.status === 200) {
+          alert(idiomas[idioma].SettingsPage.compteEsborrat)
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('perfil_info');
+          window.location.href = '/';
+        } else {
+          throw new Error(idiomas[idioma].SettingsPage.errorEsborrant);
         }
-      }
-      )
+      })
       .catch(err => {
-        console.log(err);
+        console.error(err);
         alert(idiomas[idioma].SettingsPage.errorEsborrant);
       })
   }

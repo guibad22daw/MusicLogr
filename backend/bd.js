@@ -241,6 +241,21 @@ export const obtenirRatingsBD = async function (req, res) {
     return res.json(usuari.ratings || []);
 };
 
+export const esborrarCompteBD = async function (req, res) {
+    // Obté l'email dels encapçalaments de la sol·licitud
+    const email = req.headers['x-email'];
+    console.log('email', email);
+    const usuari = await Usuari.deleteOne({ email: email });
+
+    if (!usuari) {
+        console.log('Usuari no existeix');
+        res.sendStatus(500);
+        return
+    }
+
+    res.sendStatus(200);
+};
+
 function existeixAlbum(array, data) {
     // Comprova si hi ha un àlbum amb l'albumId especificat a l'array donat
     return array.findIndex((album) => album.albumId === data.albumId);
