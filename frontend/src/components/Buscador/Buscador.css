@@ -12,7 +12,7 @@
 }
 
 .buscador-input {
-    min-width: 230px;
+    width: 300px;
     outline-style: none;
     color: rgb(240, 240, 240);
     background-color: transparent;
@@ -34,7 +34,7 @@
 
 @media (max-width: 767px) {
     .buscador-input {
-        min-width: 200px;
+        width: 200px;
         outline-style: none;
         color: rgb(240, 240, 240);
         background-color: transparent;

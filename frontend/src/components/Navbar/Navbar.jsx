@@ -33,9 +33,11 @@ export const Navbar = () => {
 
     // Renderitza el component
     return (
-        <nav className="navbar">
-            <Buscador />
-            <div className='logo-container'>
+        <nav className="container navbar">
+            <div className='buscador'>
+                <Buscador />
+            </div>
+            <div className='logo-container flex-grow basis-0'>
                 <img src='/assets/img/logo.png' className='logo' alt='Logo' onClick={() => {
                     navigate('/home');
                     setShowDropdown(false);

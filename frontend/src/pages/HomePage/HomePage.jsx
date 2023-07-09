@@ -23,7 +23,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className='container-xxl homeContainer'>
+    <div className='container homeContainer'>
       <Separador height="10px" />
       <div className='titolHome'>
         <h1>{greeting}, {perfilInfo.display_name}</h1>

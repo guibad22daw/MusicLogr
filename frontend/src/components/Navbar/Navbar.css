@@ -1,11 +1,22 @@
 .navbar {
     height: 85px;
-    padding: 0px 70px 0px 70px;
+    align-items: center;
+    display: flex;
+    padding: 0 10px 0 10px;
+}
+
+/* .logo-container {
+    align-items: center;
+} */
+
+.navbar .buscador {
+    flex-grow: 1;
+    flex-basis: 0;
+
 }
 
 .logo {
     width: 60px;
-    margin-left: -100px;
 }
 
 .logo:hover {
@@ -20,9 +31,12 @@
 .perfil-usuari {
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
+    flex-basis: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     column-gap: 15px;
+    flex-grow: 1;
 }
 
 .foto-perfil {

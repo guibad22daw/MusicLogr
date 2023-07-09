@@ -1,0 +1,148 @@
+{
+    "es": {
+        "LoginPage": {
+            "titol": "Bienvenido a MusicLogr",
+            "subtitol": "Ten el control tu música",
+            "login": "Inicia sesión con Spotify"
+        },
+        "Navbar" : {
+            "buscador": "Buscar àlbumes...",
+            "perfil": "Mi perfil",
+            "tancarSessio": "Cerrar sesión"
+        },
+        "HomePage": {
+            "titol1": "Buenos días, ",
+            "titol2": "Buenas tardes, ",
+            "titol3": "Buenas noches, ",
+            "mesEscoltades": "Canciones más escuchadas",
+            "recomenades": "Canciones recomendadas",
+            "llencaments": "Nuevos lanzamientos"
+        },
+        "AlbumPage": {
+            "puntuacio": "PUNTUACIÓN",
+            "favorit": "Favorito",
+            "escoltat": "Escuchado",
+            "pendent": "Pendiente",
+            "enPropietat": "En propiedad"
+        },
+        "BotoFiltrar": {
+            "text": "Filtrar",
+            "asc": "Filtrar ascendentmente",
+            "desc": "Filtrar descendentmente"
+        },
+        "ArtistPage": {
+            "seguidors": "SEGUIDORES"
+
+        },
+        "PerfilPage": {
+            "favorits": "Favoritos",
+            "escoltats": "Escuchados",
+            "pendents": "Pendientes",
+            "enPropietat": "En propiedad",
+            "noAlbum": "No tienes ningún álbum en esta categoría.",
+            "noPuntuacio": "Aún no has puntuado ningún álbum."
+        },
+        "ErrorPage": {
+            "titol": "Página no trobada",
+            "subtitol": "No hem trobat la pàgina que estàs buscant.",
+            "textBoto": "Tornar enrere"
+        }
+    },
+    "ca": {
+        "LoginPage": {
+            "titol": "Benvingut a MusicLogr",
+            "subtitol": "Tingues el control de la teva música",
+            "login": "Inicia sessió amb Spotify"
+        },
+        "Navbar" : {
+            "buscador": "Cercar àlbums...",
+            "perfil": "El meu perfil",
+            "tancarSessio": "Tancar sesió"
+        },
+        "HomePage": {
+            "titol1": "Bon dia, ",
+            "titol2": "Bona tarda, ",
+            "titol3": "Bona nit, ",
+            "mesEscoltades": "Cançons més escoltades",
+            "recomenades": "Cançons recomanades",
+            "llencaments": "Nous llançaments"
+        },
+        "AlbumPage": {
+            "puntuacio": "PUNTUACIÓ",
+            "favorit": "Favorit",
+            "escoltat": "Escoltat",
+            "pendent": "Pendent",
+            "enPropietat": "En propietat"
+        },
+        "BotoFiltrar": {
+            "text": "Filtrar",
+            "asc": "Ascendentment",
+            "desc": "Descendentment"
+        },
+        "ArtistPage": {
+            "seguidors": "SEGUIDORS"
+        },
+        "PerfilPage": {
+            "favorits": "Favorits",
+            "escoltats": "EScoltats",
+            "pendents": "Pendents",
+            "enPropietat": "En propietat",
+            "noAlbum": "No tens cap àlbum en aquesta categoria.",
+            "noPuntuacio": "Encara no has puntuat cap àlbum."
+        },
+        "ErrorPage": {
+            "titol": "Página no trobada",
+            "subtitol": "No hem trobat la pàgina que estàs buscant.",
+            "textBoto": "Tornar enrere"
+        }
+    },
+    "en": {
+        "LoginPage": {
+            "titol": "Welcome to MusicLogr",
+            "subtitol": "Take control of your music",
+            "login": "Login with Spotify"
+        },
+        "Navbar" : {
+            "buscador": "Search albums...",
+            "perfil": "My profile",
+            "tancarSessio": "Log out"
+        },
+        "HomePage": {
+            "titol1": "Good morning, ",
+            "titol2": "Good afternoon, ",
+            "titol3": "Good night, ",
+            "mesEscoltades": "Most listened songs",
+            "recomenades": "Reccomended songs",
+            "llencaments": "New releases"
+        },
+        "AlbumPage": {
+            "puntuacio": "SCORE",
+            "favorit": "Favorite",
+            "escoltat": "Listened",
+            "pendent": "Pending",
+            "enPropietat": "Owned"
+        },
+        "BotoFiltrar": {
+            "text": "Sort",
+            "asc": "Ascending",
+            "desc": "Descending"
+        },
+        "ArtistPage": {
+            "seguidors": "FOLLOWERS"
+
+        },
+        "PerfilPage": {
+            "favorits": "Favorites",
+            "escoltats": "Listened",
+            "pendents": "Pending",
+            "enPropietat": "Owned",
+            "noAlbum": "You haven't added any albums yet.",
+            "noPuntuacio": "You haven't scored any albums yet."
+        },
+        "ErrorPage": {
+            "titol": "Page not found",
+            "subtitol": "The page you are looking for does not exist.",
+            "textBoto": "Go back"
+        }
+    }
+}

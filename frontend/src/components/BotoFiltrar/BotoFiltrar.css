@@ -100,10 +100,6 @@
         margin-bottom: 15px;
     }
 
-    .artist-filtrarContainer h5 {
-        font-size: 15px;
-    }
-
     .filtrar-div ul {
         width: 200px;
         left: calc(50% - 70px);
