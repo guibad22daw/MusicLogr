@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import './PerfilPage.css'
 import { UserAlbums } from '../../components/UserAlbums/UserAlbums';
@@ -6,6 +6,8 @@ import { LlistaPuntuacions } from '../../components/LlistaPuntuacions/LlistaPunt
 import { Carregant } from '../../components/Carregant/Carregant';
 import { PerfilPageHeader } from '../../components/PerfilPageHeader/PerfilPageHeader';
 import { BotoFiltrar } from '../../components/BotoFiltrar/BotoFiltrar';
+import idiomas from '../../config/language.json';
+import { IdiomaContext } from '../../context/IdiomaContext';
 
 const PerfilPage = () => {
     const { opcioPerfil } = useParams();
@@ -16,6 +18,7 @@ const PerfilPage = () => {
     const [arrayAlbums, setArrayAlbums] = useState([])
     const [userAlbums, setUserAlbums] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
+    const { idioma } = useContext(IdiomaContext);
 
     const fetchUserAlbums = async () => {
         const result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/getUserAlbums`, {
@@ -60,7 +63,7 @@ const PerfilPage = () => {
         <>
             {
                 loading ? "" : (
-                    <PerfilPageHeader userAlbums={userAlbums} />
+                    <PerfilPageHeader userAlbums={userAlbums} idioma={idiomas[idioma].PerfilPage}/>
                 )
             }
             <div className='perfilPage'>
@@ -72,13 +75,13 @@ const PerfilPage = () => {
                                     <Carregant />
                                 ) : (
                                     opcioPerfil === "puntuacions" ? (
-                                        <LlistaPuntuacions />
+                                        <LlistaPuntuacions idioma={idiomas[idioma]}/>
                                     ) : (
                                         <div className='userAlbums-filtrar'>
                                             <div className='botoFiltrarComponent'>
-                                                <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} />
+                                                <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} idioma={idiomas[idioma].BotoFiltrar}/>
                                             </div>
-                                            <UserAlbums arrayAlbums={arrayAlbums} />
+                                            <UserAlbums arrayAlbums={arrayAlbums} idioma={idiomas[idioma].PerfilPage}/>
                                         </div>
                                     )
                                 )

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TbReload } from 'react-icons/tb';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { Rating } from 'react-simple-star-rating'
 import './AlbumInfo.css'
+import idiomas from '../../config/language.json';
+import { IdiomaContext } from '../../context/IdiomaContext';
 
 export const AlbumInfo = (props) => {
     const { album, rating, setRating, perfilInfo } = props.data;
+    const { idioma } = useContext(IdiomaContext);
 
     // Funció per gestionar la puntuació de l'àlbum
     const handleRating = (rate) => {
@@ -37,7 +40,7 @@ export const AlbumInfo = (props) => {
                 <div className='rating-container'>
                     <div className='rating-column'>
                         <div className='rating-text'>
-                            <h5>PUNTUACIÓ</h5>
+                            <h5>{idiomas[idioma].AlbumPage.puntuacio}</h5>
                             <TbReload color='#929292' size="1.5em" className='reload-icon' onClick={() => handleRating(0)} />
                         </div>
                         <Rating

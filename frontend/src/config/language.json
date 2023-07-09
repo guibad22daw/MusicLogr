@@ -3,17 +3,18 @@
         "LoginPage": {
             "titol": "Bienvenido a MusicLogr",
             "subtitol": "Ten el control tu música",
-            "login": "Inicia sesión con Spotify"
+            "login": "Iniciar sesión con Spotify",
+            "alert": "La sesión ha caducado, vuelve a iniciar sesión."
         },
-        "Navbar" : {
+        "Navbar": {
             "buscador": "Buscar àlbumes...",
             "perfil": "Mi perfil",
             "tancarSessio": "Cerrar sesión"
         },
         "HomePage": {
-            "titol1": "Buenos días, ",
-            "titol2": "Buenas tardes, ",
-            "titol3": "Buenas noches, ",
+            "titol1": "Buenos días",
+            "titol2": "Buenas tardes",
+            "titol3": "Buenas noches",
             "mesEscoltades": "Canciones más escuchadas",
             "recomenades": "Canciones recomendadas",
             "llencaments": "Nuevos lanzamientos"
@@ -39,6 +40,7 @@
             "escoltats": "Escuchados",
             "pendents": "Pendientes",
             "enPropietat": "En propiedad",
+            "puntuacio": "Puntuaciones",
             "noAlbum": "No tienes ningún álbum en esta categoría.",
             "noPuntuacio": "Aún no has puntuado ningún álbum."
         },
@@ -52,17 +54,18 @@
         "LoginPage": {
             "titol": "Benvingut a MusicLogr",
             "subtitol": "Tingues el control de la teva música",
-            "login": "Inicia sessió amb Spotify"
+            "login": "Inicia sessió amb Spotify",
+            "alert": "La sessió ha expirat, torna a iniciar sessió."
         },
-        "Navbar" : {
+        "Navbar": {
             "buscador": "Cercar àlbums...",
             "perfil": "El meu perfil",
             "tancarSessio": "Tancar sesió"
         },
         "HomePage": {
-            "titol1": "Bon dia, ",
-            "titol2": "Bona tarda, ",
-            "titol3": "Bona nit, ",
+            "titol1": "Bon dia",
+            "titol2": "Bona tarda",
+            "titol3": "Bona nit",
             "mesEscoltades": "Cançons més escoltades",
             "recomenades": "Cançons recomanades",
             "llencaments": "Nous llançaments"
@@ -87,6 +90,7 @@
             "escoltats": "EScoltats",
             "pendents": "Pendents",
             "enPropietat": "En propietat",
+            "puntuacio": "Puntuacions",
             "noAlbum": "No tens cap àlbum en aquesta categoria.",
             "noPuntuacio": "Encara no has puntuat cap àlbum."
         },
@@ -100,17 +104,18 @@
         "LoginPage": {
             "titol": "Welcome to MusicLogr",
             "subtitol": "Take control of your music",
-            "login": "Login with Spotify"
+            "login": "Login with Spotify",
+            "alert": "The session has expired. Please log in again."
         },
-        "Navbar" : {
+        "Navbarr": {
             "buscador": "Search albums...",
             "perfil": "My profile",
             "tancarSessio": "Log out"
         },
         "HomePage": {
-            "titol1": "Good morning, ",
-            "titol2": "Good afternoon, ",
-            "titol3": "Good night, ",
+            "titol1": "Good morning",
+            "titol2": "Good afternoon",
+            "titol3": "Good night",
             "mesEscoltades": "Most listened songs",
             "recomenades": "Reccomended songs",
             "llencaments": "New releases"
@@ -136,6 +141,7 @@
             "escoltats": "Listened",
             "pendents": "Pending",
             "enPropietat": "Owned",
+            "puntuacio": "Scores",
             "noAlbum": "You haven't added any albums yet.",
             "noPuntuacio": "You haven't scored any albums yet."
         },

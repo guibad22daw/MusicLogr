@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './BotonsAlbum.css';
 import { TbHeadphones, TbHeadphonesOff, TbDisc, TbDiscOff, TbHeartFilled, TbHeartOff } from 'react-icons/tb';
 import {MdOutlineTimer, MdOutlineTimerOff } from 'react-icons/md';
+import idiomas from '../../config/language.json';
+import { IdiomaContext } from '../../context/IdiomaContext';
 
 // Component de botons d'àlbum
 export const BotonsAlbum = (props) => {
@@ -10,6 +12,7 @@ export const BotonsAlbum = (props) => {
     
     // Desestructuració de les propietats passades com a paràmetre
     const { favorits, setFavorits, pendents, setPendents, escoltats, setEscoltats, enPropietat, setEnPropietat, album } = props.data;
+    const { idioma } = useContext(IdiomaContext);
 
     // Gestiona el clic en un botó d'opció
     const botoHandler = (opcio) => {
@@ -54,7 +57,7 @@ export const BotonsAlbum = (props) => {
                         )
                     }
                 </div>
-                <label>Favorit</label>
+                <label>{idiomas[idioma].AlbumPage.favorit}</label>
             </div>
             <div className='opcio-container'>
                 <div className='botoOpcio boto-escoltats' onClick={() => botoHandler("escoltats")}>
@@ -66,7 +69,7 @@ export const BotonsAlbum = (props) => {
                         )
                     }
                 </div>
-                <label>Escoltat</label>
+                <label>{idiomas[idioma].AlbumPage.escoltat}</label>
             </div>
 
             <div className='opcio-container'>
@@ -79,7 +82,7 @@ export const BotonsAlbum = (props) => {
                         )
                     }
                 </div>
-                <label>Pendent</label>
+                <label>{idiomas[idioma].AlbumPage.pendent}</label>
             </div>
             <div className='opcio-container'>
                 <div className='botoOpcio boto-enPropietat' onClick={() => botoHandler("enPropietat")}>
@@ -91,7 +94,7 @@ export const BotonsAlbum = (props) => {
                         )
                     }
                 </div>
-                <label>En propietat</label>
+                <label>{idiomas[idioma].AlbumPage.enPropietat}</label>
             </div>
         </div>
     )

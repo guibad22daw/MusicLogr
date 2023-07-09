@@ -3,7 +3,7 @@ import './PerfilPageHeader.css'
 import { NavLink, useNavigate } from 'react-router-dom';
 
 export const PerfilPageHeader = (props) => {
-    const { userAlbums } = props;
+    const { userAlbums, idioma } = props;
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const navigate = useNavigate();
 
@@ -21,38 +21,38 @@ export const PerfilPageHeader = (props) => {
                     </div>
                     <div className='user-stats'>
                         <div className="counter favorits-counter">
-                            <h5>Favorits</h5>
+                            <h5>{idioma.favorits}</h5>
                             <h3 onClick={() => navigate('/perfil/favorits')}>{userAlbums.favorits.length}</h3>
                         </div>
                         <div className="counter escoltats-counter">
-                            <h5>Escoltats</h5>
+                            <h5>{idioma.escoltats}</h5>
                             <h3 onClick={() => navigate('/perfil/escoltats')}>{userAlbums.escoltats.length}</h3>
                         </div>
                         <div className="counter pendents-counter">
-                            <h5>Pendents</h5>
+                            <h5>{idioma.pendents}</h5>
                             <h3 onClick={() => navigate('/perfil/pendents')}>{userAlbums.pendents.length}</h3>
                         </div>
                         <div className="counter enPropietat-counter">
-                            <h5>En propietat</h5>
+                            <h5>{idioma.enPropietat}</h5>
                             <h3 onClick={() => navigate('/perfil/enpropietat')}>{userAlbums.enPropietat.length}</h3>
                         </div>
                     </div>
                 </div>
                 <div className='menu-links shadow-sm'>
                     <NavLink to='/perfil/favorits' className={(link) => link.isActive ? "link_actiu" : "link "}>
-                        <h5>Favorits</h5>
+                        <h5>{idioma.favorits}</h5>
                     </NavLink>
                     <NavLink to='/perfil/escoltats' className={(link) => link.isActive ? "link_actiu" : "link"}>
-                        <h5>Escoltats</h5>
+                        <h5>{idioma.escoltats}</h5>
                     </NavLink>
                     <NavLink to='/perfil/pendents' className={(link) => link.isActive ? "link_actiu" : "link"}>
-                        <h5>Pendents</h5>
+                    <h5>{idioma.pendents}</h5>
                     </NavLink>
                     <NavLink to='/perfil/enpropietat' className={(link) => link.isActive ? "link_actiu" : "link"}>
-                        <h5>En propietat</h5>
+                    <h5>{idioma.enPropietat}</h5>
                     </NavLink>
                     <NavLink to='/perfil/puntuacions' className={(link) => link.isActive ? "link_actiu" : "link"}>
-                        <h5>Puntuacions</h5>
+                    <h5>{idioma.puntuacio}</h5>
                     </NavLink>
                 </div>
             </div>

@@ -5,13 +5,14 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { BotoFiltrar } from '../BotoFiltrar/BotoFiltrar';
 
 // Component Llistat de puntuacions
-export const LlistaPuntuacions = () => {
+export const LlistaPuntuacions = (props) => {
     // Defineix variables d'estat
     const perfilInfo = JSON.parse(localStorage.getItem('perfil_info'));
     const [loading, setLoading] = useState(true)
     const [userRatings, setUserRatings] = useState([])
     const [showDropdown, setShowDropdown] = useState(false);
     const [artistAlbumsSort, setArtistAlbumsSort] = useState("desc");
+    const { idioma } = props;
 
     // useEffect per obtenir les puntuacions de l'usuari quan perfilInfo canvia
     useEffect(() => {
@@ -47,14 +48,14 @@ export const LlistaPuntuacions = () => {
     return (
         <>
             <div className='botoFiltrarComponent'>
-                <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} />
+                <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} idioma={idioma.BotoFiltrar}/>
             </div>
             <div className='perfil-puntuacionsContainer'>
                 {
                     loading ? "" : (
                         userRatings.length === 0 ? (
                             <div className='puntuacio-container woAlbums shadow-sm'>
-                                <h2 className='noAlbums'>Encara no has puntuat cap àlbum.</h2>
+                                <h2 className='noAlbums'>{idioma.PerfilPage.noPuntuacio}</h2>
                             </div>
                         ) : (
                             userRatings.map((rating) => {
@@ -71,7 +72,7 @@ export const LlistaPuntuacions = () => {
                                             </div>
                                         </div>
                                         <div className='AlbumRating-container'>
-                                            <p>PUNTUACIÓ</p>
+                                            <p>{idioma.AlbumPage.puntuacio}</p>
                                             <Rating initialValue={rating.rating} fillColor='#24d863' emptyColor='#6E6E6E' titleSeparator='sobre' showTooltip readonly allowFraction
                                                 fillIcon={<AiFillStar className='icon-rating-user'/>}
                                                 emptyIcon={<AiOutlineStar className='icon-rating-user' />} />

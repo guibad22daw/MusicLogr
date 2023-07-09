@@ -4,7 +4,7 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { useNavigate } from 'react-router-dom';
 
 // Component Buscador
-export const Buscador = () => {
+export const Buscador = (props) => {
     // Obté l'access token emmagatzemat al local storage
     const accessToken = localStorage.getItem('access_token');
 
@@ -67,7 +67,7 @@ export const Buscador = () => {
                     onSelect={handleOnSelect}
                     formatResult={formatResult}
                     styling={estilsBuscador}
-                    placeholder='Cercar àlbums...'
+                    placeholder={props.textPlaceholder}
                     fuseOptions={{shouldSort:false, findAllMatches:true, distance: 1000, threshold: 100, keys: ["name"]}}
                     showNoResultsText="Sense resultats"
                     onSubmit={() => navigate('/')}

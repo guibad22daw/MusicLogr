@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Carregant } from '../../components/Carregant/Carregant';
 import { Separador } from '../../components/Separador/Separador';
@@ -6,6 +6,8 @@ import { useFetchArtist } from '../../services/useFetchArtist';
 import { ArtistAlbums } from '../../components/ArtistAlbums/ArtistAlbums';
 import './ArtistPage.css'
 import { BotoFiltrar } from '../../components/BotoFiltrar/BotoFiltrar';
+import idiomas from '../../config/language.json';
+import { IdiomaContext } from '../../context/IdiomaContext';
 
 const ArtistPage = () => {
     const { artistId } = useParams();
@@ -13,6 +15,7 @@ const ArtistPage = () => {
     const [artistAlbumsSort, setArtistAlbumsSort] = useState("desc");
     const [showDropdown, setShowDropdown] = useState(false);
     const { loading, artist, artistAlbums, setArtistAlbums } = useFetchArtist(artistId, accessToken);
+    const { idioma } = useContext(IdiomaContext);
 
     // Funció per ordenar els àlbums de l'artista
     const ordenarHandler = (string) => {
@@ -43,11 +46,11 @@ const ArtistPage = () => {
                                 </div>
                                 <div className='artist-info'>
                                     <h1>{artist.name}</h1>
-                                    <h5>{artist.followers.total} <label>SEGUIDORS</label></h5>
+                                    <h5>{artist.followers.total} <label>{idiomas[idioma].ArtistPage.seguidors}</label></h5>
                                 </div>
                             </div>
                         </div>
-                        <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} />
+                        <BotoFiltrar showDropdown={showDropdown} setShowDropdown={setShowDropdown} ordenarHandler={ordenarHandler} idioma={idiomas[idioma].BotoFiltrar}/>
                         <ArtistAlbums artistAlbums={artistAlbums} />
                     </div>
                 )

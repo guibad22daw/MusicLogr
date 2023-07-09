@@ -4,13 +4,13 @@ import './UserAlbums.css'
 // Component User Albums
 export const UserAlbums = (props) => {
     // Obté l'array d'àlbums passat com a propietat
-    const { arrayAlbums } = props;
+    const { arrayAlbums, idioma } = props;
 
     return (
         <div className='perfil-albumsContainer'>
             {
                 // Comprova si l'array d'àlbums està buit
-                arrayAlbums.length === 0 ? <h2 className='noAlbums'>No tens cap àlbum en aquesta categoria.</h2> :
+                arrayAlbums.length === 0 ? <h2 className='noAlbums'>{idioma.noPuntuacio}</h2> :
                     <div className='userAlbums'>
                         {
                             // Mapeja l'array d'àlbums i mostra cada àlbum

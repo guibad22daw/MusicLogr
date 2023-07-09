@@ -1,9 +1,12 @@
 import AppRouter from "./AppRouter";
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { IdiomaContextProvider } from "./context/IdiomaContext";
 
 function App() {
   return (
-    <AppRouter />
+    <IdiomaContextProvider>
+      <AppRouter />
+    </IdiomaContextProvider>
   );
 }
 
