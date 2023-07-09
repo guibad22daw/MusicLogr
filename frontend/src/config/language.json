@@ -9,7 +9,7 @@
         "Navbar": {
             "buscador": "Buscar àlbumes...",
             "perfil": "Mi perfil",
-            "configuracio": "Configuración",
+            "configuracio": "Preferencias",
             "tancarSessio": "Cerrar sesión"
         },
         "HomePage": {
@@ -34,7 +34,6 @@
         },
         "ArtistPage": {
             "seguidors": "SEGUIDORES"
-
         },
         "UserPage": {
             "favorits": "Favoritos",
@@ -49,6 +48,11 @@
             "titol": "Página no trobada",
             "subtitol": "No hem trobat la pàgina que estàs buscant.",
             "textBoto": "Tornar enrere"
+        },
+        "SettingsPage": {
+            "titol": "Preferencias",
+            "subtitol": "Modifica tus preferencias",
+            "opcio1": "Idioma"
         }
     },
     "ca": {
@@ -61,7 +65,7 @@
         "Navbar": {
             "buscador": "Cercar àlbums...",
             "perfil": "El meu perfil",
-            "configuracio": "Configuració",
+            "configuracio": "Preferències",
             "tancarSessio": "Tancar sesió"
         },
         "HomePage": {
@@ -89,7 +93,7 @@
         },
         "UserPage": {
             "favorits": "Favorits",
-            "escoltats": "EScoltats",
+            "escoltats": "Escoltats",
             "pendents": "Pendents",
             "enPropietat": "En propietat",
             "puntuacio": "Puntuacions",
@@ -100,6 +104,11 @@
             "titol": "Página no trobada",
             "subtitol": "No hem trobat la pàgina que estàs buscant.",
             "textBoto": "Tornar enrere"
+        },
+        "SettingsPage": {
+            "titol": "Preferències",
+            "subtitol": "Modifica les teves preferències",
+            "opcio1": "Idioma"
         }
     },
     "en": {
@@ -109,10 +118,10 @@
             "login": "Login with Spotify",
             "alert": "The session has expired. Please log in again."
         },
-        "Navbarr": {
+        "Navbar": {
             "buscador": "Search albums...",
             "perfil": "My profile",
-            "configuracio": "Settings",
+            "configuracio": "Preferences",
             "tancarSessio": "Log out"
         },
         "HomePage": {
@@ -137,7 +146,6 @@
         },
         "ArtistPage": {
             "seguidors": "FOLLOWERS"
-
         },
         "UserPage": {
             "favorits": "Favorites",
@@ -152,6 +160,11 @@
             "titol": "Page not found",
             "subtitol": "The page you are looking for does not exist.",
             "textBoto": "Go back"
+        },
+        "SettingsPage": {
+            "titol": "Preferences",
+            "subtitol": "Change your preferences",
+            "opcio1": "Language"
         }
     }
 }
