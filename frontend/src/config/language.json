@@ -52,7 +52,10 @@
         "SettingsPage": {
             "titol": "Preferencias",
             "subtitol": "Modifica tus preferencias",
-            "opcio1": "Idioma"
+            "opcio1": "Idioma",
+            "opcio2": "Eliminar cuenta",
+            "tancarSessio": "Cerrar sesión",
+            "errorEsborrant": "Error eliminando cuenta"
         }
     },
     "ca": {
@@ -66,7 +69,7 @@
             "buscador": "Cercar àlbums...",
             "perfil": "El meu perfil",
             "configuracio": "Preferències",
-            "tancarSessio": "Tancar sesió"
+            "tancarSessio": "Tancar sessió"
         },
         "HomePage": {
             "titol1": "Bon dia",
@@ -108,7 +111,10 @@
         "SettingsPage": {
             "titol": "Preferències",
             "subtitol": "Modifica les teves preferències",
-            "opcio1": "Idioma"
+            "opcio1": "Idioma",
+            "opcio2": "Esborrar compte",
+            "tancarSessio": "Tancar la sessió",
+            "errorEsborrant": "Error esborrant compte"
         }
     },
     "en": {
@@ -164,7 +170,10 @@
         "SettingsPage": {
             "titol": "Preferences",
             "subtitol": "Change your preferences",
-            "opcio1": "Language"
+            "opcio1": "Language",
+            "opcio2": "Delete account",
+            "tancarSessio": "Log out",
+            "errorEsborrant": "Error deleting account"
         }
     }
 }

@@ -6,27 +6,55 @@
     color: rgb(169, 169, 169);
 }
 
-.settingsContainer .content1 {
+.settingsContainer .content {
     background-color: rgb(22, 22, 22);
     border-radius: 20px;
     color: white;
 }
 
-.content1 .opcio {
+.content .opcio {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding: 20px 40px 20px 40px;
+    border-radius: inherit;
 }
+
+.content .opcio1 {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content .opcio3 {
+    column-gap: 15px;
+    transition: 0.3s;
+}
+
+.content .opcio3:hover {
+    color: white;
+    background-color: #323232;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.content .opcio2 {
+    column-gap: 15px;
+    color: #cf0b00;
+    transition: 0.3s;
+}
+
+.content .opcio2:hover {
+    color: white;
+    background-color: #cf0b00;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
 /*  -------------- DROPDOWN PER L'IDIOMA -------------- */
 .artist-filtrarContainer {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
     border-radius: 10px;
     width: 10%;
     height: 40px;
