@@ -15,7 +15,7 @@ const useAuth = () => {
                 setRefreshToken(refresh_token)
                 setExpiresIn(expires_in)
             } catch(err) {
-                console.log('err', err)
+                console.error(err)
             }
         })()
     }, [code])
@@ -32,7 +32,7 @@ const useAuth = () => {
                 setAccessToken(access_token)
                 setExpiresIn(expires_in)
             } catch(err) {
-                console.log('err', err)
+                console.error(err)
             }
         }, (expiresIn - 60) * 1000)
 

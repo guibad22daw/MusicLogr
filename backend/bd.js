@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv"
 
-mongoose.connect(proccess.env.MONGO_URI, { useNewUrlParser: true });
+dotenv.config();
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 mongoose.set("strictQuery", false);
 
 // Esquema per la col·lecció "usuaris"

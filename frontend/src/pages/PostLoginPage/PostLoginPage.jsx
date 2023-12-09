@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import useAuth from '../../services/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 export const PostLoginPage = () => {
   const access_token = useAuth();
   const [perfilInfo, setPerfilInfo] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchProfile(access_token) {
@@ -20,10 +22,9 @@ export const PostLoginPage = () => {
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         if (response.ok) {
-          window.location.href = "/home";
+          navigate("/home")
         } else {
-          console.log("Error");
-          window.location.href = "/";
+          navigate('/');
         }
       })
 
