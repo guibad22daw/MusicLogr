@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/MusicLogr", { useNewUrlParser: true });
+mongoose.connect(proccess.env.MONGO_URI, { useNewUrlParser: true });
 mongoose.set("strictQuery", false);
 
 // Esquema per la col·lecció "usuaris"

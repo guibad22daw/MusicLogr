@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .env
+backend/server.cert
+backend/server.key
+backend/Dockerfile
+backend/.dockerignore
