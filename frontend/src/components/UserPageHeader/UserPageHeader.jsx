@@ -13,7 +13,7 @@ export const UserPageHeader = (props) => {
                 <div className="header-perfil shadow-sm">
                     <div className='perfil-imatge-nom'>
                         <div className="perfilImage">
-                            <img src={perfilInfo.images[0] ? perfilInfo.images[0].url : '/assets/img/userAlt.png'} alt="Perfil image" className='perfilImage-img' />
+                            <img src={perfilInfo.images[1] ? perfilInfo.images[1].url : perfilInfo.images[0] ? perfilInfo.images[0].url :'/assets/img/userAlt.png'} alt="Perfil image" className='perfilImage-img' />
                         </div>
                         <div className="perfilName">
                             <h1>{perfilInfo.display_name}</h1>
